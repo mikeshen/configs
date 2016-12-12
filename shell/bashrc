@@ -81,8 +81,8 @@ alias l='ls -CF'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 ### add USER common profile settings ###
-if [ -f ~/.profile_common ]; then
-  source ~/.profile_common
+if [ -f ~/.profileCommon ]; then
+  source ~/.profileCommon
 fi
 
 # enable programmable completion features (you don't need to enable
