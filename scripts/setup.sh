@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # add repos
 sudo apt-add-repository -y "deb http://repository.spotify.com stable non-free"
