@@ -1,0 +1,24 @@
+# use vi, not emacs, style editing
+set editing-mode vi 
+
+set completion-ignore-case on
+# Show all completions as soon as tab is pressed, even if there's more than one
+set show-all-if-ambiguous on
+# on menu-complete, first display the common prefix, then cycle through the 
+# options when hitting TAB
+set menu-complete-display-prefix on
+
+# Completed names which are symbolic links to
+# directories have a slash appended.
+set mark-symlinked-directories on
+
+###########################################################
+# Keymaps for when we're in insert (i.e., typing stuff in) mode
+set keymap vi-insert
+
+# Pressing tab will list all completions & select the first one. Pressing it 
+# again will cycle through available completions.
+# TAB: menu-complete
+# Shift-TAB cycles completions backward
+"\e[Z": menu-complete-backward
+
