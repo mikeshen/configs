@@ -1,0 +1,51 @@
+# general shortcuts
+alias vim='vim -O -X' # allows opening multiple files stacked
+alias v='vim'
+alias cl='clear'
+alias :q='exit'
+alias p='pushd' # push directory to stack and go to new dir
+alias o='popd' # pop to last directory. Kind of like a back button
+alias m='man' # i'm lazy af, ok?
+alias du='du -sh'
+alias dusort='command du -s * .* | sort -n'
+alias wcl='wc -l'
+alias shred='shred --remove'
+
+alias tmux="tmux -2"
+alias tm='tmux attach || tmux new'
+alias more='less'
+alias less='less -R --shift 5 --ignore-case --chop-long-lines --RAW-CONTROL-CHARS --LONG-PROMPT'
+alias gz='tar -xvzf' # unzips a tar gzipped file
+alias gg='grep -rnIi --exclude-dir ".git" --exclude "*~" --color'
+
+# cd shortcuts
+alias c='cd'
+alias cc='cd $_' # got to last input arg, useful after running, say, 
+                 # "mkdir long /dir/name/here", then just cc to go the newly created directory
+alias cb='cd -'
+alias ..='cd ../'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# ls shortcuts
+alias l='ls -alFp'
+
+# verbose file/dir movement
+alias rm='rm -v'
+alias cp='cp -v'
+alias mv='mv -v'
+
+# git shortcuts
+alias g='git'
+alias gs='git status'
+alias gb='git branch'
+alias gch='git checkout'
+alias gc='git commit'
+alias gca='git commit -a'
+alias ga='git add'
+alias gA='git add .'
+alias gl='git log'
+alias gd='git diff --cached'
+alias gds='git diff --stat'
+alias gdiff='git diff --cached'
+
