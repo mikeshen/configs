@@ -14,5 +14,5 @@ I recommend using [Source Code Pro font from Adobe](http://store1.adobe.com/cfus
 
 ## How to install on Linux
 
-this section is still in progress
-
+You will need to run the scripts contained in the scripts folder. Be careful, as some of the scripts may not be designed to work on other systems other than my own build, 
+which is Elementary OS 0.4 Loki

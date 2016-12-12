@@ -10,7 +10,6 @@ to just load up on plugins.
 
 ### Plugin related mappings
 
-
 [goyo.vim](https://github.com/junegunn/goyo.vim) and [vim-zenroom2](https://github.com/amix/vim-zenroom2) lets you only focus on one thing at a time. It removes all the distractions and centers the content. It has a special look when editing Markdown, reStructuredText and textfiles. It only has one mapping. (`<leader>z`)
 
     map <leader>z :Goyo<cr>

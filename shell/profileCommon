@@ -4,12 +4,15 @@ HISTSIZE=100000
 HISTFILESIZE=2000000
 HISTCONTROL=ignorespace:ignoredups
 # When the shell exits, append to the history file instead of overwriting it
-shopt -s histappend
+# shopt -s histappend
 
 # Make vim our default editor
 export EDITOR=vim
 export VISUAL=vim
 export SVN_EDITOR=vim
+
+# make vim the default shell navigator
+set -o vi
 
 # Disable annoying Ctrl+S in Putty
 stty stop undef
@@ -60,7 +63,7 @@ function psg() {
 
 # source bashrc
 function sb {
-  BASHRC_FILE=$HOME/.bashrc
+  BASHRC_FILE=$HOME/.profileCommon
   echo "source $BASHRC_FILE"
   source $BASHRC_FILE
 }

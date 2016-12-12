@@ -3,6 +3,7 @@ alias vim='vim -O -X' # allows opening multiple files stacked
 alias v='vim'
 alias cl='clear'
 alias :q='exit'
+alias :Q='exit'
 alias p='pushd' # push directory to stack and go to new dir
 alias o='popd' # pop to last directory. Kind of like a back button
 alias m='man' # i'm lazy af, ok?
@@ -29,6 +30,12 @@ alias ....='cd ../../..'
 
 # ls shortcuts
 alias l='ls -alFp'
+
+# editing shortcuts
+alias vvim='$EDITOR ~/.vimrc'
+alias vtmux='$EDITOR ~/.tmux.conf'
+alias vbash='$EDITOR ~/.bashrc'
+alias valias='$EDITOR ~/.bash_aliases'
 
 # verbose file/dir movement
 alias rm='rm -v'

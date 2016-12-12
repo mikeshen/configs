@@ -12,6 +12,7 @@ sudo apt -y --force-yes upgrade
 
 # install applications
 sudo apt -y --allow-unauthenticated install \
+	vim-nox \
 	git \
 	spotify-client
 
