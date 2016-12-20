@@ -11,13 +11,17 @@ alias du='du -sh'
 alias dusort='command du -s * .* | sort -n'
 alias wcl='wc -l'
 alias shred='shred --remove'
-
-alias tmux="tmux -2"
-alias tm='tmux attach || tmux new'
-alias more='less'
-alias less='less -R --shift 5 --ignore-case --chop-long-lines --RAW-CONTROL-CHARS --LONG-PROMPT'
 alias gz='tar -xvzf' # unzips a tar gzipped file
 alias gg='grep -rnIi --exclude-dir ".git" --exclude "*~" --color'
+
+# tmux related
+alias tmux="tmux -2"
+alias tm='tmux attach || tmux new'
+
+# less changes
+alias more='less'
+alias less='less -R --shift 5 --ignore-case --chop-long-lines --RAW-CONTROL-CHARS --LONG-PROMPT'
+
 
 # cd shortcuts
 alias c='cd'
@@ -27,6 +31,9 @@ alias cb='cd -'
 alias ..='cd ../'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+
+# specific cd directories
+alias config='cd ~/Development/configs
 
 # ls shortcuts
 alias l='ls -alFp'
