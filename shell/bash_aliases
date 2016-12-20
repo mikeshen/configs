@@ -33,7 +33,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 # specific cd directories
-alias config='cd ~/Development/configs
+alias config='cd ~/Development/configs'
 
 # ls shortcuts
 alias l='ls -alFp'
@@ -62,4 +62,3 @@ alias gl='git log'
 alias gd='git diff --cached'
 alias gds='git diff --stat'
 alias gdiff='git diff --cached'
-
