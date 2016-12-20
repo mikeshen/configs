@@ -13,21 +13,28 @@ call dein#add('Shougo/dein.vim')
 
 " ADD OR REMOVE PLUGINS HERE
 
-
-
 " 1. Utilities
 call dein#add('Shougo/vimshell')                  " powerful shell immplemented in vim 
-
-" 2. UI / Themes
+call dein#add('tpope/vim-dispatch')               " execute make commands within vim 
+" 2. UI / Themes / Color
+call dein#add('flazz/vim-colorschemes')           " hundreds of colorschemes
 call dein#add('vim-airline/vim-airline')          " vim-airline powerbar
 call dein#add('vim-airline/vim-airline-themes')   " themes for vim-airline
 call dein#add('edkolev/tmuxline.vim')             " tmux integration with vim-airline
 
-" Movement / Filesystem Navaigation
+" 3. Movement / Filesystem Navaigation
+call dein#add('kien/ctrlp.vim')                   " fzf wihtin vim
+call dein#add('scrooloose/nerdtree')              " display a filesystem browser
 call dein#add('easymotion/vim-easymotion')        " easily jump around using labeled tags
+call dein#add('christoomey/vim-tmux-navigator')   " jump between tmux panes and vim splits seamlessly
+call dein#add('derekwyatt/vim-fswitch')           " swtich between .h and .cpp files at the press of a key
+
+" 4. Version Control Integration
+call dein#add('tpope/vim-fugitive')               " GIT integration
+call dein#add('airblade/vim-gitgutter')           " display git information in the gutter
+
 
 call dein#end()
-
 
 " If you want to install not installed plugins on startup.
 if dein#check_install()
@@ -149,8 +156,7 @@ endif
 " }
 
 " Vim UI {
-
-    "load a colorscheme
+    
     set tabpagemax=15               " Only show 15 tabs
     set showmode                    " Display the current mode
     set cursorline                  " Highlight current line
@@ -384,25 +390,60 @@ endif
     " fast splits
     nmap <leader>s :split<cr>
     nmap <leader>v :vsplit<cr>
-
+    
+    " change through buffers with <tab> <Shift-tab>
+    nmap <Tab> :bnext<cr>
+    nmap <S-Tab> :bprevious<cr>
+    
+    " source vimrc very quickly
+    nmap <leader><leader>v :source ~/.vimrc<cr>
 
 " }
 
 " Plugins {
 
+    " vim-colorscheme {
+    
+      if !has('gui_running')
+        set t_Co=256      " set terminal colors to 256
+        set t_ut=         " use the background color of the terminal
+        if &termencoding == ""
+          let &termencoding = &encoding
+        endif
+      endif
+      
+      colorscheme Tomorrow-Night
+
+    " }
+    
     " vim-airline {
-        let g:airline_theme='solarized'
+        let g:airline_theme='badwolf'
+        let g:airline_powerline_font = 1
+        let g:airline#extensions#tabline#enabled = 1
     " }
 
     " Ctags {
         set tags=./tags;/,~/.vimtags
-
+        
+        " ctags prompt behavior
+        noremap <C-]> g<C-]>
         " Make tags placed in .git/tags file available in all levels of a repository
         let gitroot = substitute(system('git rev-parse --show-toplevel'), '[\n\r]', '', 'g')
         if gitroot != ''
             let &tags = &tags . ',' . gitroot . '/.git/tags'
         endif
     " }
+    
+    " CtrlP {
+        let g:ctrlp_working_path_mode = 'r'
+        
+        " manage buffers more easily with ctrlp
+        nmap <leader>bp :CtrlP<cr>
+        nmap <leader>bb :CtrlPBuffer<cr>
+        nmap <leader>bm :CtrlPMixed<cr>
+        nmap <leader>bs :CtrlPMRU<cr>
+    " }
+    
 " }
 
 
