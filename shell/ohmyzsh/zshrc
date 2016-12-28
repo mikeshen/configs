@@ -51,26 +51,39 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git, docker, sudo)
+plugins=(zsh-autosuggestions git docker sudo)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id" # ssh
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
 
-bindkey -v
-bindkey '^R' history-incremental-search-backward
+export KEYTIMEOUT=1 # less delay between vi's insert and esc mode in zsh
+
+bindkey -v # add vi keybindings
+
+# Restore certain emacs mode keybindings
+
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+# ctrl-w removed word backwards
+bindkey '^w' backward-kill-word
+# ctrl-r starts searching history backward
+bindkey '^r' history-incremental-search-backward
+bindkey '^s' history-incremental-search-forward
+
+bindkey '^i' autosuggest-accept
 
 # iterm shell integration
-if [ "$TERM_PROGRAM" == "iterm.app" ]; then
+if [ "$TERM_PROGRAM" = "iTerm.app" ]; then
 	test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 fi
 
