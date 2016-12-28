@@ -14,13 +14,13 @@ call dein#add('Shougo/dein.vim')
 " ADD OR REMOVE PLUGINS HERE
 
 " 1. Utilities
-call dein#add('Shougo/vimshell')                  " powerful shell immplemented in vim 
-call dein#add('tpope/vim-dispatch')               " execute make commands within vim 
+call dein#add('Shougo/vimshell')                  " powerful shell immplemented in vim
+call dein#add('tpope/vim-dispatch')               " execute make commands within vim
 " 2. UI / Themes / Color
 call dein#add('flazz/vim-colorschemes')           " hundreds of colorschemes
 call dein#add('vim-airline/vim-airline')          " vim-airline powerbar
 call dein#add('vim-airline/vim-airline-themes')   " themes for vim-airline
-call dein#add('edkolev/tmuxline.vim')             " tmux integration with vim-airline
+" call dein#add('edkolev/tmuxline.vim')             " tmux integration with vim-airline
 
 " 3. Movement / Filesystem Navaigation
 call dein#add('kien/ctrlp.vim')                   " fzf wihtin vim
@@ -28,6 +28,7 @@ call dein#add('scrooloose/nerdtree')              " display a filesystem browser
 call dein#add('easymotion/vim-easymotion')        " easily jump around using labeled tags
 call dein#add('christoomey/vim-tmux-navigator')   " jump between tmux panes and vim splits seamlessly
 call dein#add('derekwyatt/vim-fswitch')           " swtich between .h and .cpp files at the press of a key
+call dein#add('qpkorr/vim-bufkill')               " kill buffers without destroying panes
 
 " 4. Version Control Integration
 call dein#add('tpope/vim-fugitive')               " GIT integration
@@ -51,7 +52,7 @@ endif
 "                        \ \ / /| | '_ ` _ \
 "                        |\ V / | | | | | | |
 "                          \_/  |_|_| |_| |_|
-"                        
+"
 "
 " }
 
@@ -156,7 +157,7 @@ endif
 " }
 
 " Vim UI {
-    
+
     set tabpagemax=15               " Only show 15 tabs
     set showmode                    " Display the current mode
     set cursorline                  " Highlight current line
@@ -228,6 +229,8 @@ endif
 
     autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 
+    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
     " Workaround vim-commentary for Haskell
     autocmd FileType haskell setlocal commentstring=--\ %s
     " Workaround broken colour highlighting in Haskell
@@ -255,7 +258,7 @@ endif
     map <leader>tn :tabnew<cr>
     map <leader>to :tabnew<cr>
     map <leader>tc :tabclose<cr>
-    map <leader>tm :tabmove<cr> 
+    map <leader>tm :tabmove<cr>
 
     " Wrapped lines goes down/up to next row, rather than next line in file.
     noremap j gj
@@ -380,9 +383,6 @@ endif
     nnoremap H :vertical resize -8<cr>
     nnoremap L :vertical resize +8<cr>
 
-    "fast Explorer
-    nmap <Leader>o :Ex<cr>
-
     " fast saving
     nmap <leader>w :w<cr>
     nmap <leader>q :q<cr>
@@ -390,11 +390,11 @@ endif
     " fast splits
     nmap <leader>s :split<cr>
     nmap <leader>v :vsplit<cr>
-    
+
     " change through buffers with <tab> <Shift-tab>
     nmap <Tab> :bnext<cr>
     nmap <S-Tab> :bprevious<cr>
-    
+
     " source vimrc very quickly
     nmap <leader><leader>v :source ~/.vimrc<cr>
 
@@ -403,7 +403,7 @@ endif
 " Plugins {
 
     " vim-colorscheme {
-    
+
       if !has('gui_running')
         set t_Co=256      " set terminal colors to 256
         set t_ut=         " use the background color of the terminal
@@ -411,20 +411,21 @@ endif
           let &termencoding = &encoding
         endif
       endif
-      
+
       colorscheme Tomorrow-Night
 
     " }
-    
+
     " vim-airline {
-        let g:airline_theme='badwolf'
+        let g:airline_theme='tomorrow'
         let g:airline_powerline_font = 1
         let g:airline#extensions#tabline#enabled = 1
     " }
 
+
     " Ctags {
         set tags=./tags;/,~/.vimtags
-        
+
         " ctags prompt behavior
         noremap <C-]> g<C-]>
         " Make tags placed in .git/tags file available in all levels of a repository
@@ -433,17 +434,49 @@ endif
             let &tags = &tags . ',' . gitroot . '/.git/tags'
         endif
     " }
-    
+
+    " Fswitch {
+        map <leader>u ::FSHere<cr>
+    " }
+
+    " bufkill {
+        map <leader>k ::BD<cr>
+    " }
+
+    " NERDTREE {
+        map <leader>e :NERDTreeToggle<cr>
+        let NERDTreeShowBookmarks=1
+        let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+        let NERDTreeChDirMode=0
+        let NERDTreeQuitOnOpen=1
+        let NERDTreeMouseMode=2
+        let NERDTreeShowHidden=1
+        let NERDTreeKeepTreeInNewTab=1
+        let NERDTreeMinimalUI = 1
+        let NERDTreeDirArrows = 1
+    " }
+
     " CtrlP {
         let g:ctrlp_working_path_mode = 'r'
-        
+        let g:ctrlp_custom_ignore = {
+            \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+            \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+
+        if executable('ag')
+            let s:ctrlp_fallback = 'ag %s --nocolor -l -g ""'
+        elseif executable('ack-grep')
+            let s:ctrlp_fallback = 'ack-grep %s --nocolor -f'
+        elseif executable('ack')
+            let s:ctrlp_fallback = 'ack %s --nocolor -f'
+        endif
+
         " manage buffers more easily with ctrlp
         nmap <leader>bp :CtrlP<cr>
         nmap <leader>bb :CtrlPBuffer<cr>
         nmap <leader>bm :CtrlPMixed<cr>
         nmap <leader>bs :CtrlPMRU<cr>
     " }
-    
+
 " }
 
 
