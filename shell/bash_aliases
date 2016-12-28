@@ -26,7 +26,7 @@ alias less='less -R --shift 5 --ignore-case --chop-long-lines --RAW-CONTROL-CHAR
 # cd shortcuts
 alias c='cd'
 alias cc='cd $_' # got to last input arg, useful after running, say, 
-                 # "mkdir long /dir/name/here", then just cc to go the newly created directory
+                 # "mkdir long/dir/name/here", then just cc to go the newly created directory
 alias cb='cd -'
 alias ..='cd ../'
 alias ...='cd ../..'
