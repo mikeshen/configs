@@ -1,0 +1,2 @@
+100
+['Shougo/dein.vim', 'Shougo/vimshell', 'airblade/vim-gitgutter', 'christoomey/vim-tmux-navigator', 'derekwyatt/vim-fswitch', 'easymotion/vim-easymotion', 'edkolev/tmuxline.vim', 'flazz/vim-colorschemes', 'kien/ctrlp.vim', 'scrooloose/nerdtree', 'tpope/vim-dispatch', 'tpope/vim-fugitive', 'vim-airline/vim-airline', 'vim-airline/vim-airline-themes']

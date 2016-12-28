@@ -1,0 +1,133 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#	deleted:    vim/repos/.cache/.vimrc/.dein/.github/ISSUE_TEMPLATE.md
+#	deleted:    vim/repos/.cache/.vimrc/.dein/.gitignore
+#	deleted:    vim/repos/.cache/.vimrc/.dein/.travis.yml
+#	deleted:    vim/repos/.cache/.vimrc/.dein/LICENSE
+#	deleted:    vim/repos/.cache/.vimrc/.dein/README
+#	deleted:    vim/repos/.cache/.vimrc/.dein/README.md
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/dein.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/dein/autoload.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/dein/install.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/dein/parse.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/dein/toml.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/dein/types/git.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/dein/types/raw.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/dein/util.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/unite/kinds/dein.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/unite/sources/dein.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/unite/sources/dein_log.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/unite/sources/vimshell_history.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/altercmd.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/alias.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/bg.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/cd.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/clear.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/dirs.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/echo.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/eval.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/exe.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/exit.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/galias.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/gcd.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/gendoc.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/gexe.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/h.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/histdel.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/history.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/iexe.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/less.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/let.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/ls.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/mkcd.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/nop.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/open.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/popd.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/pwd.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/repeat.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/sexe.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/shell.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/source.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/texe.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/time.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/vexe.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/view.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/vim.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/vimdiff.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/vimsh.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/whereis.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/commands/which.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/complete/command_complete.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/complete/helper.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/complete/vimshell_execute_complete.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/help.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/history.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/hook.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/int_mappings.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/interactive.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/mappings.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/parser.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/term_mappings.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/terminal.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/util.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/vcs.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vimshell/vcs/git.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vital.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vital/_bc73c2.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vital/_bc73c2/data/list.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vital/_bc73c2/data/ordered_set.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vital/_bc73c2/data/string.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vital/_bc73c2/functor.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vital/_bc73c2/prelude.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vital/_bc73c2/system/file.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vital/_bc73c2/system/filepath.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/autoload/vital/vimshell.vital
+#	deleted:    vim/repos/.cache/.vimrc/.dein/bin/installer.sh
+#	deleted:    vim/repos/.cache/.vimrc/.dein/doc/dein.txt
+#	deleted:    vim/repos/.cache/.vimrc/.dein/doc/tags-ja
+#	deleted:    vim/repos/.cache/.vimrc/.dein/doc/vimshell.jax
+#	deleted:    vim/repos/.cache/.vimrc/.dein/doc/vimshell.txt
+#	deleted:    vim/repos/.cache/.vimrc/.dein/plugin/vimshell.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/rplugin/python3/denite/source/dein.py
+#	deleted:    vim/repos/.cache/.vimrc/.dein/syntax/int-earthquake.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/syntax/int-termtter.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/syntax/vimshell.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/syntax/vimshrc.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/test/base.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/test/git.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/test/install.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/test/install_base.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/test/parse.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/test/raw.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/test/state.vim
+#	deleted:    vim/repos/.cache/.vimrc/.dein/test/toml.vim
+#	deleted:    vim/repos/.cache/.vimrc/merged
+#	deleted:    vim/repos/.cache/.vimrc/rollbacks/vim/20161219205202
+#
+# Changes not staged for commit:
+#	modified:   shell/ohmyzsh/zshrc
+#	modified:   tmux/tmux.conf
+#	modified:   tmux/tmuxline
+#	modified:   vim/repos/github.com/easymotion/vim-easymotion (new commits)
+#	modified:   vim/vimrc
+#
+# Untracked files:
+#	pkg/
+#	shell/iterm/
+#	vim/.cache/
+#	vim/cache/
+#	vim/repos/github.com/airblade/
+#	vim/repos/github.com/christoomey/
+#	vim/repos/github.com/derekwyatt/
+#	vim/repos/github.com/flazz/
+#	vim/repos/github.com/kien/
+#	vim/repos/github.com/scrooloose/
+#	vim/repos/github.com/tpope/
+#

@@ -2,9 +2,9 @@
 set nocompatible               " Be iMproved
 
 let s:config_dir = $HOME . '/Development/configs'
-let s:cache_dir = expand(s:config_dir . 'cache')
+let s:cache_dir = expand(s:config_dir . '/vim/.cache')
 
-set runtimepath+=/home/mikeshen/Development/configs/vim/repos/github.com/Shougo/dein.vim
+set runtimepath+=/Users/michaelshen/Development/configs/vim/repos/github.com/Shougo/dein.vim
 
 call dein#begin(expand(s:config_dir . '/vim'))
 
