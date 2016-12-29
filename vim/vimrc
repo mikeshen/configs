@@ -248,10 +248,10 @@ endif
 
     " Easier moving in tabs and windows
     " The lines conflict with the default digraph mapping of <C-K>
-    map <C-J> <C-W>j<C-W>
-    map <C-K> <C-W>k<C-W>
-    map <C-L> <C-W>l<C-W>
-    map <C-H> <C-W>h<C-W>
+    map <C-j> <C-W>j<C-W>
+    map <C-k> <C-W>k<C-W>
+    map <C-l> <C-W>l<C-W>
+    map <C-h> <C-W>h<C-W>
 
     " easier tab opening and closing
     map <leader>tn :tabnew<cr>
@@ -340,7 +340,7 @@ endif
 
 
     " Find merge conflict markers
-    map <leader>fc /\v^[<\|=>]{7}( .*\|$)<cr>
+    nmap <leader>fc /\v^[<\|=>]{7}( .*\|$)<cr>
 
     " Shortcuts
     " Change Working Directory to that of the current file
@@ -359,15 +359,15 @@ endif
     cmap w!! w !sudo tee % >/dev/null
 
     " Adjust viewports to the same size
-    map <Leader>= <C-w>=
+    nmap <Leader>= <C-w>=
 
     " Map <Leader>ff to display all lines with keyword under cursor
     " and ask which one to jump to
     nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<cr>
 
     " Easier horizontal scrolling
-    map zl zL
-    map zh zH
+    nmap zl zL
+    nmap zh zH
 
     " USER KEYBINDING CHANGES
     noremap <leader>bg :call ToggleBG()<cr>
@@ -437,15 +437,15 @@ endif
     " }
 
     " Fswitch {
-        map <leader>u ::FSHere<cr>
+        nmap <leader>u ::FSHere<cr>
     " }
 
     " bufkill {
-        map <leader>k ::BD<cr>
+        nmap <leader>k ::BD<cr>
     " }
 
-    " NERDTREE {
-        map <leader>e :NERDTreeToggle<cr>
+    " NERDtree {
+        nmap <leader>e :NERDTreeToggle<cr>
         let NERDTreeShowBookmarks=1
         let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
         let NERDTreeChDirMode=0
@@ -476,6 +476,13 @@ endif
         nmap <leader>bb :CtrlPBuffer<cr>
         nmap <leader>bm :CtrlPMixed<cr>
         nmap <leader>bs :CtrlPMRU<cr>
+    " }
+
+    " Fugitive GIT {
+        nmap <leader>gd :Gdiff<cr>
+        nmap <leader>gs :Gstatus<cr>
+        nmap <leader>gb :Gblame<cr>
+        nmap <leader>gc :Gcommit -v -q<cr>
     " }
 
 " }
