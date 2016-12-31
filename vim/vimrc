@@ -16,13 +16,18 @@ call dein#add('Shougo/dein.vim')
 " 1. Utilities
 call dein#add('Shougo/vimshell')                  " powerful shell immplemented in vim
 call dein#add('tpope/vim-dispatch')               " execute make commands within vim
+call dein#add('tpope/vim-surround')               " make quoting/tags replacement easier
 call dein#add('scrooloose/nerdcommenter')         " orgasmic commenting shortcuts
+" call dein#add('Raimondi/delimitMate')             " automatic closing of quotes, parents, brackets
+call dein#add('bogado/file-line')                  " file:line format when opening files
+
 
 " 2. UI / Themes / Color
 call dein#add('flazz/vim-colorschemes')           " hundreds of colorschemes
 call dein#add('vim-airline/vim-airline')          " vim-airline powerbar
 call dein#add('vim-airline/vim-airline-themes')   " themes for vim-airline
 " call dein#add('edkolev/tmuxline.vim')             " tmux integration with vim-airline
+call dein#add('nathanaelkane/vim-indent-guides')  " indent guides for various languages
 
 " 3. Movement / Filesystem Navaigation
 call dein#add('ctrlpvim/ctrlp.vim')                   " fzf within vim
@@ -30,6 +35,7 @@ call dein#add('scrooloose/nerdtree')              " display a filesystem browser
 call dein#add('easymotion/vim-easymotion')        " easily jump around using labeled tags
 call dein#add('christoomey/vim-tmux-navigator')   " jump between tmux panes and vim splits seamlessly
 call dein#add('derekwyatt/vim-fswitch')           " swtich between .h and .cpp files at the press of a key
+call dein#add('terryma/vim-multiple-cursors')     " simulate multiple cursors from sublime
 call dein#add('qpkorr/vim-bufkill')               " kill buffers without destroying panes
 
 " 4. Version Control Integration
@@ -120,7 +126,7 @@ endif
     " Always switch to the current file directory
 
     "set autowrite                       " Automatically write a file when leaving a modified buffer
-    set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
+    set shortmess+=WraoOtIT          " Abbrev. of messages (avoids 'hit enter')
     set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
     set virtualedit=onemore             " Allow for cursor beyond last character
     set history=1000                    " Store a ton of history (default is 20)
@@ -323,30 +329,30 @@ endif
     nnoremap Y y$
 
     " Code folding options
-    nmap <leader>f0 :set foldlevel=0<cr>
-    nmap <leader>f1 :set foldlevel=1<cr>
-    nmap <leader>f2 :set foldlevel=2<cr>
-    nmap <leader>f3 :set foldlevel=3<cr>
-    nmap <leader>f4 :set foldlevel=4<cr>
-    nmap <leader>f5 :set foldlevel=5<cr>
-    nmap <leader>f6 :set foldlevel=6<cr>
-    nmap <leader>f7 :set foldlevel=7<cr>
-    nmap <leader>f8 :set foldlevel=8<cr>
-    nmap <leader>f9 :set foldlevel=9<cr>
+    map <leader>f0 :set foldlevel=0<cr>
+    map <leader>f1 :set foldlevel=1<cr>
+    map <leader>f2 :set foldlevel=2<cr>
+    map <leader>f3 :set foldlevel=3<cr>
+    map <leader>f4 :set foldlevel=4<cr>
+    map <leader>f5 :set foldlevel=5<cr>
+    map <leader>f6 :set foldlevel=6<cr>
+    map <leader>f7 :set foldlevel=7<cr>
+    map <leader>f8 :set foldlevel=8<cr>
+    map <leader>f9 :set foldlevel=9<cr>
 
     " Most prefer to toggle search highlighting rather than clear the current
     " search results. To clear search highlighting rather than toggle it on
     " and off, add the following to your .vimrc.before.local file:
     "   let g:spf13_clear_search_highlight = 1
     if exists('g:spf13_clear_search_highlight')
-        nmap <silent> <leader>/ :nohlsearch<cr>
+        map <silent> <leader>/ :nohlsearch<cr>
     else
-        nmap <silent> <leader>/ :set invhlsearch<cr>
+        map <silent> <leader>/ :set invhlsearch<cr>
     endif
 
 
     " Find merge conflict markers
-    nmap <leader>fc /\v^[<\|=>]{7}( .*\|$)<cr>
+    map <leader>fc /\v^[<\|=>]{7}( .*\|$)<cr>
 
     " Shortcuts
     " Change Working Directory to that of the current file
@@ -365,11 +371,11 @@ endif
     cmap w!! w !sudo tee % >/dev/null
 
     " Adjust viewports to the same size
-    nmap <Leader>= <C-w>=
+    map <Leader>= <C-w>=
 
     " Map <Leader>ff to display all lines with keyword under cursor
     " and ask which one to jump to
-    nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<cr>
+    map <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<cr>
 
     " Easier horizontal scrolling
     nmap zl zL
@@ -391,19 +397,19 @@ endif
     nnoremap L :vertical resize +8<cr>
 
     " fast saving
-    nmap <leader>w :w<cr>
-    nmap <leader>q :q<cr>
+    map <leader>w :silent w<cr>
+    map <leader>q :q<cr>
 
     " fast splits
-    nmap <leader>s :split<cr>
-    nmap <leader>v :vsplit<cr>
+    map <leader>s :split<cr>
+    map <leader>v :vsplit<cr>
 
     " change through buffers with <tab> <Shift-tab>
-    nmap <Tab> :bnext<cr>
-    nmap <S-Tab> :bprevious<cr>
+    map <Tab> :bnext<cr>
+    map <S-Tab> :bprevious<cr>
 
     " source vimrc very quickly
-    nmap <leader><leader>v :source ~/.vimrc<cr>
+    map <leader><leader>v :source ~/.vimrc<cr>
 
 " }
 
@@ -443,15 +449,15 @@ endif
     " }
 
     " Fswitch {
-        nmap <leader>u ::FSHere<cr>
+        map <leader>u ::FSHere<cr>
     " }
 
     " bufkill {
-        nmap <leader>k ::BD<cr>
+        map <leader>k ::BD<cr>
     " }
 
     " NERDtree {
-        nmap <leader>e :NERDTreeToggle<cr>
+        map <leader>e :NERDTreeToggle<cr>
         let NERDTreeShowBookmarks=1
         let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
         let NERDTreeChDirMode=0
@@ -475,7 +481,7 @@ endif
         let g:ctrlp_working_path_mode = 'r'
         let g:ctrlp_custom_ignore = {
             \ 'dir':  '\.git$\|\.hg$\|\.svn$',
-            \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+            \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$\|\.o$\|\.vcxproj$\|\.d$' }
 
         if executable('ag')
             let s:ctrlp_fallback = 'ag %s --nocolor -l -g ""'
@@ -486,17 +492,17 @@ endif
         endif
 
         " manage buffers more easily with ctrlp
-        nmap <leader>bp :CtrlP<cr>
-        nmap <leader>bb :CtrlPBuffer<cr>
-        nmap <leader>bm :CtrlPMixed<cr>
-        nmap <leader>bs :CtrlPMRU<cr>
+        map <leader>bp :CtrlP<cr>
+        map <leader>bb :CtrlPBuffer<cr>
+        map <leader>bm :CtrlPMixed<cr>
+        map <leader>bs :CtrlPMRU<cr>
     " }
 
     " Fugitive GIT {
-        nmap <leader>gd :Gdiff<cr>
-        nmap <leader>gs :Gstatus<cr>
-        nmap <leader>gb :Gblame<cr>
-        nmap <leader>gc :Gcommit -v -q<cr>
+        map <leader>gd :Gdiff<cr>
+        map <leader>gs :Gstatus<cr>
+        map <leader>gb :Gblame<cr>
+        map <leader>gc :Gcommit -v -q<cr>
     " }
 
     " NeoComplete {
@@ -566,6 +572,7 @@ endif
         let g:UltiSnipsJumpForwardTrigger="<c-j>"
         let g:UltiSnipsJumpBackwardTrigger="<c-k>"
     " }
+
 " }
 
 
