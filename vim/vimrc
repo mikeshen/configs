@@ -17,10 +17,11 @@ call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/vimshell')                  " powerful shell immplemented in vim
 call dein#add('tpope/vim-dispatch')               " execute make commands within vim
 call dein#add('tpope/vim-surround')               " make quoting/tags replacement easier
-call dein#add('scrooloose/nerdcommenter')         " orgasmic commenting shortcuts
+call dein#add('tpope/vim-commentary')             " minimimilistic commenting shortcuts
+" call dein#add('scrooloose/nerdcommenter')         " orgasmic commenting shortcuts
 " call dein#add('Raimondi/delimitMate')             " automatic closing of quotes, parents, brackets
+call dein#add('artnez/vim-wipeout')                " quickly remove all unopened buffers with :Wipeout
 call dein#add('bogado/file-line')                  " file:line format when opening files
-
 
 " 2. UI / Themes / Color
 call dein#add('flazz/vim-colorschemes')           " hundreds of colorschemes
@@ -270,6 +271,10 @@ endif
     map <leader>to :tabnew<cr>
     map <leader>tc :tabclose<cr>
     map <leader>tm :tabmove<cr>
+    
+    " move between tabs with leader
+    map <leader>h gT
+    map <leader>l gt
 
     " Wrapped lines goes down/up to next row, rather than next line in file.
     noremap j gj
@@ -350,7 +355,6 @@ endif
         map <silent> <leader>/ :set invhlsearch<cr>
     endif
 
-
     " Find merge conflict markers
     map <leader>fc /\v^[<\|=>]{7}( .*\|$)<cr>
 
@@ -397,7 +401,7 @@ endif
     nnoremap L :vertical resize +8<cr>
 
     " fast saving
-    map <leader>w :silent w<cr>
+    map <leader>w :w<cr>
     map <leader>q :q<cr>
 
     " fast splits
@@ -502,7 +506,6 @@ endif
         map <leader>gd :Gdiff<cr>
         map <leader>gs :Gstatus<cr>
         map <leader>gb :Gblame<cr>
-        map <leader>gc :Gcommit -v -q<cr>
     " }
 
     " NeoComplete {
