@@ -1,10 +1,10 @@
-"dein Scripts------------------------------------------------------------
+"Begin dein Scripts--------------------------------------------------------
 set nocompatible               " Be iMproved
 
 let s:config_dir = $HOME . '/Development/configs'
-let s:cache_dir = expand(s:config_dir . '/vim/.cache')
+let s:cache_dir = expand(s:config_dir . '/vim/cache')
 
-set runtimepath+=/Users/michaelshen/Development/configs/vim/repos/github.com/Shougo/dein.vim
+set runtimepath+=/home/mikeshen/Development/configs/vim/repos/github.com/Shougo/dein.vim
 
 call dein#begin(expand(s:config_dir . '/vim'))
 
@@ -18,7 +18,6 @@ call dein#add('Shougo/vimshell')                  " powerful shell immplemented 
 call dein#add('tpope/vim-dispatch')               " execute make commands within vim
 call dein#add('tpope/vim-surround')               " make quoting/tags replacement easier
 call dein#add('tpope/vim-commentary')             " minimimilistic commenting shortcuts
-" call dein#add('scrooloose/nerdcommenter')         " orgasmic commenting shortcuts
 " call dein#add('Raimondi/delimitMate')             " automatic closing of quotes, parents, brackets
 call dein#add('artnez/vim-wipeout')                " quickly remove all unopened buffers with :Wipeout
 call dein#add('bogado/file-line')                  " file:line format when opening files
@@ -271,10 +270,10 @@ endif
     map <leader>to :tabnew<cr>
     map <leader>tc :tabclose<cr>
     map <leader>tm :tabmove<cr>
-    
+
     " move between tabs with leader
-    map <leader>h gT
-    map <leader>l gt
+    map <leader>l gT
+    map <leader>; gt
 
     " Wrapped lines goes down/up to next row, rather than next line in file.
     noremap j gj
@@ -386,8 +385,8 @@ endif
     nmap zh zH
 
     " USER KEYBINDING CHANGES
-    noremap <leader>bg :call ToggleBG()<cr>
 
+    " fast escape with jk and kj
     inoremap jk <esc>l
     inoremap kj <esc>l
 
@@ -400,7 +399,7 @@ endif
     nnoremap H :vertical resize -8<cr>
     nnoremap L :vertical resize +8<cr>
 
-    " fast saving
+    " fast saving + quit
     map <leader>w :w<cr>
     map <leader>q :q<cr>
 
@@ -429,7 +428,7 @@ endif
         endif
       endif
 
-      colorscheme Tomorrow-Night
+      colorscheme solarized
 
     " }
 
@@ -445,11 +444,6 @@ endif
 
         " ctags prompt behavior
         noremap <C-]> g<C-]>
-        " Make tags placed in .git/tags file available in all levels of a repository
-        let gitroot = substitute(system('git rev-parse --show-toplevel'), '[\n\r]', '', 'g')
-        if gitroot != ''
-            let &tags = &tags . ',' . gitroot . '/.git/tags'
-        endif
     " }
 
     " Fswitch {
@@ -584,7 +578,7 @@ endif
     " Initialize directories {
     function! InitializeDirectories()
         let parent = $HOME
-        let prefix = '/Development/configs/vim/cache/'
+        let prefix = '/Development/configs/vim/.cache/'
         let dir_list = {
                     \ 'backup': 'backupdir',
                     \ 'views': 'viewdir',
