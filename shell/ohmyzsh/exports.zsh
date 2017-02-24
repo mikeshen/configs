@@ -9,7 +9,7 @@ export PAGER='less'
 
 export SSH_KEY_PATH="~/.ssh/rsa_id" # ssh path
 export KEYTIMEOUT=1 # less delay between vi's insert and esc mode in zsh
-export DEFAULT_USER=michaelshen # remove the stupid prompt when on my own device
+export DEFAULT_USER=mikeshen # remove the stupid prompt when on my own device
 
 ### History ###
 

@@ -49,27 +49,30 @@ alias cp='cp -v'
 alias mv='mv -v'
 
 # alias to cat this file to display
-alias acat='< ~/.zsh/aliases/zsh'
+alias remind='cat $ZSH/.aliases.zsh|less'
 
 ### git shortcuts ###
 alias g='git'
 alias gs='git status'
+alias gst='git status -uno'
 alias gcl='git clone'
 alias gb='git branch'
 alias gra='git remote add'
 alias grr='git remote rm'
 alias gch='git checkout'
-alias gdiss='git checkout --'
+alias gdis='git checkout --'
 alias gc='git commit'
+alias gco='git commit'
 alias gca='git commit -a'
 alias gcm='git commit -m'
 alias ga='git add' # stage
 alias gA='git add .' # stage all
 alias gu='git reset HEAD' # unstage
 alias gl='git log'
-alias gd='git diff --cached'
+alias gd='git diff'
+alias gdiff='git diff'
+alias gdc='git diff --cached'
 alias gds='git diff --stat'
-alias gdiff='git diff --cached'
 
 # gsh shows the number of commits for the current repos for all developers
 alias gsh="git shortlog | grep -E '^[ ]+\w+' | wc -l"
