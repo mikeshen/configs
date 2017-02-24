@@ -26,7 +26,7 @@ call dein#add('bogado/file-line')                  " file:line format when openi
 call dein#add('flazz/vim-colorschemes')           " hundreds of colorschemes
 call dein#add('vim-airline/vim-airline')          " vim-airline powerbar
 call dein#add('vim-airline/vim-airline-themes')   " themes for vim-airline
-" call dein#add('edkolev/tmuxline.vim')             " tmux integration with vim-airline
+call dein#add('edkolev/tmuxline.vim')             " tmux integration with vim-airline
 call dein#add('nathanaelkane/vim-indent-guides')  " indent guides for various languages
 
 " 3. Movement / Filesystem Navaigation
@@ -59,12 +59,10 @@ endif
 " Modeline and Notes {
 " vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
 "
-"                                _
 "                        __   __(_)_ __ ___
 "                        \ \ / /| | '_ ` _ \
 "                        |\ V / | | | | | | |
 "                          \_/  |_|_| |_| |_|
-"
 "
 " }
 
@@ -386,6 +384,9 @@ endif
 
     " USER KEYBINDING CHANGES
 
+    " Toggle numbercolumn
+    map <leader>n :set invnumber<cr> :set invrelativenumber<cr>
+
     " fast escape with jk and kj
     inoremap jk <esc>l
     inoremap kj <esc>l
@@ -428,12 +429,12 @@ endif
         endif
       endif
 
-      colorscheme solarized
+      colorscheme seoul256
 
     " }
 
     " vim-airline {
-        let g:airline_theme='tomorrow'
+        let g:airline_theme='bubblegum'
         let g:airline_powerline_fonts = 1
         let g:airline#extensions#tabline#enabled = 1
     " }
