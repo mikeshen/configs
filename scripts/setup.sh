@@ -1,27 +1,50 @@
 #!/bin/sh
 
+CONFIG_DIR=$(pwd | sed s#/scripts##)
+
 # add repos
-sudo apt-add-repository -y "deb http://repository.spotify.com stable non-free"
-sudo add-apt-repository -y "deb http://linux.dropbox.com/ubuntu $(lsb_release -sc) main"
-sudo add-apt-repository -y ppa:webupd8team/sublime-text-3
-sudo add-apt-repository ppa:jonathonf/vim
+ # sudo add-apt-repository ppa:kubuntu-ppa/backports
+ # sudo add-apt-repository ppa:jonathonf/vim
 
 # basic update
-sudo apt -y --force-yes update
-sudo apt -y --force-yes upgrade
+ # sudo apt -y --force-yes update
+ # sudo apt -y --force-yes upgrade
 
 # install applications
-sudo apt -y --allow-unauthenticated install \
-	vim-nox \
-	git \
-	spotify-client
+ # sudo apt -y --allow-unauthenticated install \
+ #    vim-nox \
+ #    tmux \
+ #    git \
+ #    gitk \
+ #    git-svn \
+ #    wget \
+ #    ctags \
+ #    cscope \
+ #    vlc \
+ #    qbittorrent \
+ #    kubuntu-desktop \
+ #    zsh \
+
+
+# install plugins
+[ ! -d "$CONFIG_DIR/vim/repos/github.com/Shougo" ] && [ ! -d "$CONFIG_DIR/vim/repos/github.com/Shougo/dein.vim" ] && git clone https://github.com/Shougo/dein.vim "$CONFIG_DIR/vim/repos/github.com/Shougo/dein.vim"
+[ ! -d /home/mikeshen/Development/configs/scripts/tpm ] &&  git clone https://github.com/tmux-plugins/tpm /home/mikeshen/Development/configs/scripts/tpm
+[ -f .install-oh-my-zsh.sh ] && ./install-oh-my-zsh.sh
+
 
 # remove folders
-rm -rf ~/Documents
-rm -rf ~/Public
-rm -rf ~/Templates
-rm -rf ~/Music
-rm -rf ~/Videos
+rm -vrf ~/Documents
+rm -vrf ~/Public
+rm -vrf ~/Templates
+rm -vrf ~/Music
+rm -vrf ~/Videos
 
-# add folders
-mkdir ~/Development
+# remove files
+rm -vf ~/.zshrc
+
+# add folders, if they don't already exist
+[ ! -d ~/Development ] && mkdir ~/Development
+
+# make symlinks
+[ -f ./makelinks.sh ] && ./makelinks.sh
+
