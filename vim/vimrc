@@ -403,6 +403,7 @@ endif
     " fast saving + quit
     map <leader>w :w<cr>
     map <leader>q :q<cr>
+    map <leader><leader>q :q<cr>
 
     " fast splits
     map <leader>s :split<cr>
@@ -419,8 +420,27 @@ endif
 
 " Plugins {
 
-    " vim-colorscheme {
+    " vim session {
+        let g:session_autosave = 'no'
+        let g:session_autoload = 'no'
+    " }
 
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " 1 Utilities
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+    " Ctags {
+        set tags=./tags;/,~/.vimtags
+
+        " ctags prompt behavior
+        noremap <C-]> g<C-]>
+    " }
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " 2 UI / Themes / Color
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+    " vim-colorscheme {
       if !has('gui_running')
         set t_Co=256      " set terminal colors to 256
         set t_ut=         " use the background color of the terminal
@@ -430,7 +450,6 @@ endif
       endif
 
       colorscheme seoul256
-
     " }
 
     " vim-airline {
@@ -439,44 +458,12 @@ endif
         let g:airline#extensions#tabline#enabled = 1
     " }
 
-
-    " Ctags {
-        set tags=./tags;/,~/.vimtags
-
-        " ctags prompt behavior
-        noremap <C-]> g<C-]>
-    " }
-
-    " Fswitch {
-        map <leader>u ::FSHere<cr>
-    " }
-
-    " bufkill {
-        map <leader>k ::BD<cr>
-    " }
-
-    " NERDtree {
-        map <leader>e :NERDTreeToggle<cr>
-        let NERDTreeShowBookmarks=1
-        let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
-        let NERDTreeChDirMode=0
-        let NERDTreeQuitOnOpen=1
-        let NERDTreeMouseMode=2
-        let NERDTreeShowHidden=1
-        let NERDTreeKeepTreeInNewTab=1
-        let NERDTreeMinimalUI = 1
-        let NERDTreeDirArrows = 1
-    " }
-
-    " NERDtree {
-        " Add spaces after comment delimiters by default
-        let g:NERDSpaceDelims = 1
-
-        " Use compact syntax for prettified multi-line comments
-        let g:NERDCompactSexyComs = 1
-    " }
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " 3 Movement
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
     " CtrlP {
+        let g:ctrlp_show_hidden = 1
         let g:ctrlp_working_path_mode = 'r'
         let g:ctrlp_custom_ignore = {
             \ 'dir':  '\.git$\|\.hg$\|\.svn$',
@@ -497,11 +484,54 @@ endif
         map <leader>bs :CtrlPMRU<cr>
     " }
 
+    " NERDtree {
+        map <leader>e :NERDTreeToggle<cr>
+        let NERDTreeShowBookmarks=1
+        let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+        let NERDTreeChDirMode=0
+        let NERDTreeQuitOnOpen=1
+        let NERDTreeMouseMode=2
+        let NERDTreeShowHidden=1
+        let NERDTreeKeepTreeInNewTab=1
+        let NERDTreeMinimalUI = 1
+        let NERDTreeDirArrows = 1
+
+        " Add spaces after comment delimiters by default
+        let g:NERDSpaceDelims = 1
+
+        " Use compact syntax for prettified multi-line comments
+        let g:NERDCompactSexyComs = 1
+    " }
+
+    " EasyMotion {
+        nmap <Leader>k <Plug>(easymotion-overwin-w)
+    " }
+
+    " TagBar {
+        nmap <F8> :TagbarToggle<cr>
+    " }
+
+    " Fswitch {
+        map <leader>u ::FSHere<cr>
+    " }
+
+    " bufkill {
+        map <leader>k ::BD<cr>
+    " }
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " 4 Version Control Integration
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
     " Fugitive GIT {
         map <leader>gd :Gdiff<cr>
         map <leader>gs :Gstatus<cr>
         map <leader>gb :Gblame<cr>
     " }
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " 5 Snippets
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
     " NeoComplete {
         " Disable AutoComplPop.
@@ -572,7 +602,6 @@ endif
     " }
 
 " }
-
 
 " Functions {
 
@@ -651,4 +680,3 @@ endif
     endfunction
 
 " }
-
