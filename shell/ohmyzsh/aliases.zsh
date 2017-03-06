@@ -1,25 +1,59 @@
-# general shortcuts
-alias vim='vim -O -X' # allows opening multiple files stacked
-alias v='vim'
+########################################################################################################################
+# General Shortcuts
+########################################################################################################################
+
+# shortenings
 alias cl='clear'
 alias :q='exit'
 alias :Q='exit'
-alias p='pushd' # push directory to stack and go to new dir
-alias o='popd' # pop to last directory. Kind of like a back button
-alias m='man' # i'm lazy af, ok?
-alias du='du -sh'
-alias dusort='command du -s * .* | sort -n'
-alias wcl='wc -l'
-alias shred='shred --remove'
-alias gz='tar -xvzf' # unzips a tar gzipped file
-alias gg='grep -rnIi --exclude-dir ".git" --exclude "*~" --color'
-
-# tmux related
+alias p='pushd'                                                              # push directory to stack and go to new dir
+alias o='popd'                                                               # pop to last directory. Kind of like a back button
+alias m='man'                                                                # i'm lazy af, ok?
 alias tmux="tmux -2"
 alias tm='tmux attach || tmux new'
 
-# less changes
+# tools
+alias more='less --shift 5 --ignore-case --chop-long-lines --RAW-CONTROL-CHARS --LONG-PROMPT'
 alias more='less'
+alias du='du -sh'                                                            # disk usage
+alias dusort='command du -s * .* | sort -n'                                  # disk usage w/ sort
+alias wcl='wc -l'                                                            # count line of text
+alias shred='shred --remove'                                                 # really remove
+alias gz='tar -xvzf'                                                         # unzips a tar gzipped file
+alias view='pygmentize -g'
+alias proc='ps aux | grep'
+alias rsync='rsync -arP'
+
+########################################################################################################################
+# Build Tools
+########################################################################################################################
+
+alias mm='make'
+alias mc='make clean'
+alias mr='make run'
+alias rctags='ctags -R --c++-kinds=+p --extra=+fq'                           # recursively run ctags with c++ info
+alias gg='grep -nIi --exclude-dir ".git" --exclude "*~" --color'
+alias ggr='grep -rnIi --exclude-dir ".git" --exclude "*~" --color'
+alias agg='ag -SR --cpp --ignore=.git'
+
+########################################################################################################################
+# FILES / EDITING
+########################################################################################################################
+
+# editing shortcuts
+alias vvim='$EDITOR ~/.vimrc'
+alias vtmux='$EDITOR ~/.tmux.conf'
+alias vbash='$EDITOR ~/.bashrc'
+alias vzsh='$EDITOR ~/.zshrc'
+alias valias='$EDITOR $ZSH/.aliases.zsh'
+
+alias remind='cat $ZSH/.aliases.zsh|less'                                    # remind me what the aliases were again?
+
+# verbose file/dir movement
+alias rm='rm -v'
+alias mv='mv -v'
+
+alias l='ls -alFp'
 
 # cd shortcuts
 alias c='cd'
@@ -32,26 +66,11 @@ alias ....='cd ../../..'
 
 # specific cd directories
 alias config='cd ~/Development/configs'
+alias dev='cd ~/Development
 
-# ls shortcuts
-alias l='ls -alFp'
-
-# editing shortcuts
-alias vvim='$EDITOR ~/.vimrc'
-alias vtmux='$EDITOR ~/.tmux.conf'
-alias vbash='$EDITOR ~/.bashrc'
-alias vzsh='$EDITOR ~/.zshrc'
-alias valias='$EDITOR $ZSH/.aliases.zsh'
-
-# verbose file/dir movement
-alias rm='rm -v'
-alias cp='cp -v'
-alias mv='mv -v'
-
-# alias to cat this file to display
-alias remind='cat $ZSH/.aliases.zsh|less'
-
-### git shortcuts ###
+########################################################################################################################
+# GIT Shortcuts
+########################################################################################################################
 alias g='git'
 alias gs='git status'
 alias gst='git status -uno'
@@ -78,3 +97,16 @@ alias gds='git diff --stat'
 alias gsh="git shortlog | grep -E '^[ ]+\w+' | wc -l"
 # gu shows a list of all developers and the number of commits they've made
 alias gu="git shortlog | grep -E '^[^ ]'"
+
+########################################################################################################################
+# VIM
+########################################################################################################################
+# O - vertical splits
+# X - don't connect ot X window
+# u - custom vimrc
+# --cmd - run cmd
+
+alias vim='vim -O -X'
+alias v='vim'
+alias rmswap='rm $HOME/Development/configs/vim/cache/swap/*'
+
