@@ -43,7 +43,8 @@
 	cam = commit -am
 	cd = commit --amend
 	cad = commit -a --amend
-	undo-commit = reset --soft HEAD^
+	undo-commit = reset --soft HEAD~1
+	ammend = reset --soft HEAD~1
 	nuke-commit = reset --hard HEAD~1
 	#############
 	d = diff
