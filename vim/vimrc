@@ -4,7 +4,8 @@ set nocompatible               " Be iMproved
 let s:config_dir = $HOME . '/Development/configs'
 let s:cache_dir = expand(s:config_dir . '/vim/cache')
 
-set runtimepath+=/home/mikeshen/Development/configs/vim/repos/github.com/Shougo/dein.vim
+set runtimepath+=/home/osboxes/Development/configs/vim/repos/github.com/Shougo/dein.vim
+set rtp+=~/.fzf
 
 call dein#begin(expand(s:config_dir . '/vim'))
 
@@ -91,6 +92,7 @@ endif
 " General {
 
     set background=dark         " Assume a dark background
+    colorscheme gruvbox
 
     " Allow to trigger background
     function! ToggleBG()
@@ -109,19 +111,15 @@ endif
     set mousehide               " Hide the mouse cursor while typing
     scriptencoding utf-8
 
-    if has('clipboard')
-        if has('unnamedplus')  " When possible use + register for copy-paste
-            set clipboard=unnamed,unnamedplus
-        else         " On mac and Windows, use * register for copy-paste
-            set clipboard=unnamed
-        endif
+    if has('unnamedplus')  " When possible use + register for copy-paste
+        set clipboard=unnamed,unnamedplus
+    else         " On mac and Windows, use * register for copy-paste
+        set clipboard=unnamed
     endif
 
     " Most prefer to automatically switch to the current file directory when
-    " a new buffer is opened; to prevent this behavior, add the following to
-    " your .vimrc.before.local file:
+    " a new buffer is opened
     autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
-    " Always switch to the current file directory
 
     "set autowrite                       " Automatically write a file when leaving a modified buffer
     set shortmess+=WraoOtIT          " Abbrev. of messages (avoids 'hit enter')
@@ -133,6 +131,8 @@ endif
     set iskeyword-=.                    " '.' is an end of word designator
     set iskeyword-=#                    " '#' is an end of word designator
     set iskeyword-=-                    " '-' is an end of word designator
+    set timeoutlen=500                  " time to give vim before key timeout
+    set ttimeoutlen=0
 
     " Instead of reverting the cursor to the last position in the buffer, we
     " set it to the first line when editing a git commit message
@@ -140,8 +140,6 @@ endif
 
     " http://vim.wikia.com/wiki/Restore_cursor_to_file_position_in_previous_editing_session
     " Restore cursor to file position in previous editing session
-    " To disable this, add the following to your .vimrc.before.local file:
-    "   let g:spf13_no_restore_cursor = 1
     function! ResCur()
         if line("'\"") <= line("$")
             silent! normal! g`"
@@ -198,10 +196,12 @@ endif
 
     set backspace=indent,eol,start  " Backspace for dummies
     set linespace=0                 " No extra spaces between rows
-    " set number                      " Line numbers on
+    set number                      " Line numbers on
+    set relativenumber              " relative numberline, nice when combined with number
     set showmatch                   " Show matching brackets/parenthesis
     set incsearch                   " Find as you type search
     set hlsearch                    " Highlight search terms
+    " "set matchpairs+=<:>             " Match, to be used with %
     set winminheight=0              " Windows can be 0 line high
     set ignorecase                  " Case insensitive search
     set smartcase                   " Case sensitive when uc present
@@ -227,9 +227,9 @@ endif
     set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
     set splitright                  " Puts new vsplit windows to the right of the current
     set splitbelow                  " Puts new split windows to the bottom of the current
-    "set matchpairs+=<:>             " Match, to be used with %
     set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
     "set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
+
     " Remove trailing whitespaces and ^M chars
     autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> | call StripTrailingWhitespace()
     "autocmd FileType go autocmd BufWritePre <buffer> Fmt
@@ -249,12 +249,8 @@ endif
 
 " Key (re)Mappings {
 
-    " The default leader is '\', but many people prefer ',' as it's in a standard
-    " location. To override this behavior and set it back to '\' (or any other
-    " character) add the following to your .vimrc.before.local file:
-    "   let g:spf13_leader='\'
     let mapleader = ' '
-    let maplocalleader = '_'
+    let maplocalleader = ';'
 
     " Easier moving in tabs and windows
     " The lines conflict with the default digraph mapping of <C-K>
@@ -262,16 +258,6 @@ endif
     map <C-k> <C-W>k<C-W>
     map <C-l> <C-W>l<C-W>
     map <C-h> <C-W>h<C-W>
-
-    " easier tab opening and closing
-    map <leader>tn :tabnew<cr>
-    map <leader>to :tabnew<cr>
-    map <leader>tc :tabclose<cr>
-    map <leader>tm :tabmove<cr>
-
-    " move between tabs with leader
-    map <leader>l gT
-    map <leader>; gt
 
     " Wrapped lines goes down/up to next row, rather than next line in file.
     noremap j gj
@@ -323,6 +309,8 @@ endif
         command! -bang QA qa<bang>
         command! -bang Qa qa<bang>
         command! -bang WQA wqa<bang>
+        command! -bang WQA wqa<bang>
+        " command! -bang Wipeout :call Wipeout<bang>0
     endif
 
     cmap Tabe tabe
@@ -330,27 +318,7 @@ endif
     " Yank from the cursor to the end of the line, to be consistent with C and D.
     nnoremap Y y$
 
-    " Code folding options
-    map <leader>f0 :set foldlevel=0<cr>
-    map <leader>f1 :set foldlevel=1<cr>
-    map <leader>f2 :set foldlevel=2<cr>
-    map <leader>f3 :set foldlevel=3<cr>
-    map <leader>f4 :set foldlevel=4<cr>
-    map <leader>f5 :set foldlevel=5<cr>
-    map <leader>f6 :set foldlevel=6<cr>
-    map <leader>f7 :set foldlevel=7<cr>
-    map <leader>f8 :set foldlevel=8<cr>
-    map <leader>f9 :set foldlevel=9<cr>
-
-    " Most prefer to toggle search highlighting rather than clear the current
-    " search results. To clear search highlighting rather than toggle it on
-    " and off, add the following to your .vimrc.before.local file:
-    "   let g:spf13_clear_search_highlight = 1
-    if exists('g:spf13_clear_search_highlight')
-        map <silent> <leader>/ :nohlsearch<cr>
-    else
-        map <silent> <leader>/ :set invhlsearch<cr>
-    endif
+    map <silent> <leader>/ :set invhlsearch<cr>
 
     " Find merge conflict markers
     map <leader>fc /\v^[<\|=>]{7}( .*\|$)<cr>
@@ -387,9 +355,33 @@ endif
     " Toggle numbercolumn
     map <leader>n :set invnumber<cr> :set invrelativenumber<cr>
 
+    " Quick search and replace using localleader
+    map <localleaader>// q:i%s//g<esc>ba
+    map <localleaader>/c q:i%s//gc<esc>bba
+
+    " add split maxing / fullscreen mode
+    nmap<leader>z :tab split<cr>
+
+    " strip output of a file
+    nmap <localleader>st :call StripTrailingWhitespace()<cr>
+
+    " change cdpath to current file
+    map <localleader>c :lcd %:p:h<cr>
+
     " fast escape with jk and kj
     inoremap jk <esc>l
     inoremap kj <esc>l
+    inoremap JK <esc>l
+    inoremap jK <esc>l
+    inoremap Jk <esc>l
+    inoremap KJ <esc>l
+    inoremap kJ <esc>l
+    inoremap Kj <esc>l
+
+    " guetto bracket completion
+    inoremap { {}<left>
+
+    " switch between header/source file TODO move to own section
 
     " easier record mode playback for the q register
     nnoremap Q @q
@@ -400,21 +392,38 @@ endif
     nnoremap H :vertical resize -8<cr>
     nnoremap L :vertical resize +8<cr>
 
+    " fast Make
+    map <leader>m :Make make<cr>
+    " TODO more to come here!!!
+
     " fast saving + quit
-    map <leader>w :w<cr>
+    map <leader>w :w!<cr>
     map <leader>q :q<cr>
-    map <leader><leader>q :q<cr>
+    map <leader><leader>q :BW<cr>
+
+    " source vimrc very quickly
+    map <leader><leader>v :source ~/.vimrc<cr>
+    map <leader>c :tabnew<cr>:e ~/.vimrc<cr>
 
     " fast splits
     map <leader>s :split<cr>
     map <leader>v :vsplit<cr>
 
     " change through buffers with <tab> <Shift-tab>
-    map <Tab> :bnext<cr>
-    map <S-Tab> :bprevious<cr>
+    inoremap <Tab> :bnext<cr>
+    inoremap <S-Tab> :bprevious<cr>
+    inoremap <localleader>f :bnext<cr>
+    inoremap <localleader>d :bprevious<cr>
 
-    " source vimrc very quickly
-    map <leader><leader>v :source ~/.vimrc<cr>
+    " easier tab opening and closing
+    map <leader>tn :tabnew<cr>
+    map <leader>to :tabnew<cr>
+    map <leader>tc :tabclose<cr>
+    map <leader>tm :tabmove<cr>
+    map <localleader>j gT
+    map <localleader>k gT
+
+    map <leader>o :Wipeout<cr>
 
 " }
 
@@ -448,8 +457,6 @@ endif
           let &termencoding = &encoding
         endif
       endif
-
-      colorscheme seoul256
     " }
 
     " vim-airline {
@@ -608,7 +615,7 @@ endif
     " Initialize directories {
     function! InitializeDirectories()
         let parent = $HOME
-        let prefix = '/Development/configs/vim/.cache/'
+        let prefix = '/Development/configs/vim/cache/'
         let dir_list = {
                     \ 'backup': 'backupdir',
                     \ 'views': 'viewdir',
