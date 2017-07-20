@@ -11,6 +11,8 @@ export SSH_KEY_PATH="~/.ssh/rsa_id" # ssh path
 export KEYTIMEOUT=1 # less delay between vi's insert and esc mode in zsh
 export DEFAULT_USER=mikeshen # remove the stupid prompt when on my own device
 
+# FZF TMUX
+export FZF_TMUX=1
 ### History ###
 
 # how many total lines are allowed to be in your .bash_history file at startup / stored at the end of a session

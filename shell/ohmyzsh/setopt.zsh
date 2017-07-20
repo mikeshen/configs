@@ -26,7 +26,7 @@ setopt complete_in_word # Allow completion from within a word/phrase
 
 ### Other ###
 unsetopt menu_complete # do not autoselect the first completion entry
-setopt print_exit_value # print return value if non-zero
+# setopt print_exit_value # print return value if non-zero
 unsetopt hist_beep # no bell on error in history
 unsetopt list_beep # no bell on ambiguous completion
 unsetopt rm_star_silent # ask for confirmation on rm * style commands

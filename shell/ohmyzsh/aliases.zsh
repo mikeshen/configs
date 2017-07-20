@@ -21,6 +21,7 @@ alias gz='tar -xvzf'                                                            
 alias ctags='ctags -R --c++-kinds=+p --extra=+fq'                                             # correct recursive ctags
 alias proc='ps aux|grep'
 alias rsync='rsync -arP'
+alias colorscheme='wget -O gogh https://git.io/vQgMr && chmod +x gogh && ./gogh && rm gogh'   # choose your colorscheme
 
 # view
 alias less='less --shift 5 --ignore-case --chop-long-lines --RAW-CONTROL-CHARS --LONG-PROMPT'
@@ -29,7 +30,7 @@ alias view='pygmentize -g'
 alias vhist='history|vless'
 
 # config aliases
-alias valias="$EDITOR ~/.oh_my_zsh/.aliases"
+alias valias="$EDITOR ~/.oh_my_zsh/.aliases.zsh"
 alias vzsh="$EDITOR ~/.zshrc"
 alias vvim="$EDITOR ~/.vimrc"
 alias remind='cat $ZSH/.aliases.zsh|less'                                                     # remind me what the aliases were again?
