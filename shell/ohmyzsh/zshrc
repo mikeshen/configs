@@ -52,9 +52,14 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git \
-         npm \
          tmux \
+         extract \
          git-flow \
+         cp \
+         take \
+         rsync \
+         python \
+         virtualenv \
          colored-man-pages \
          zsh-syntax-highlighting \
         )
