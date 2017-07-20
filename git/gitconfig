@@ -1,8 +1,10 @@
 [user]
 	name = Mike Shen
-  email = mikeshen@umich.edu
+ 	email = mikeshen@umich.edu
+[diff]
+	tool = vimdiff
 [difftool]
-  prompt = false
+ 	prompt = false
 [color]
 	ui = auto
 [color "branch"]
@@ -32,6 +34,7 @@
 	ac = apply --check
 	#############
 	b = branch
+	br = branch
 	#############
 	c = commit
 	ca = commit -a
@@ -40,6 +43,8 @@
 	cam = commit -am
 	cd = commit --amend
 	cad = commit -a --amend
+	undo-commit = reset --soft HEAD^
+	nuke-commit = reset --hard HEAD~1
 	#############
 	d = diff
 	dc = diff --cached
@@ -128,6 +133,11 @@
 	#############
 	s = status
 	sb = status -s -b
+	# fun placeholders
+	crazy = status
+	stupid = status
+	crunk = status
+	rekt = status
 	#############
 	sa = stash apply
 	sc = stash clear
@@ -164,3 +174,4 @@
 	human = name-rev --name-only --refs=refs/heads/*
 	serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
 	snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
+	today = log --all --since='12am' --committer=mikeshen
