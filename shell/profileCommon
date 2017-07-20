@@ -70,6 +70,3 @@ function sb {
 }
 
 ## /BASH FUNCTIONS ##
-
-# append items to the path
-path-append /home/mikeshen/.tools/depot_tools
