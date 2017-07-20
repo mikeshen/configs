@@ -1,6 +1,7 @@
 # use vi, not emacs, style editing
 set editing-mode vi 
 
+# ignore the case with regard to completions
 set completion-ignore-case on
 # Show all completions as soon as tab is pressed, even if there's more than one
 set show-all-if-ambiguous on
