@@ -17,14 +17,14 @@ call dein#add('Shougo/dein.vim')
 " 1. Utilities
 call dein#add('Shougo/vimshell')                  " powerful shell immplemented in vim
 call dein#add('tpope/vim-dispatch')               " execute make commands within vim
-" TODO vim eunuch
-" TODO vim misc
-" TODO vim session
-" TODO vim slime
-" TODO vimwiki
-" TODO conque gdb
-" TODO yankRing.vim
-" TODO ack
+call dein#add('tpope/vim-eunuch')                 " vim sugar for UNIX plugins
+call dein#add('xolox/vim-misc')                   " autoload vimscripts, needed for vim session
+call dein#add('xolox/vim-session')                " extended better session management
+" call dein#add('jpalardy/vim-slime')               " send text over tmux in repl-like way
+call dein#add('vimwiki/vimwiki')                  " your personal notes / todos / markdown editor vim
+call dein#add('vim-scripts/conque-GDB')           " your own GDB interface emulator in vim
+call dein#add('vim-scripts/yankRing.vim')         " maintains previous yanks and deletes
+call dein#add('mileszs/ack.vim')                  " smart and happy searching
 
 " 2. UI / Themes / Color
 call dein#add('flazz/vim-colorschemes')           " hundreds of colorschemes
@@ -32,40 +32,40 @@ call dein#add('vim-airline/vim-airline')          " vim-airline powerbar
 call dein#add('vim-airline/vim-airline-themes')   " themes for vim-airline
 call dein#add('edkolev/tmuxline.vim')             " tmux integration with vim-airline
 " call dein#add('nathanaelkane/vim-indent-guides')  " indent guides for various languages
-" TODO rainbow parents
-" TODO match tag always
+call dein#add('kien/rainbow_parentheses.vim')     " differing colors for stacked parentheses
+call dein#add('Valloric/MatchTagAlways')           " highlight enclosing xml / html tags
 
 " 3. Filesystem Navigation / Movement
 call dein#add('ctrlpvim/ctrlp.vim')               " fast file finder
 call dein#add('scrooloose/nerdtree')              " display a filesystem browser
-" fzf
+call dein#add('junegunn/fzf.vim')                 " fzf vim plugin
 call dein#add('christoomey/vim-tmux-navigator')   " jump between tmux panes and vim splits seamlessly
 call dein#add('derekwyatt/vim-fswitch')           " swtich between .h and .cpp files at the press of a key
 call dein#add('bogado/file-line')                 " file:line format when opening files
+call dein#add('majutsushi/tagbar')                " displays tags in a window, ordered by scope
 call dein#add('artnez/vim-wipeout')               " quickly remove all unopened buffers with :Wipeout
 call dein#add('qpkorr/vim-bufkill')               " kill buffers without destroying panes
 call dein#add('easymotion/vim-easymotion')        " easily jump around using labeled tags
-" TODO vim-unimpaired
-" TODO clever-f.vim
-" TODO tagbar
-" TODO matchit
+call dein#add('tpope/vim-unimpaired')             " extremely useful [] bracket shortcuts
+call dein#add('rhysd/clever-f.vim')               " smartly repeat f and F searches using the same keys
+call dein#add('tmhedberg/matchit')                " extend % to work for tags
 
 " 4. Editing
 call dein#add('tpope/vim-commentary')             " minimimilistic commenting shortcuts
 call dein#add('tpope/vim-surround')               " make quoting/tags replacement easier
-" TODO vim-speeddating
-" TODO vim-repeat
-" TODO tabular
-" TODO gundo
+call dein#add('tpope/vim-speeddating')            " easy increment dates with c-a, c-x
+call dein#add('tpope/vim-repeat')                 " allow vim . repeasts for custom plugins
+call dein#add('godlygeek/tabular')                " better editing for simple alignments
+call dein#add('sjl/gundo.vim')                    " undo tree visualized
 " call dein#add('terryma/vim-multiple-cursors')     " simulate multiple cursors from sublime
 " call dein#add('Raimondi/delimitMate')             " automatic closing of quotes, parents, brackets
 
 " 5. Version Control Integration
 call dein#add('tpope/vim-fugitive')               " GIT integration
 call dein#add('airblade/vim-gitgutter')           " display git information in the gutter
-" TODO timelapse
-" TODO vim-diff-enhanceded
-" TODO linediff
+call dein#add('albfan/vim-timelapse')             " vim time differences between commits
+call dein#add('chrisbra/vim-diff-enhanced')       " show different vim diff options
+call dein#add('AndrewRadev/linediff.vim')          " perform difs on lines of code
 
 " 6. Snippets
 call dein#add('Shougo/neocomplete.vim')           " neocompletion w/ cache
@@ -376,6 +376,9 @@ endif
 
     " USER KEYBINDING CHANGES
 
+    " make p in visual mode replace the selected text with that in the yank register
+    vnoremap p <Esc>:let current_reg = @"<cr>gvdi<C-R>=current_reg<cr><esc>
+
     " Toggle numbercolumn
     map <leader>n :set invnumber<cr> :set invrelativenumber<cr>
 
@@ -405,7 +408,6 @@ endif
     " guetto bracket completion
     inoremap { {}<left>
 
-    " switch between header/source file TODO move to own section
 
     " easier record mode playback for the q register
     nnoremap Q @q
@@ -434,10 +436,10 @@ endif
     map <leader>v :vsplit<cr>
 
     " change through buffers with <tab> <Shift-tab>
-    inoremap <Tab> :bnext<cr>
-    inoremap <S-Tab> :bprevious<cr>
-    inoremap <localleader>f :bnext<cr>
-    inoremap <localleader>d :bprevious<cr>
+    nnoremap <tab> :bnext<cr>
+    nnoremap <S-tab> :bprevious<cr>
+    nnoremap <localleader>f :bnext<cr>
+    nnoremap <localleader>d :bprevious<cr>
 
     " easier tab opening and closing
     map <leader>tn :tabnew<cr>
@@ -447,20 +449,42 @@ endif
     map <localleader>j gT
     map <localleader>k gT
 
-    map <leader>o :Wipeout<cr>
-
+    " Speed up scrolling of the viewport slightly
+    nnoremap <C-e> 2<C-e>
+    nnoremap <C-y> 2<C-y>
 " }
 
 " Plugins {
 
-    " vim session {
-        let g:session_autosave = 'no'
-        let g:session_autoload = 'no'
-    " }
-
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " 1 Utilities
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+    " vim session {
+        let g:session_autosave = 'no'
+        let g:session_autoload = 'no'
+        nmap <localleader>sd :DeleteSession! 
+        nmap <localleader>ss :SaveSession! 
+        nmap <localleader>so :OpenSession! 
+    " }
+
+    " vim-wiki {
+        nnoremap <localleader>s :VimwikiToggleListItem<cr>
+    " }
+
+    " yankRing {
+        nnoremap <silent> <localleader>p :YRShow<cr>
+    " }
+
+    " Ack/Ag THE SILVER SEARCHER {
+        if executable('ag')
+            let g:ackprg = 'ag --vimgrep'
+        endif
+
+        " search shortcuts
+        nmap <localleader>a :Ack! --ignore={.git,.svn} -SRi -w <C-r><C-w><cr>
+        " nmap <localleader>g :Ack! --ignore={.git,.svn} -SRi {nearest git dir here} <esc>lxBi
+    " }
 
     " Ctags {
         set tags=./tags;/,~/.vimtags
@@ -483,19 +507,44 @@ endif
       endif
     " }
 
-    " vim-airline {
+    " vim-airline / vim-airline-themes {
         let g:airline_theme='papercolor'
         let g:airline_powerline_fonts = 1
         let g:airline#extensions#tabline#enabled = 1
     " }
 
+    " rainbow_parentheses {
+        let g:rbpt_colorpairs = [
+            \ ['brown',       'RoyalBlue3'],
+            \ ['Darkblue',    'SeaGreen3'],
+            \ ['darkgray',    'DarkOrchid3'],
+            \ ['darkgreen',   'firebrick3'],
+            \ ['darkcyan',    'RoyalBlue3'],
+            \ ['darkred',     'SeaGreen3'],
+            \ ['darkmagenta', 'DarkOrchid3'],
+            \ ['brown',       'firebrick3'],
+            \ ['gray',        'RoyalBlue3'],
+            \ ['black',       'SeaGreen3'],
+            \ ['darkmagenta', 'DarkOrchid3'],
+            \ ['Darkblue',    'firebrick3'],
+            \ ['darkgreen',   'RoyalBlue3'],
+            \ ['darkcyan',    'SeaGreen3'],
+            \ ['darkred',     'DarkOrchid3'],
+            \ ['red',         'firebrick3'],
+        \ ]
+        let g:rbpt_max = 16
+        au VimEnter * RainbowParenthesesToggle
+        au Syntax * RainbowParenthesesLoadRound
+        au Syntax * RainbowParenthesesLoadSquare
+        au Syntax * RainbowParenthesesLoadBraces
+    " }
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    " 3 Movement
+    " 3 Filesystem Navigation / Movement
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
     " CtrlP {
         let g:ctrlp_show_hidden = 1
-        let g:ctrlp_working_path_mode = 'r'
+        let g:ctrlp_working_path_mode = 'r' " use the nearest git directory as the cwd:
         let g:ctrlp_custom_ignore = {
             \ 'dir':  '\.git$\|\.hg$\|\.svn$',
             \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$\|\.o$\|\.vcxproj$\|\.d$' }
@@ -534,24 +583,43 @@ endif
         let g:NERDCompactSexyComs = 1
     " }
 
-    " EasyMotion {
-        nmap <Leader>k <Plug>(easymotion-overwin-w)
+    " FZF {
+        nnoremap <localleader>oh :History:<cr>
+        nnoremap <localleader>or :History<cr>
+        nnoremap <localleader>of :Files<cr>
+    " }
+
+    " Fswitch {
+        " switch between header/source file
+        map <leader>u :FSHere<cr>
     " }
 
     " TagBar {
         nmap <F8> :TagbarToggle<cr>
     " }
 
-    " Fswitch {
-        map <leader>u ::FSHere<cr>
+    " Wipeout {
+        map <leader>o :Wipeout<cr>
     " }
 
     " bufkill {
-        map <leader>k ::BD<cr>
+        map <leader><leader>q :BD<cr>
+    " }
+
+    " EasyMotion {
+        nmap <leader>k <Plug>(easymotion-overwin-w)
     " }
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    " 4 Version Control Integration
+    " 4 Editing
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+    " Tabular {
+        vmap <leader>t :Tabularize /
+    " }
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " 5 Version Control Integration
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
     " Fugitive GIT {
@@ -561,7 +629,7 @@ endif
     " }
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    " 5 Snippets
+    " 6 Snippets
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
     " NeoComplete {
