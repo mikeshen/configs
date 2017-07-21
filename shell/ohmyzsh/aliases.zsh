@@ -30,7 +30,7 @@ alias view='pygmentize -g'
 alias vhist='history|vless'
 
 # config aliases
-alias valias="$EDITOR ~/.oh_my_zsh/.aliases.zsh"
+alias valias='vim $ZSH/.aliases.zsh'
 alias vzsh="$EDITOR ~/.zshrc"
 alias vvim="$EDITOR ~/.vimrc"
 alias remind='cat $ZSH/.aliases.zsh|less'                                                     # remind me what the aliases were again?
@@ -49,6 +49,7 @@ alias mr='make run'
 ########################################################################################################################
 
 # verbose file/dir movement
+alias lrm='ls -R'
 alias rm='rm -vI'
 alias mv='mv -v'
 
@@ -141,4 +142,6 @@ alias rmswap='rm $HOME/Development/configs/vim/cache/swap/*'
 
 # specific cd directories
 alias config='cd ~/Development/configs'
+alias cconf='config'
 alias dev='cd ~/Development'
+alias cdev='dev'
