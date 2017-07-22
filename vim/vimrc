@@ -15,7 +15,6 @@ call dein#add('Shougo/dein.vim')
 " ADD OR REMOVE PLUGINS HERE
 
 " 1. Utilities
-call dein#add('Shougo/vimshell')                  " powerful shell immplemented in vim
 call dein#add('tpope/vim-dispatch')               " execute make commands within vim
 call dein#add('tpope/vim-eunuch')                 " vim sugar for UNIX plugins
 call dein#add('xolox/vim-misc')                   " autoload vimscripts, needed for vim session
@@ -381,14 +380,6 @@ endif
 
     " Toggle numbercolumn
     map <leader>n :set invnumber<cr> :set invrelativenumber<cr>
-
-    " Quick search and replace using localleader
-    map <localleaader>// q:i%s//g<esc>ba
-    map <localleaader>/c q:i%s//gc<esc>bba
-
-    " add split maxing / fullscreen mode
-    nmap<leader>z :tab split<cr>
-
     " strip output of a file
     nmap <localleader>st :call StripTrailingWhitespace()<cr>
 
@@ -408,7 +399,6 @@ endif
     " guetto bracket completion
     inoremap { {}<left>
 
-
     " easier record mode playback for the q register
     nnoremap Q @q
 
@@ -418,22 +408,29 @@ endif
     nnoremap H :vertical resize -8<cr>
     nnoremap L :vertical resize +8<cr>
 
-    " fast Make
-    map <leader>m :Make make<cr>
-    " TODO more to come here!!!
-
     " fast saving + quit
     map <leader>w :w!<cr>
     map <leader>q :q<cr>
     map <leader><leader>q :BW<cr>
 
-    " source vimrc very quickly
+    " fast Make
+    map <leader>m :Make make<cr>
+    " TODO more to come here!!!
+
+    " fast search and replace using localleader
+    map <localleaader>// q:i%s//g<esc>ba
+    map <localleaader>/c q:i%s//gc<esc>bba
+
+    " fast source vimrc
     map <leader><leader>v :source ~/.vimrc<cr>
     map <leader>c :tabnew<cr>:e ~/.vimrc<cr>
 
     " fast splits
     map <leader>s :split<cr>
     map <leader>v :vsplit<cr>
+
+    " add split maxing / fullscreen mode
+    nmap<leader>z :tab split<cr>
 
     " change through buffers with <tab> <Shift-tab>
     nnoremap <tab> :bnext<cr>
@@ -644,9 +641,8 @@ endif
 
         " Define dictionary.
         let g:neocomplete#sources#dictionary#dictionaries = {
-            \ 'default' : '',
-            \ 'vimshell' : $HOME.'/.vimshell_hist',
-                \ }
+            \ 'default' : ''
+        \ }
 
         " Define keyword.
         if !exists('g:neocomplete#keyword_patterns')
