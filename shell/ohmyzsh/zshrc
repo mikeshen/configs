@@ -55,12 +55,18 @@ plugins=(git \
          tmux \
          extract \
          git-flow \
+         history \
          cp \
-         take \
+         copydir \
          rsync \
+         take \
+         vi-mode \
+         pip \
          python \
          virtualenv \
+         colorize \
          colored-man-pages \
+         zsh-autosuggestions \
          zsh-syntax-highlighting \
         )
 

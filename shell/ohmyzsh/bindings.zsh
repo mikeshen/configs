@@ -16,3 +16,6 @@ bindkey '^e' end-of-line
 bindkey '^d' delete-char
 bindkey '^f' forward-char
 bindkey '^b' backward-char
+
+# autosuggestions
+bindkey '^o' autosuggest-accept

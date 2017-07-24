@@ -33,8 +33,8 @@ alias vhist='history|vless'
 alias valias='vim $ZSH/.aliases.zsh'
 alias vzsh="$EDITOR ~/.zshrc"
 alias vvim="$EDITOR ~/.vimrc"
-alias remind='cat $ZSH/.aliases.zsh|less'                                                     # remind me what the aliases were again?
-alias remindgit='cat ~/.gitconfig|less'                                                       # remind me what the git config was again?
+alias remind='less $ZSH/.aliases.zsh'                                                     # remind me what the aliases were again?
+alias remindgit='less ~/.gitconfig'                                                       # remind me what the git config was again?
 
 ########################################################################################################################
 # Build Tools
@@ -45,7 +45,7 @@ alias mc='make clean'
 alias mr='make run'
 
 ########################################################################################################################
-# FILES / EDITING
+# Files / Editing
 ########################################################################################################################
 
 # verbose file/dir movement
@@ -54,7 +54,7 @@ alias rm='rm -vI'
 alias mv='mv -v'
 
 # ls shortcuts
-alias l='ls -alFp'
+alias l='ls -alhFp'
 alias la='ls -A'
 alias lm='ls -alhrt' # show last modified file by reverse order
 
@@ -77,7 +77,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 ########################################################################################################################
-# GIT Shortcuts
+# Git Shortcuts
 ########################################################################################################################
 alias g='git'
 alias gs='git status'
@@ -123,7 +123,7 @@ alias gdifflast='git diff HEAD~1'
 alias gcount="git shortlog | grep -E '^[ ]+\w+' | wc -l"
 
 ########################################################################################################################
-# VIM
+# Vim
 ########################################################################################################################
 
 # O - vertical splits
@@ -137,10 +137,11 @@ alias v='vim'
 alias rmswap='rm $HOME/Development/configs/vim/cache/swap/*'
 
 ########################################################################################################################
-# CUSTOM DIRS
+# Custom Directories
 ########################################################################################################################
 
 # specific cd directories
+alias cdown='cd ~/Downloads'
 alias config='cd ~/Development/configs'
 alias cconf='config'
 alias dev='cd ~/Development'
