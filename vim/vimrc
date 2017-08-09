@@ -21,7 +21,7 @@ call dein#add('xolox/vim-misc')                   " autoload vimscripts, needed 
 call dein#add('xolox/vim-session')                " extended better session management
 " call dein#add('jpalardy/vim-slime')               " send text over tmux in repl-like way
 call dein#add('vimwiki/vimwiki')                  " your personal notes / todos / markdown editor vim
-call dein#add('vim-scripts/conque-GDB')           " your own GDB interface emulator in vim
+" call dein#add('vim-scripts/conque-GDB')           " your own GDB interface emulator in vim
 call dein#add('vim-scripts/yankRing.vim')         " maintains previous yanks and deletes
 call dein#add('mileszs/ack.vim')                  " smart and happy searching
 
@@ -145,7 +145,7 @@ endif
     autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 
     "set autowrite                       " Automatically write a file when leaving a modified buffer
-    set shortmess+=WraoOtIT          " Abbrev. of messages (avoids 'hit enter')
+    set shortmess+=WaoOtIT          " Abbrev. of messages (avoids 'hit enter')
     set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
     set virtualedit=onemore             " Allow for cursor beyond last character
     set history=1000                    " Store a ton of history (default is 20)
@@ -341,10 +341,10 @@ endif
     " Yank from the cursor to the end of the line, to be consistent with C and D.
     nnoremap Y y$
 
-    map <silent> <leader>/ :set invhlsearch<cr>
+    nmap <silent> <leader>/ :set invhlsearch<cr>
 
     " Find merge conflict markers
-    map <leader>fc /\v^[<\|=>]{7}( .*\|$)<cr>
+    nmap <leader>fc /\v^[<\|=>]{7}( .*\|$)<cr>
 
     " Shortcuts
     " Change Working Directory to that of the current file
@@ -363,11 +363,11 @@ endif
     cmap w!! w !sudo tee % >/dev/null
 
     " Adjust viewports to the same size
-    map <Leader>= <C-w>=
+    nmap <Leader>= <C-w>=
 
     " Map <Leader>ff to display all lines with keyword under cursor
     " and ask which one to jump to
-    map <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<cr>
+    nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<cr>
 
     " Easier horizontal scrolling
     nmap zl zL
@@ -379,12 +379,12 @@ endif
     vnoremap p <Esc>:let current_reg = @"<cr>gvdi<C-R>=current_reg<cr><esc>
 
     " Toggle numbercolumn
-    map <leader>n :set invnumber<cr> :set invrelativenumber<cr>
+    nmap <leader>n :set invnumber<cr> :set invrelativenumber<cr>
     " strip output of a file
     nmap <localleader>st :call StripTrailingWhitespace()<cr>
 
     " change cdpath to current file
-    map <localleader>c :lcd %:p:h<cr>
+    nmap <localleader>c :lcd %:p:h<cr>
 
     " fast escape with jk and kj
     inoremap jk <esc>l
@@ -409,25 +409,27 @@ endif
     nnoremap L :vertical resize +8<cr>
 
     " fast saving + quit
-    map <leader>w :w!<cr>
-    map <leader>q :q<cr>
-    map <leader><leader>q :BW<cr>
+    nmap <leader>w :w<cr>
+    nmap <leader>q :q<cr>
+    nmap <leader><leader>q :BW<cr>
 
     " fast Make
-    map <leader>m :Make make<cr>
+    nmap <leader>m :Make make<cr>
     " TODO more to come here!!!
 
     " fast search and replace using localleader
-    map <localleaader>// q:i%s//g<esc>ba
-    map <localleaader>/c q:i%s//gc<esc>bba
+    nmap <localleaader>// q:i%s//g<esc>ba
+    nmap <localleaader>/c q:i%s//gc<esc>bba
 
     " fast source vimrc
-    map <leader><leader>v :source ~/.vimrc<cr>
-    map <leader>c :tabnew<cr>:e ~/.vimrc<cr>
+    nmap <leader><leader>v :source ~/.vimrc<cr>
+    nmap <leader>c :tabnew<cr>:e ~/.vimrc<cr>
 
     " fast splits
-    map <leader>s :split<cr>
-    map <leader>v :vsplit<cr>
+    nmap <leader>s :split<cr>
+    nmap <leader>v :vsplit<cr>
+
+    nmap <leader>; q:
 
     " add split maxing / fullscreen mode
     nmap<leader>z :tab split<cr>
@@ -439,12 +441,12 @@ endif
     nnoremap <localleader>d :bprevious<cr>
 
     " easier tab opening and closing
-    map <leader>tn :tabnew<cr>
-    map <leader>to :tabnew<cr>
-    map <leader>tc :tabclose<cr>
-    map <leader>tm :tabmove<cr>
-    map <localleader>j gT
-    map <localleader>k gT
+    nmap <leader>tn :tabnew<cr>
+    nmap <leader>to :tabnew<cr>
+    nmap <leader>tc :tabclose<cr>
+    nmap <leader>tm :tabmove<cr>
+    nmap <localleader>j gT
+    nmap <localleader>k gT
 
     " Speed up scrolling of the viewport slightly
     nnoremap <C-e> 2<C-e>
@@ -457,16 +459,21 @@ endif
     " 1 Utilities
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-    " vim session {
+    " vim-session {
         let g:session_autosave = 'no'
         let g:session_autoload = 'no'
-        nmap <localleader>sd :DeleteSession! 
-        nmap <localleader>ss :SaveSession! 
-        nmap <localleader>so :OpenSession! 
+        let g:session_persist_font = 0
+        let g:session_persist_colors = 0
+        nmap <localleader>sd :DeleteSession!
+        nmap <localleader>ss :SaveSession!
+        nmap <localleader>so :OpenSession!
     " }
 
     " vim-wiki {
         nnoremap <localleader>s :VimwikiToggleListItem<cr>
+        " let g:vimwiki_list = {
+            " \ 'backup': 'backupdir',
+        " \ }
     " }
 
     " yankRing {
@@ -555,14 +562,13 @@ endif
         endif
 
         " manage buffers more easily with ctrlp
-        map <leader>bp :CtrlP<cr>
-        map <leader>bb :CtrlPBuffer<cr>
-        map <leader>bm :CtrlPMixed<cr>
-        map <leader>bs :CtrlPMRU<cr>
+        nmap <leader>bp :CtrlP<cr>
+        nmap <leader>bb :CtrlPBuffer<cr>
+        nmap <leader>bm :CtrlPMixed<cr>
+        nmap <leader>bs :CtrlPMRU<cr>
     " }
 
     " NERDtree {
-        map <leader>e :NERDTreeToggle<cr>
         let NERDTreeShowBookmarks=1
         let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
         let NERDTreeChDirMode=0
@@ -578,6 +584,9 @@ endif
 
         " Use compact syntax for prettified multi-line comments
         let g:NERDCompactSexyComs = 1
+
+        nmap <leader>e :NERDTreeToggle<cr>
+        nmap <leader>f :e .<cr>
     " }
 
     " FZF {
@@ -588,19 +597,20 @@ endif
 
     " Fswitch {
         " switch between header/source file
-        map <leader>u :FSHere<cr>
+        nmap <leader>u :FSHere<cr>
     " }
 
     " TagBar {
         nmap <F8> :TagbarToggle<cr>
+        let g:tagbar_autofocus = 1
     " }
 
     " Wipeout {
-        map <leader>o :Wipeout<cr>
+        nmap <leader>o :Wipeout<cr>
     " }
 
     " bufkill {
-        map <leader><leader>q :BD<cr>
+        nmap <leader><leader>q :BD<cr>
     " }
 
     " EasyMotion {
@@ -620,9 +630,9 @@ endif
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
     " Fugitive GIT {
-        map <leader>gd :Gdiff<cr>
-        map <leader>gs :Gstatus<cr>
-        map <leader>gb :Gblame<cr>
+        nmap <leader>gd :Gdiff<cr>
+        nmap <leader>gs :Gstatus<cr>
+        nmap <leader>gb :Gblame<cr>
     " }
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -707,7 +717,8 @@ endif
         let dir_list = {
                     \ 'backup': 'backupdir',
                     \ 'views': 'viewdir',
-                    \ 'swap': 'directory' }
+                    \ 'swap': 'directory'
+        \ }
 
         if has('persistent_undo')
             let dir_list['undo'] = 'undodir'
