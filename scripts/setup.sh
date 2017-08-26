@@ -3,28 +3,27 @@
 CONFIG_DIR=$(pwd | sed s#/scripts##)
 
 # add repos
- # sudo add-apt-repository ppa:kubuntu-ppa/backports
- # sudo add-apt-repository ppa:jonathonf/vim
+ sudo add-apt-repository ppa:kubuntu-ppa/backports
+ sudo add-apt-repository ppa:jonathonf/vim
 
 # basic update
- # sudo apt -y --force-yes update
- # sudo apt -y --force-yes upgrade
+ sudo apt -y --force-yes update
+ sudo apt -y --force-yes upgrade
 
 # install applications
- # sudo apt -y --allow-unauthenticated install \
- #    vim-nox \
- #    tmux \
- #    git \
- #    gitk \
- #    git-svn \
- #    wget \
- #    ctags \
- #    cscope \
- #    vlc \
- #    qbittorrent \
- #    kubuntu-desktop \
- #    zsh \
-
+sudo apt -y --allow-unauthenticated install \
+    vim-nox \
+    tmux \
+    git \
+    gitk \
+    git-svn \
+    wget \
+    ctags \
+    cscope \
+    vlc \
+    qbittorrent \
+    kubuntu-desktop \
+    zsh \
 
 # install plugins
 [ ! -d "$CONFIG_DIR/vim/repos/github.com/Shougo" ] && [ ! -d "$CONFIG_DIR/vim/repos/github.com/Shougo/dein.vim" ] && git clone https://github.com/Shougo/dein.vim "$CONFIG_DIR/vim/repos/github.com/Shougo/dein.vim"
