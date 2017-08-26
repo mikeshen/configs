@@ -1,4 +1,5 @@
 = My knowledge base =
     * [[Tasks]] -- things to be done _yesterday_!!!
+    * [[Tools]] -- tips and tricks
     * [[Project Gutenberg]] -- good books are power.
     * [[Scratchpad]] -- various temporary stuff.
