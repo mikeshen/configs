@@ -33,8 +33,8 @@ alias vhist='history|vless'
 alias valias='vim $ZSH/.aliases.zsh'
 alias vzsh="$EDITOR ~/.zshrc"
 alias vvim="$EDITOR ~/.vimrc"
-alias remind='less $ZSH/.aliases.zsh'                                                     # remind me what the aliases were again?
-alias remindgit='less ~/.gitconfig'                                                       # remind me what the git config was again?
+alias remind='less $ZSH/.aliases.zsh'                                                         # remind me what the aliases were again?
+alias remindgit='less ~/.gitconfig'                                                           # remind me what the git config was again?
 
 ########################################################################################################################
 # Build Tools
