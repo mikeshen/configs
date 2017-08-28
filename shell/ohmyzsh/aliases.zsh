@@ -70,7 +70,6 @@ alias pygrep-"find . -name '*.py' | xargs grep --line-number"
 alias c='cd'         # famous / infamous at this point
 alias cc='cd $_'     # got to last input arg, useful after running, say,
                      # "mkdir long/dir/name/here", then just cc to go the newly created directory
-		     #
 alias cb='cd -'      # go to the last directory you just visited
 alias ..='cd ../'
 alias ...='cd ../..'
@@ -146,3 +145,4 @@ alias config='cd ~/Development/configs'
 alias cconf='config'
 alias dev='cd ~/Development'
 alias cdev='dev'
+alias csand='cd ~/Development/sandbox'

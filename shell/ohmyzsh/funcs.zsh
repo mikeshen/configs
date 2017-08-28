@@ -27,7 +27,7 @@ path-prepend () {
 }
 
 function ff() {
-    find . -type f -iwholename '*'$*'*' ;
+    find . -type f ! -ipath "*.git*" ! -ipath "*bin*" -iwholename '*'$*'*' ;
 }
 
 # check if a process is running
