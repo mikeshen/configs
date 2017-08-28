@@ -1,0 +1,40 @@
+# Mike's Personal Clang Format File (highly opinionated)
+---
+Language: Cpp
+Standard: Cpp11
+AccessModifierOffset: -4
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+AlignAfterOpenBracket: Align
+AllowShortBlocksOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: true
+IndentCaseLabels: false
+SortIncludes: false
+NamespaceIndentation: None
+SpaceBeforeParens: ControlStatements
+SpaceBeforeAssignmentOperators: true
+SpaceInEmptyParentheses: false
+BreakBeforeBraces: Custom
+BreakConstructorInitializersBeforeComma: true
+ColumnLimit: 0
+KeepEmptyLinesAtTheStartOfBlocks: false
+PointerAlignment: Left
+BraceWrapping:
+    BeforeCatch: true
+    BeforeElse: true
+    AfterClass: true
+    IndentBraces: false
+    AfterFunction: true
+    AfterControlStatement: false
+    AfterEnum: true
+    AfterNamespace: false
+    AfterObjCDeclaration: false
+    AfterStruct: true
+    AfterUnion: true
+    BeforeCatch: true
