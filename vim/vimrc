@@ -21,6 +21,7 @@ call dein#add('xolox/vim-misc')                   " autoload vimscripts, needed 
 call dein#add('xolox/vim-session')                " extended better session management
 " call dein#add('jpalardy/vim-slime')               " send text over tmux in repl-like way
 call dein#add('vimwiki/vimwiki')                  " your personal notes / todos / markdown editor vim
+call dein#add('chrisbra/csv.vim')                 " quickly edit and format csv files
 " call dein#add('vim-scripts/conque-GDB')           " your own GDB interface emulator in vim
 call dein#add('vim-scripts/yankRing.vim')         " maintains previous yanks and deletes
 call dein#add('mileszs/ack.vim')                  " smart and happy searching
@@ -56,6 +57,7 @@ call dein#add('tpope/vim-speeddating')            " easy increment dates with c-
 call dein#add('tpope/vim-repeat')                 " allow vim . repeasts for custom plugins
 call dein#add('godlygeek/tabular')                " better editing for simple alignments
 call dein#add('sjl/gundo.vim')                    " undo tree visualized
+call dein#add('rhysd/vim-clang-format')           " quickly format code in-line
 " call dein#add('terryma/vim-multiple-cursors')     " simulate multiple cursors from sublime
 " call dein#add('Raimondi/delimitMate')             " automatic closing of quotes, parents, brackets
 
@@ -418,12 +420,11 @@ endif
     " TODO more to come here!!!
 
     " fast search and replace using localleader
-    nmap <localleaader>// q:i%s//g<esc>ba
-    nmap <localleaader>/c q:i%s//gc<esc>bba
+    nmap <localleader>// q:i%s//g<esc>ba
+    nmap <localleader>/c q:i%s//gc<esc>bba
 
     " fast source vimrc
     nmap <leader><leader>v :source ~/.vimrc<cr>
-    nmap <leader>c :tabnew<cr>:e ~/.vimrc<cr>
 
     " fast splits
     nmap <leader>s :split<cr>
@@ -471,9 +472,9 @@ endif
 
     " vim-wiki {
         nnoremap <localleader>s :VimwikiToggleListItem<cr>
-        " let g:vimwiki_list = {
-            " \ 'backup': 'backupdir',
-        " \ }
+        map <localleader>ll d:VimwikiDiaryGenerateLinks<cr>
+        nnoremap <F5> "=strftime("%b %d, %Y")<cr>P
+        inoremap <F5> <c-r>=strftime("%b %d, %Y")<cr>
     " }
 
     " yankRing {
@@ -623,6 +624,11 @@ endif
 
     " Tabular {
         vmap <leader>t :Tabularize /
+    " }
+
+    " vim-clang-format {
+        let g:clang_format#detect_style_file = 1
+        map <leader>c :ClangFormat<cr>
     " }
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
