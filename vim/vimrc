@@ -411,7 +411,7 @@ endif
     nnoremap L :vertical resize +8<cr>
 
     " fast saving + quit
-    nmap <leader>w :w<cr>
+    nmap <silent> <leader>w :w<cr>
     nmap <leader>q :q<cr>
     nmap <leader><leader>q :BW<cr>
 
