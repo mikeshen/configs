@@ -95,7 +95,8 @@ alias gc='git commit'
 alias gco='git commit'
 alias gca='git commit -a'
 alias gcm='git commit -m'
-alias gh='git help'
+alias ghunk='git add -p'
+alias gh='gunk'
 alias gl='git log'
 alias ga='git add' # stage
 alias gA='git add .' # stage all
@@ -112,10 +113,13 @@ alias gds='git diff --stat'
 alias gss='git stash'
 alias gsp='git stash pop'
 alias gsl='git stash list'
+alias gssh='git stash show -p'
 alias gsd='git stash drop'
 alias gfp='git format-patch'
 alias gammend='git reset --soft HEAD~1'
-alias gnuke='git reset --hard HEAD~1'
+alias gam='gammend'
+alias gnukelast='git reset --hard HEAD~1'
+alias gnuketil='git reset --hard'
 alias gdt='git difftool'
 alias gdifflast='git diff HEAD~1'
 # gsh shows the number of commits for the current repos for all developers
@@ -134,6 +138,7 @@ alias f='v $(fzf)'
 alias vim='vim -O -X'
 alias v='vim'
 alias rmswap='rm $HOME/Development/configs/vim/cache/swap/*'
+alias rmswp='rmswp'
 
 ########################################################################################################################
 # Custom Directories
@@ -145,4 +150,6 @@ alias config='cd ~/Development/configs'
 alias cconf='config'
 alias dev='cd ~/Development'
 alias cdev='dev'
-alias csand='cd ~/Development/sandbox'
+alias csand="cd $SAND"
+alias cs='csand'
+alias ctest="cd $MINIMAL"

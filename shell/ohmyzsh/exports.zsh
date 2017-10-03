@@ -31,6 +31,8 @@ export FZF_TMUX=1
 
 # Custom Path Stuff
 export MYCONF="$HOME/Development/configs"
+export SAND="$HOME/Development/sandbox"
+export MINIMAL="$SAND/test"
 
 ### History ###
 
