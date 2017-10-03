@@ -19,10 +19,11 @@ call dein#add('tpope/vim-dispatch')               " execute make commands within
 call dein#add('tpope/vim-eunuch')                 " vim sugar for UNIX plugins
 call dein#add('xolox/vim-misc')                   " autoload vimscripts, needed for vim session
 call dein#add('xolox/vim-session')                " extended better session management
-" call dein#add('jpalardy/vim-slime')               " send text over tmux in repl-like way
+call dein#add('jmcantrell/vim-virtualenv')        " work with python virtualenv
+call dein#add('jpalardy/vim-slime')               " send text over tmux in repl-like way
 call dein#add('vimwiki/vimwiki')                  " your personal notes / todos / markdown editor vim
 call dein#add('chrisbra/csv.vim')                 " quickly edit and format csv files
-" call dein#add('vim-scripts/conque-GDB')           " your own GDB interface emulator in vim
+call dein#add('vim-scripts/conque-GDB')           " your own GDB interface emulator in vim
 call dein#add('vim-scripts/yankRing.vim')         " maintains previous yanks and deletes
 call dein#add('mileszs/ack.vim')                  " smart and happy searching
 
@@ -33,7 +34,8 @@ call dein#add('vim-airline/vim-airline-themes')   " themes for vim-airline
 call dein#add('edkolev/tmuxline.vim')             " tmux integration with vim-airline
 " call dein#add('nathanaelkane/vim-indent-guides')  " indent guides for various languages
 call dein#add('kien/rainbow_parentheses.vim')     " differing colors for stacked parentheses
-call dein#add('Valloric/MatchTagAlways')           " highlight enclosing xml / html tags
+call dein#add('okcompute/vim-python-match')       " redefines % motion soo that it cycles through python control statements correctly
+call dein#add('Valloric/MatchTagAlways')          " highlight enclosing xml / html tags
 
 " 3. Filesystem Navigation / Movement
 call dein#add('ctrlpvim/ctrlp.vim')               " fast file finder
@@ -66,7 +68,7 @@ call dein#add('tpope/vim-fugitive')               " GIT integration
 call dein#add('airblade/vim-gitgutter')           " display git information in the gutter
 call dein#add('albfan/vim-timelapse')             " vim time differences between commits
 call dein#add('chrisbra/vim-diff-enhanced')       " show different vim diff options
-call dein#add('AndrewRadev/linediff.vim')          " perform difs on lines of code
+call dein#add('AndrewRadev/linediff.vim')         " perform difs on lines of code
 
 " 6. Snippets
 call dein#add('Shougo/neocomplete.vim')           " neocompletion w/ cache
@@ -488,7 +490,7 @@ endif
 
         " search shortcuts
         nmap <localleader>a :Ack! --ignore={.git,.svn} -SRi -w <C-r><C-w><cr>
-        " nmap <localleader>g :Ack! --ignore={.git,.svn} -SRi {nearest git dir here} <esc>lxBi
+        nmap <localleader>gg q:iAck! --cpp --ignore={.git,.svn} -SRi <esc>lxi
     " }
 
     " Ctags {
@@ -496,6 +498,15 @@ endif
 
         " ctags prompt behavior
         noremap <C-]> g<C-]>
+    " }
+
+    " vim-slime {
+        let g:slime_target = 'tmux'
+        let g:slime_default_config = {"socket_name": split($TMUX, ",")[0], "target_pane": ":.1"}
+    " }
+
+    " conque-gdb {
+        let g:ConqueGdb_Leader = '\'
     " }
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
