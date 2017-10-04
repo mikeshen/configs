@@ -18,6 +18,7 @@ call dein#add('Shougo/dein.vim')
 call dein#add('tpope/vim-dispatch')               " execute make commands within vim
 call dein#add('tpope/vim-eunuch')                 " vim sugar for UNIX plugins
 call dein#add('xolox/vim-misc')                   " autoload vimscripts, needed for vim session
+call dein#add('Shougo/unite.vim')                 " needed for codequery to work
 call dein#add('xolox/vim-session')                " extended better session management
 call dein#add('jmcantrell/vim-virtualenv')        " work with python virtualenv
 call dein#add('jpalardy/vim-slime')               " send text over tmux in repl-like way
@@ -41,6 +42,7 @@ call dein#add('Valloric/MatchTagAlways')          " highlight enclosing xml / ht
 call dein#add('ctrlpvim/ctrlp.vim')               " fast file finder
 call dein#add('scrooloose/nerdtree')              " display a filesystem browser
 call dein#add('junegunn/fzf.vim')                 " fzf vim plugin
+call dein#add('devjoe/vim-codequery')             " search + browse code more efficiently
 call dein#add('christoomey/vim-tmux-navigator')   " jump between tmux panes and vim splits seamlessly
 call dein#add('derekwyatt/vim-fswitch')           " swtich between .h and .cpp files at the press of a key
 call dein#add('bogado/file-line')                 " file:line format when opening files
@@ -57,8 +59,10 @@ call dein#add('tpope/vim-commentary')             " minimimilistic commenting sh
 call dein#add('tpope/vim-surround')               " make quoting/tags replacement easier
 call dein#add('tpope/vim-speeddating')            " easy increment dates with c-a, c-x
 call dein#add('tpope/vim-repeat')                 " allow vim . repeasts for custom plugins
+call dein#add('terryma/vim-expand-region')        " quickly select alrger regions of text using same key combo
 call dein#add('godlygeek/tabular')                " better editing for simple alignments
 call dein#add('sjl/gundo.vim')                    " undo tree visualized
+call dein#add('junegunn/goyo.vim')                " distraction free editing
 call dein#add('rhysd/vim-clang-format')           " quickly format code in-line
 " call dein#add('terryma/vim-multiple-cursors')     " simulate multiple cursors from sublime
 " call dein#add('Raimondi/delimitMate')             " automatic closing of quotes, parents, brackets
@@ -121,6 +125,8 @@ endif
     set background=dark         " Assume a dark background
     colorscheme gruvbox
 
+    " FUNCTIONS
+
     " Allow to trigger background
     function! ToggleBG()
         let s:tbg = &background
@@ -131,6 +137,14 @@ endif
             set background=dark
         endif
     endfunction
+
+    " Map key to toggle opt
+    function MapToggle(key, opt)
+        let cmd = ':set '.a:opt.'! \| set '.a:opt."?\<CR>"
+        exec 'nnoremap '.a:key.' '.cmd
+        exec 'inoremap '.a:key." \<C-O>".cmd
+    endfunction
+    command -nargs=+ MapToggle call MapToggle(<f-args>)
 
     filetype plugin indent on   " Automatically detect file types.
     syntax on                   " Syntax highlighting
@@ -149,7 +163,7 @@ endif
     autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 
     "set autowrite                       " Automatically write a file when leaving a modified buffer
-    set shortmess+=WaoOtIT          " Abbrev. of messages (avoids 'hit enter')
+    set shortmess+=taoOtIT              " Abbrev. of messages (avoids 'hit enter')
     set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
     set virtualedit=onemore             " Allow for cursor beyond last character
     set history=1000                    " Store a ton of history (default is 20)
@@ -257,8 +271,6 @@ endif
     set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
     "set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
 
-    " Remove trailing whitespaces and ^M chars
-    autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> | call StripTrailingWhitespace()
     "autocmd FileType go autocmd BufWritePre <buffer> Fmt
     autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
     autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
@@ -377,7 +389,7 @@ endif
     nmap zl zL
     nmap zh zH
 
-    " USER KEYBINDING CHANGES
+    " ----- USER KEYBINDING CHANGES -----
 
     " make p in visual mode replace the selected text with that in the yank register
     vnoremap p <Esc>:let current_reg = @"<cr>gvdi<C-R>=current_reg<cr><esc>
@@ -400,7 +412,7 @@ endif
     inoremap kJ <esc>l
     inoremap Kj <esc>l
 
-    " guetto bracket completion
+    " ghetto bracket completion
     inoremap { {}<left>
 
     " easier record mode playback for the q register
@@ -413,13 +425,12 @@ endif
     nnoremap L :vertical resize +8<cr>
 
     " fast saving + quit
-    nmap <silent> <leader>w :w<cr>
+    nmap <leader>w :w!<cr>
     nmap <leader>q :q<cr>
     nmap <leader><leader>q :BW<cr>
 
     " fast Make
     nmap <leader>m :Make make<cr>
-    " TODO more to come here!!!
 
     " fast search and replace using localleader
     nmap <localleader>// q:i%s//g<esc>ba
@@ -432,8 +443,11 @@ endif
     nmap <leader>s :split<cr>
     nmap <leader>v :vsplit<cr>
 
+    " quick q:
     nmap <leader>; q:
 
+    " quick wrap/nowrap toggle
+    MapToggle <F4> wrap
     " add split maxing / fullscreen mode
     nmap<leader>z :tab split<cr>
 
@@ -467,9 +481,9 @@ endif
         let g:session_autoload = 'no'
         let g:session_persist_font = 0
         let g:session_persist_colors = 0
-        nmap <localleader>sd :DeleteSession!
-        nmap <localleader>ss :SaveSession!
-        nmap <localleader>so :OpenSession!
+        nmap <localleader>sd :DeleteSession! 
+        nmap <localleader>ss :SaveSession! 
+        nmap <localleader>so :OpenSession! 
     " }
 
     " vim-wiki {
@@ -635,6 +649,11 @@ endif
 
     " Tabular {
         vmap <leader>t :Tabularize /
+    " }
+
+    " vim-expand-region {
+        map U <Plug>(expand_region_expand)
+        map Y <Plug>(expand_region_shrink)
     " }
 
     " vim-clang-format {
