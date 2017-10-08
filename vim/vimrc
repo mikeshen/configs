@@ -431,7 +431,7 @@ endif
     " fast Make
     nnoremap <leader>m :Make make<cr>
 
-    " fast search and replace using localleader
+    " fast search/replace
     nnoremap <localleader>// q:i%s//g<esc>ba
     nnoremap <localleader>/c q:i%s//gc<esc>bba
 
@@ -442,10 +442,10 @@ endif
     noremap <leader>s :split<cr>
     noremap <leader>v :vsplit<cr>
 
-    " quick q:
+    " fast q:
     noremap <leader>; q:
 
-    " quick wrap/nowrap toggle
+    " fast wrap/nowrap toggle
     MapToggle <F4> wrap
     " add split maxing / fullscreen mode
     noremap<leader>z :tab split<cr>
@@ -470,8 +470,11 @@ endif
 
     " KEYBOARD SHORTENINGS
 
-    " quick cout
-    " nnoremap <localleader
+    " fast cout
+    nnoremap <localleader>;c ostd::cout << "" << std::endl;<esc>BBBa
+    " fast include
+    nnoremap <localleader>;ii o#include ""<esc>i
+    nnoremap <localleader>;io o#include <><esc>i
 " }
 
 " Plugins {
