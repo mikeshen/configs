@@ -357,10 +357,10 @@ endif
     " Yank from the cursor to the end of the line, to be consistent with C and D.
     nnoremap Y y$
 
-    nmap <silent> <leader>/ :set invhlsearch<cr>
+    nnoremap <silent> <leader>/ :set invhlsearch<cr>
 
     " Find merge conflict markers
-    nmap <leader>fc /\v^[<\|=>]{7}( .*\|$)<cr>
+    nnoremap <leader>fc /\v^[<\|=>]{7}( .*\|$)<cr>
 
     " Shortcuts
     " Change Working Directory to that of the current file
@@ -379,15 +379,15 @@ endif
     cmap w!! w !sudo tee % >/dev/null
 
     " Adjust viewports to the same size
-    nmap <Leader>= <C-w>=
+    noremap <Leader>= <C-w>=
 
     " Map <Leader>ff to display all lines with keyword under cursor
     " and ask which one to jump to
-    nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<cr>
+    nnoremap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<cr>
 
     " Easier horizontal scrolling
-    nmap zl zL
-    nmap zh zH
+    nnoremap zl zL
+    nnoremap zh zH
 
     " ----- USER KEYBINDING CHANGES -----
 
@@ -395,12 +395,12 @@ endif
     vnoremap p <Esc>:let current_reg = @"<cr>gvdi<C-R>=current_reg<cr><esc>
 
     " Toggle numbercolumn
-    nmap <leader>n :set invnumber<cr> :set invrelativenumber<cr>
+    noremap <leader>n :set invnumber<cr> :set invrelativenumber<cr>
     " strip output of a file
-    nmap <localleader>st :call StripTrailingWhitespace()<cr>
+    nnoremap <localleader>st :call StripTrailingWhitespace()<cr>
 
     " change cdpath to current file
-    nmap <localleader>c :lcd %:p:h<cr>
+    nnoremap <localleader>c :lcd %:p:h<cr>
 
     " fast escape with jk and kj
     inoremap jk <esc>l
@@ -416,58 +416,62 @@ endif
     inoremap { {}<left>
 
     " easier record mode playback for the q register
-    nnoremap Q @q
+    noremap Q @q
 
     "HJKL Resizing
-    nnoremap J :resize +8<cr>
-    nnoremap K :resize -8<cr>
-    nnoremap H :vertical resize -8<cr>
-    nnoremap L :vertical resize +8<cr>
+    noremap J :resize +8<cr>
+    noremap K :resize -8<cr>
+    noremap H :vertical resize -8<cr>
+    noremap L :vertical resize +8<cr>
 
     " fast saving + quit
-    nmap <leader>w :w!<cr>
-    nmap <leader>q :q<cr>
-    nmap <leader><leader>q :BW<cr>
+    noremap <leader>w :w!<cr>
+    noremap <leader>q :q<cr>
 
     " fast Make
-    nmap <leader>m :Make make<cr>
+    nnoremap <leader>m :Make make<cr>
 
     " fast search and replace using localleader
-    nmap <localleader>// q:i%s//g<esc>ba
-    nmap <localleader>/c q:i%s//gc<esc>bba
+    nnoremap <localleader>// q:i%s//g<esc>ba
+    nnoremap <localleader>/c q:i%s//gc<esc>bba
 
     " fast source vimrc
-    nmap <leader><leader>v :source ~/.vimrc<cr>
+    nnoremap <leader><leader>v :source ~/.vimrc<cr>
 
     " fast splits
-    nmap <leader>s :split<cr>
-    nmap <leader>v :vsplit<cr>
+    noremap <leader>s :split<cr>
+    noremap <leader>v :vsplit<cr>
 
     " quick q:
-    nmap <leader>; q:
+    noremap <leader>; q:
 
     " quick wrap/nowrap toggle
     MapToggle <F4> wrap
     " add split maxing / fullscreen mode
-    nmap<leader>z :tab split<cr>
+    noremap<leader>z :tab split<cr>
 
     " change through buffers with <tab> <Shift-tab>
-    nnoremap <tab> :bnext<cr>
-    nnoremap <S-tab> :bprevious<cr>
-    nnoremap <localleader>f :bnext<cr>
-    nnoremap <localleader>d :bprevious<cr>
+    noremap <tab> :bnext<cr>
+    noremap <S-tab> :bprevious<cr>
+    noremap <localleader>f :bnext<cr>
+    noremap <localleader>d :bprevious<cr>
 
     " easier tab opening and closing
-    nmap <leader>tn :tabnew<cr>
-    nmap <leader>to :tabnew<cr>
-    nmap <leader>tc :tabclose<cr>
-    nmap <leader>tm :tabmove<cr>
-    nmap <localleader>j gT
-    nmap <localleader>k gT
+    nnoremap <leader>tn :tabnew<cr>
+    nnoremap <leader>to :tabnew<cr>
+    nnoremap <leader>tc :tabclose<cr>
+    nnoremap <leader>tm :tabmove<cr>
+    nnoremap <localleader>j gT
+    nnoremap <localleader>k gT
 
     " Speed up scrolling of the viewport slightly
-    nnoremap <C-e> 2<C-e>
-    nnoremap <C-y> 2<C-y>
+    noremap <C-e> 2<C-e>
+    noremap <C-y> 2<C-y>
+
+    " KEYBOARD SHORTENINGS
+
+    " quick cout
+    " nnoremap <localleader
 " }
 
 " Plugins {
@@ -481,14 +485,14 @@ endif
         let g:session_autoload = 'no'
         let g:session_persist_font = 0
         let g:session_persist_colors = 0
-        nmap <localleader>sd :DeleteSession! 
-        nmap <localleader>ss :SaveSession! 
-        nmap <localleader>so :OpenSession! 
+        nnoremap <localleader>sd :DeleteSession! 
+        nnoremap <localleader>ss :SaveSession! 
+        nnoremap <localleader>so :OpenSession! 
     " }
 
     " vim-wiki {
         nnoremap <localleader>s :VimwikiToggleListItem<cr>
-        map <localleader>ll d:VimwikiDiaryGenerateLinks<cr>
+        nnoremap <localleader>ll d:VimwikiDiaryGenerateLinks<cr>
         nnoremap <F5> "=strftime("%b %d, %Y")<cr>P
         inoremap <F5> <c-r>=strftime("%b %d, %Y")<cr>
     " }
@@ -503,8 +507,8 @@ endif
         endif
 
         " search shortcuts
-        nmap <localleader>a :Ack! --ignore={.git,.svn} -SRi -w <C-r><C-w><cr>
-        nmap <localleader>gg q:iAck! --cpp --ignore={.git,.svn} -SRi <esc>lxi
+        noremap <localleader>a :Ack! --ignore={.git,.svn} -SRi -w <C-r><C-w><cr>
+        noremap <localleader>gg q:iAck! --cpp --ignore={.git,.svn} -SRi <esc>lxi
     " }
 
     " Ctags {
@@ -588,10 +592,10 @@ endif
         endif
 
         " manage buffers more easily with ctrlp
-        nmap <leader>bp :CtrlP<cr>
-        nmap <leader>bb :CtrlPBuffer<cr>
-        nmap <leader>bm :CtrlPMixed<cr>
-        nmap <leader>bs :CtrlPMRU<cr>
+        noremap <leader>bp :CtrlP<cr>
+        noremap <leader>bb :CtrlPBuffer<cr>
+        noremap <leader>bm :CtrlPMixed<cr>
+        noremap <leader>bs :CtrlPMRU<cr>
     " }
 
     " NERDtree {
@@ -611,8 +615,8 @@ endif
         " Use compact syntax for prettified multi-line comments
         let g:NERDCompactSexyComs = 1
 
-        nmap <leader>e :NERDTreeToggle<cr>
-        nmap <leader>f :e .<cr>
+        noremap <leader>e :NERDTreeToggle<cr>
+        noremap <leader>f :e .<cr>
     " }
 
     " FZF {
@@ -623,24 +627,24 @@ endif
 
     " Fswitch {
         " switch between header/source file
-        nmap <leader>u :FSHere<cr>
+        noremap <leader>u :FSHere<cr>
     " }
 
     " TagBar {
-        nmap <F8> :TagbarToggle<cr>
+        noremap <F8> :TagbarToggle<cr>
         let g:tagbar_autofocus = 1
     " }
 
     " Wipeout {
-        nmap <leader>o :Wipeout<cr>
+        nnoremap <leader>o :Wipeout<cr>
     " }
 
     " bufkill {
-        nmap <leader><leader>q :BD<cr>
+        nnoremap <leader><leader>q :BD<cr>
     " }
 
     " EasyMotion {
-        nmap <leader>k <Plug>(easymotion-overwin-w)
+        noremap <leader>k <Plug>(easymotion-overwin-w)
     " }
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -652,8 +656,8 @@ endif
     " }
 
     " vim-expand-region {
-        map U <Plug>(expand_region_expand)
-        map Y <Plug>(expand_region_shrink)
+        nnoremap U <Plug>(expand_region_expand)
+        nnoremap Y <Plug>(expand_region_shrink)
     " }
 
     " vim-clang-format {
@@ -666,9 +670,9 @@ endif
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
     " Fugitive GIT {
-        nmap <leader>gd :Gdiff<cr>
-        nmap <leader>gs :Gstatus<cr>
-        nmap <leader>gb :Gblame<cr>
+        nnoremap <leader>gd :Gdiff<cr>
+        nnoremap <leader>gs :Gstatus<cr>
+        nnoremap <leader>gb :Gblame<cr>
     " }
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
