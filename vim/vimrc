@@ -64,7 +64,6 @@ call dein#add('godlygeek/tabular')                " better editing for simple al
 call dein#add('sjl/gundo.vim')                    " undo tree visualized
 call dein#add('junegunn/goyo.vim')                " distraction free editing
 call dein#add('rhysd/vim-clang-format')           " quickly format code in-line
-call dein#add('FredKSchott/CoVim')                " pair programming
 " call dein#add('terryma/vim-multiple-cursors')     " simulate multiple cursors from sublime
 " call dein#add('Raimondi/delimitMate')             " automatic closing of quotes, parents, brackets
 
