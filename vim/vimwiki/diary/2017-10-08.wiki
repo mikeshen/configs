@@ -1,6 +1,8 @@
 = .plan for Oct 08, 2017 =
 
-:Goals:
+=== Goals ===
 * [X] go to church -> northwestern law school thorne auditorium 4pm
+* [X] learn about covim -> it is absolute garbo!
 * [ ] install flask + django + angularjs
-* [ ] learn about covim
+* [ ] hope Emily responds today
+
