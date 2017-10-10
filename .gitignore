@@ -1,4 +1,5 @@
 vim/.cache/*
 vim/cache
+vim/vimwiki_html
 vim/repos/github.com/*
 .gitignore
