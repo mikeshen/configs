@@ -1,4 +1,4 @@
-= Github: how to avoid entering your ssh keys =
+== Github: how to avoid entering your ssh keys ==
 
 If you already have your SSH keys set up and are still getting the password prompt, make sure your repo URL is in the form
 
@@ -12,3 +12,5 @@ git remote show origin
 You can change the URL with git remote set-url like so:
 
 git remote set-url origin git+ssh://git@github.com/username/reponame.git
+
+= Github: how to avoid entering your ssh keys =

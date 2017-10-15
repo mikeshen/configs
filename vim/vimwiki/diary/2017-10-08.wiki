@@ -3,6 +3,4 @@
 === Goals ===
 * [X] go to church -> northwestern law school thorne auditorium 4pm
 * [X] learn about covim -> it is absolute garbo!
-* [ ] install flask + django + angularjs
-* [ ] hope Emily responds today
 
