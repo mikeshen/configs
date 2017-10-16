@@ -3,6 +3,15 @@ export EDITOR=vim
 export VISUAL=vim
 export SVN_EDITOR=vim
 
+### History ###
+
+# how many total lines are allowed to be in your .bash_history file at startup / stored at the end of a session
+HISTFILESIZE=1000000
+HISTSIZE=1000000
+SAVEHIST=$HISTSIZE
+HISTFILE="$HOME/.zsh_history"
+HISTCONTROL=ignorespace:ignoredups
+
 # Less
 export LESS='--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
 export PAGER='less'
@@ -26,20 +35,12 @@ export SSH_KEY_PATH="~/.ssh/rsa_id" # ssh path
 export KEYTIMEOUT=1 # less delay between vi's insert and esc mode in zsh
 export DEFAULT_USER=mikeshen # remove the stupid prompt when on my own device
 
-# FZF TMUX
-export FZF_TMUX=1
+export FZF_TMUX=1 # we want to use tmux for fzf panes
 
-# Custom Path Stuff
+# Custom cd variables
 export MYCONF="$HOME/Development/configs"
 export SAND="$HOME/Development/sandbox"
 export MINIMAL="$SAND/test"
 
-### History ###
-
-# how many total lines are allowed to be in your .bash_history file at startup / stored at the end of a session
-HISTFILESIZE=1000000
-HISTSIZE=1000000
-SAVEHIST=$HISTSIZE
-HISTFILE="$HOME/.zsh_history"
-HISTCONTROL=ignorespace:ignoredups
-
+# PATH
+path-append "/home/osboxes/anaconda3/bin"

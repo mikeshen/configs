@@ -13,14 +13,14 @@ path-remove () {
 }
 
 # add item to end of $PATH, uniquely
-path-append () {
+path-append() {
   [ -d $1 ] || return 1    # make sure directory exists
   path-remove $1           # remove the directory
   export PATH=${PATH}:${1} # append the directory
 }
 
 # add item to beginning of $PATH, uniquely
-path-prepend () {
+path-prepend() {
   [ -d $1 ] || return 1     # make sure directory exists
   path-remove $1            # remove the directory
   export PATH=${1}:${PATH}  # append the directory
