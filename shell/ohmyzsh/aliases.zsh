@@ -4,6 +4,7 @@
 
 # shortenings
 alias cl='clear'
+alias lc='cl'                                                                                 # cause i'm retarded
 alias :q='exit'
 alias :Q='exit'
 alias p='pushd'                                                                               # push directory to stack and go to new dir
@@ -25,6 +26,7 @@ alias colorscheme='wget -O gogh https://git.io/vQgMr && chmod +x gogh && ./gogh 
 
 # view
 alias less='less --shift 5 --ignore-case --chop-long-lines --RAW-CONTROL-CHARS --LONG-PROMPT'
+alias LL='less'
 alias more='less'
 alias view='pygmentize -g'
 alias vhist='history|vless'
@@ -57,6 +59,7 @@ alias mv='mv -v'
 alias l='ls -alhFp'
 alias la='ls -A'
 alias lm='ls -alhrt' # show last modified file by reverse order
+alias sl='ls'
 
 # search shortcuts
 alias gg='grep -nIi --exclude-dir={.git,.svn} --exclude "*~" --color'
@@ -145,11 +148,15 @@ alias rmswp='rmswp'
 ########################################################################################################################
 
 # specific cd directories
-alias cdown='cd ~/Downloads'
-alias config='cd ~/Development/configs'
-alias cconf='config'
 alias dev='cd ~/Development'
 alias cdev='dev'
+alias cgm='dev'
+alias cdd='dev'
+alias config="cd $MYCONF"
 alias csand="cd $SAND"
-alias cs='csand'
+alias cbuilds="cd $BUILDS"
 alias ctest="cd $MINIMAL"
+alias cdown="cd $DOWN"
+alias cconf='config'
+alias cs='csand'
+alias cbb='cbuilds'
