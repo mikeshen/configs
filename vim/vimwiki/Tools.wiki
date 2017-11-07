@@ -12,5 +12,45 @@ git remote show origin
 You can change the URL with git remote set-url like so:
 
 git remote set-url origin git+ssh://git@github.com/username/reponame.git
+You can use a virtualenv for your IPython notebook. Follow the following steps:
 
-= Github: how to avoid entering your ssh keys =
+
+== iPython: how to use virtualenv within your notebook ==
+
+-> source my-virtualenv-name/bin/activate      # activate your virtualenv, if you haven't already
+-> pip install ipykernel
+
+Now run the kernel "self-install" script:
+-> python -m ipykernel install --user --name=my-virtualenv-name
+
+Replacing the --name parameter as appropriate.
+You should now be able to see your kernel in the IPython notebook menu: Kernel -> Change kernel and be able so switch to it (you may need to refresh the page before it appears in the list). IPython will remember which kernel to use for that notebook from then on.
+
+
+== NBA Fantasy ==
+* nba_py looks promising in terms of getting nba player stats
+
+=== Breakdown of Points ===
+* pts = 1 reb = 1.2, ast = 1.5, stl = 3, blk = 3, to = -1
+* this will make pts highly overvalued
+
+adjusted value
+* pts == 105.6
+* reb == 52.2
+* ast == 33.9
+* stl == 23.1
+* blk == 14.1
+* to == -14.3
+
+normalized value
+* pts == 49.6
+* reb == 24.53
+* ast == 15.9
+* stl == 10.85
+* blk == 06.6
+* to == -06.72
+
+* tot == 425.6 AVG
+* sea == 34898 AVG
+
+

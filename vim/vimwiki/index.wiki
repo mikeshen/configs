@@ -5,3 +5,4 @@
     * [[diary/diary]] -- where I store my .plan file
 
 = Readings =
+    * [[Current Readings]] -- list of books I'm currently reading
