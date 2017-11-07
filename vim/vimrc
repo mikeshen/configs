@@ -139,12 +139,12 @@ endif
     endfunction
 
     " Map key to toggle opt
-    function MapToggle(key, opt)
+    function! MapToggle(key, opt)
         let cmd = ':set '.a:opt.'! \| set '.a:opt."?\<CR>"
         exec 'nnoremap '.a:key.' '.cmd
         exec 'inoremap '.a:key." \<C-O>".cmd
     endfunction
-    command -nargs=+ MapToggle call MapToggle(<f-args>)
+    command! -nargs=+ MapToggle call MapToggle(<f-args>)
 
     filetype plugin indent on   " Automatically detect file types.
     syntax on                   " Syntax highlighting
@@ -209,6 +209,7 @@ endif
     set tabpagemax=15               " Only show 15 tabs
     set showmode                    " Display the current mode
     set cursorline                  " Highlight current line
+    set noea                        " Don't resize all buffers when a split is closed
 
     highlight clear SignColumn      " SignColumn should match background
     highlight clear LineNr          " Current line number row will have same background color in relative mode
@@ -462,7 +463,7 @@ endif
     nnoremap <leader>tc :tabclose<cr>
     nnoremap <leader>tm :tabmove<cr>
     nnoremap <localleader>j gT
-    nnoremap <localleader>k gT
+    nnoremap <localleader>k gt
 
     " Speed up scrolling of the viewport slightly
     noremap <C-e> 2<C-e>
@@ -470,11 +471,14 @@ endif
 
     " KEYBOARD SHORTENINGS
 
-    " fast cout
+    " ;; logging shortcuts
     nnoremap <localleader>;c ostd::cout << "" << std::endl;<esc>BBBa
-    " fast include
     nnoremap <localleader>;ii o#include ""<esc>i
-    nnoremap <localleader>;io o#include <><esc>i
+    nnoremap <localleader>;io o#include <><esc>
+    nnoremap <localleader>;/ OMikeComment: <esc>:Commentary<cr>A
+    nnoremap <localleader>;a oMikeComment: <esc>:Commentary<cr>kJA
+    nnoremap <localleader>;t OTODO: <esc>:Commentary<cr>A
+
 " }
 
 " Plugins {
@@ -510,7 +514,9 @@ endif
         endif
 
         " search shortcuts
+        " under word
         noremap <localleader>a :Ack! --ignore={.git,.svn} -SRi -w <C-r><C-w><cr>
+        " in current pwd directory
         noremap <localleader>gg q:iAck! --cpp --ignore={.git,.svn} -SRi <esc>lxi
     " }
 
