@@ -20,23 +20,25 @@ call dein#add('tpope/vim-eunuch')                 " vim sugar for UNIX plugins
 call dein#add('xolox/vim-misc')                   " autoload vimscripts, needed for vim session
 call dein#add('Shougo/unite.vim')                 " needed for codequery to work
 call dein#add('xolox/vim-session')                " extended better session management
+call dein#add('vim-utils/vim-man')                " vim man
 call dein#add('jmcantrell/vim-virtualenv')        " work with python virtualenv
 call dein#add('jpalardy/vim-slime')               " send text over tmux in repl-like way
 call dein#add('vimwiki/vimwiki')                  " your personal notes / todos / markdown editor vim
 call dein#add('chrisbra/csv.vim')                 " quickly edit and format csv files
 call dein#add('vim-scripts/conque-GDB')           " your own GDB interface emulator in vim
-call dein#add('vim-scripts/yankRing.vim')         " maintains previous yanks and deletes
 call dein#add('mileszs/ack.vim')                  " smart and happy searching
 
 " 2. UI / Themes / Color
 call dein#add('flazz/vim-colorschemes')           " hundreds of colorschemes
 call dein#add('vim-airline/vim-airline')          " vim-airline powerbar
 call dein#add('vim-airline/vim-airline-themes')   " themes for vim-airline
+call dein#add('ryanoasis/vim-devicons')            " icons for stuff
 call dein#add('edkolev/tmuxline.vim')             " tmux integration with vim-airline
-" call dein#add('nathanaelkane/vim-indent-guides')  " indent guides for various languages
+call dein#add('Yggdroot/indentLine')              " indent guides for various languages
 call dein#add('kien/rainbow_parentheses.vim')     " differing colors for stacked parentheses
 call dein#add('okcompute/vim-python-match')       " redefines % motion soo that it cycles through python control statements correctly
 call dein#add('Valloric/MatchTagAlways')          " highlight enclosing xml / html tags
+call dein#add('elzr/vim-json')
 
 " 3. Filesystem Navigation / Movement
 call dein#add('ctrlpvim/ctrlp.vim')               " fast file finder
@@ -63,7 +65,7 @@ call dein#add('terryma/vim-expand-region')        " quickly select alrger region
 call dein#add('godlygeek/tabular')                " better editing for simple alignments
 call dein#add('sjl/gundo.vim')                    " undo tree visualized
 call dein#add('junegunn/goyo.vim')                " distraction free editing
-call dein#add('rhysd/vim-clang-format')           " quickly format code in-line
+call dein#add('Chiel92/vim-autoformat')           " quickly format code in-line
 " call dein#add('terryma/vim-multiple-cursors')     " simulate multiple cursors from sublime
 " call dein#add('Raimondi/delimitMate')             " automatic closing of quotes, parents, brackets
 
@@ -75,9 +77,14 @@ call dein#add('chrisbra/vim-diff-enhanced')       " show different vim diff opti
 call dein#add('AndrewRadev/linediff.vim')         " perform difs on lines of code
 
 " 6. Snippets
-call dein#add('Shougo/neocomplete.vim')           " neocompletion w/ cache
+call dein#add('Shougo/deoplete.nvim')             " completeion engine
+call dein#add('zchee/deoplete-clang')             " clang completion
+" call dein#add('Shougo/neocomplete.vim')           " neocompletion w/ cache
 call dein#add('SirVer/ultisnips')                 " snippet engine
 call dein#add('honza/vim-snippets')               " snippets repo
+
+" 7. NeoVim
+
 
 call dein#end()
 
@@ -152,11 +159,7 @@ endif
     set mousehide               " Hide the mouse cursor while typing
     scriptencoding utf-8
 
-    if has('unnamedplus')  " When possible use + register for copy-paste
-        set clipboard+=unnamedplus
-    else         " On mac and Windows, use * register for copy-paste
-        set clipboard=unnamed
-    endif
+    set clipboard=unnamedplus
 
     " Most prefer to automatically switch to the current file directory when
     " a new buffer is opened
@@ -392,17 +395,17 @@ endif
 
     " ----- USER KEYBINDING CHANGES -----
 
-    " make p in visual mode replace the selected text with that in the yank register
-    vnoremap p <Esc>:let current_reg = @"<cr>gvdi<C-R>=current_reg<cr><esc>
+    " insert mode quick delete line
+    inoremap <C-d> <esc>ddi
 
+    " fast commands
+    map <leader>r :
     " Toggle numbercolumn
     noremap <leader>n :set invnumber<cr> :set invrelativenumber<cr>
     " strip output of a file
     nnoremap <localleader>st :call StripTrailingWhitespace()<cr>
-
     " change cdpath to current file
     nnoremap <localleader>c :lcd %:p:h<cr>
-
     " fast escape with jk and kj
     inoremap jk <esc>l
     inoremap kj <esc>l
@@ -412,51 +415,39 @@ endif
     inoremap KJ <esc>l
     inoremap kJ <esc>l
     inoremap Kj <esc>l
-
     " ghetto bracket completion
     inoremap { {}<left>
-
     " easier record mode playback for the q register
     noremap Q @q
-
     "HJKL Resizing
     noremap J :resize +8<cr>
     noremap K :resize -8<cr>
     noremap H :vertical resize -8<cr>
     noremap L :vertical resize +8<cr>
-
     " fast saving + quit
     noremap <leader>w :w!<cr>
     noremap <leader>q :q<cr>
-
     " fast Make
     nnoremap <leader>m :Make make<cr>
-
     " fast search/replace
     nnoremap <localleader>// q:i%s//g<esc>ba
     nnoremap <localleader>/c q:i%s//gc<esc>bba
-
     " fast source vimrc
     nnoremap <leader><leader>v :source ~/.vimrc<cr>
-
     " fast splits
     noremap <leader>s :split<cr>
     noremap <leader>v :vsplit<cr>
-
     " fast q:
     noremap <leader>; q:
-
     " fast wrap/nowrap toggle
     MapToggle <F4> wrap
     " add split maxing / fullscreen mode
     noremap<leader>z :tab split<cr>
-
     " change through buffers with <tab> <Shift-tab>
     noremap <tab> :bnext<cr>
     noremap <S-tab> :bprevious<cr>
     noremap <localleader>f :bnext<cr>
     noremap <localleader>d :bprevious<cr>
-
     " easier tab opening and closing
     nnoremap <leader>tn :tabnew<cr>
     nnoremap <leader>to :tabnew<cr>
@@ -464,7 +455,6 @@ endif
     nnoremap <leader>tm :tabmove<cr>
     nnoremap <localleader>j gT
     nnoremap <localleader>k gt
-
     " Speed up scrolling of the viewport slightly
     noremap <C-e> 2<C-e>
     noremap <C-y> 2<C-y>
@@ -502,10 +492,6 @@ endif
         nnoremap <localleader>ll d:VimwikiDiaryGenerateLinks<cr>
         nnoremap <F5> "=strftime("%b %d, %Y")<cr>P
         inoremap <F5> <c-r>=strftime("%b %d, %Y")<cr>
-    " }
-
-    " yankRing {
-        nnoremap <silent> <localleader>p :YRShow<cr>
     " }
 
     " Ack/Ag THE SILVER SEARCHER {
@@ -669,9 +655,8 @@ endif
         map Y <Plug>(expand_region_shrink)
     " }
 
-    " vim-clang-format {
-        let g:clang_format#detect_style_file = 1
-        map <leader>c :ClangFormat<cr>
+    " Autoformat {
+        map <leader>c :Autoformat<cr>
     " }
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -688,65 +673,91 @@ endif
     " 6 Snippets
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-    " NeoComplete {
-        " Disable AutoComplPop.
-        let g:acp_enableAtStartup = 0
-        " Use neocomplete.
-        let g:neocomplete#enable_at_startup = 1
-        " Use smartcase.
-        let g:neocomplete#enable_smart_case = 1
-        " Set minimum syntax keyword length.
-        let g:neocomplete#sources#syntax#min_keyword_length = 3
+    " Deoplete {
+        let g:deoplete#enable_at_startup = 1
+        let g:deoplete#sources#clang#libclang_path = "/usr/lib/x86_64-linux-gnu/libclang-4.0.so.1"
+        let g:deoplete#sources#clang#clang_header = "/usr/lib/llvm-4.0/lib/clang"
 
-        " Define dictionary.
-        let g:neocomplete#sources#dictionary#dictionaries = {
-            \ 'default' : ''
-        \ }
+		function! s:check_back_space() abort "{{{
+		let col = col('.') - 1
+		return !col || getline('.')[col - 1]  =~ '\s'
+		endfunction"}}}
 
-        " Define keyword.
-        if !exists('g:neocomplete#keyword_patterns')
-            let g:neocomplete#keyword_patterns = {}
-        endif
-        let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+		inoremap <silent><expr> <S-TAB>
+		\ pumvisible() ? "\<C-p>" :
+		\ <SID>check_back_space() ? "\<S-TAB>" :
+		\ deoplete#mappings#manual_complete()
 
-        " Plugin key-mappings.
-        inoremap <expr><C-g>     neocomplete#undo_completion()
-        inoremap <expr><C-l>     neocomplete#complete_common_string()
+		inoremap <silent><expr> <TAB>
+		\ pumvisible() ? "\<C-n>" :
+		\ <SID>check_back_space() ? "\<TAB>" :
+		\ deoplete#mappings#manual_complete()
 
-        " Recommended key-mappings.
-        " <CR>: close popup and save indent.
-        inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-        function! s:my_cr_function()
-          return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-          " For no inserting <CR> key.
-          "return pumvisible() ? "\<C-y>" : "\<CR>"
-        endfunction
-        " <TAB>: completion.
-        inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+        inoremap <expr><C-h> deoplete#mappings#manual_complete()."\<C-h>"
         " <C-h>, <BS>: close popup and delete backword char.
-        inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-        inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-        " Close popup by <Space>.
-        "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-        " AutoComplPop like behavior.
-        "let g:neocomplete#enable_auto_select = 1
-
-        " Enable omni completion.
-        autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-        autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-        autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-        autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-        autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-        " Enable heavy omni completion.
-        if !exists('g:neocomplete#sources#omni#input_patterns')
-          let g:neocomplete#sources#omni#input_patterns = {}
-        endif
-        "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-        let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-        let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+        inoremap <expr><BS> deoplete#smart_close_popup()."\<BS>"
     " }
+
+"     " NeoComplete {
+"         " Disable AutoComplPop.
+"         let g:acp_enableAtStartup = 0
+"         " Use neocomplete.
+"         let g:neocomplete#enable_at_startup = 1
+"         " Use smartcase.
+"         let g:neocomplete#enable_smart_case = 1
+"         " Set minimum syntax keyword length.
+"         let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+"         " Define dictionary.
+"         let g:neocomplete#sources#dictionary#dictionaries = {
+"             \ 'default' : ''
+"         \ }
+
+"         " Define keyword.
+"         if !exists('g:neocomplete#keyword_patterns')
+"             let g:neocomplete#keyword_patterns = {}
+"         endif
+"         let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+"         " Plugin key-mappings.
+"         inoremap <expr><C-g>     neocomplete#undo_completion()
+"         inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+"         " Recommended key-mappings.
+"         " <CR>: close popup and save indent.
+"         inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+"         function! s:my_cr_function()
+"           return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+"           " For no inserting <CR> key.
+"           "return pumvisible() ? "\<C-y>" : "\<CR>"
+"         endfunction
+"         " <TAB>: completion.
+"         inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"         " <C-h>, <BS>: close popup and delete backword char.
+"         inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+"         inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+"         " Close popup by <Space>.
+"         "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+"         " AutoComplPop like behavior.
+"         "let g:neocomplete#enable_auto_select = 1
+
+"         " Enable omni completion.
+"         autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+"         autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"         autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"         autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"         autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+"         " Enable heavy omni completion.
+"         if !exists('g:neocomplete#sources#omni#input_patterns')
+"           let g:neocomplete#sources#omni#input_patterns = {}
+"         endif
+"         "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"         let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"         let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+"     " }
 
     " UltiSnips {
         " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -754,6 +765,10 @@ endif
         let g:UltiSnipsJumpForwardTrigger="<c-j>"
         let g:UltiSnipsJumpBackwardTrigger="<c-k>"
     " }
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " 7 Neovim
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " }
 

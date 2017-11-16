@@ -6,3 +6,4 @@
 
 = Readings =
     * [[Current Readings]] -- list of books I'm currently reading
+    * [[Coding Interview University]] -- assorted notes for this
