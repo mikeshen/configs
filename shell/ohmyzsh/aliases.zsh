@@ -31,13 +31,6 @@ alias more='less'
 alias view='pygmentize -g'
 alias vhist='history|vless'
 
-# config aliases
-alias valias='vim $ZSH/.aliases.zsh'
-alias vzsh="$EDITOR ~/.zshrc"
-alias vvim="$EDITOR ~/.vimrc"
-alias remind='less $ZSH/.aliases.zsh'                                                         # remind me what the aliases were again?
-alias remindgit='less ~/.gitconfig'                                                           # remind me what the git config was again?
-
 ########################################################################################################################
 # Build Tools
 ########################################################################################################################
@@ -133,15 +126,22 @@ alias gcount="git shortlog | grep -E '^[ ]+\w+' | wc -l"
 ########################################################################################################################
 
 # O - vertical splits
-# X - do not connect to X window
 # u - custom vimrc
 # --cmd - run cmd
 
-alias f='v $(fzf)'
-alias vim='vim -O -X'
+alias vim='nvim -O'
 alias v='vim'
+alias f='v $(fzf)'
 alias rmswap='rm $HOME/Development/configs/vim/cache/swap/*'
-alias rmswp='rmswp'
+alias rmswp='rmswap'
+
+# config aliases
+alias valias="$EDITOR $ZSH/.aliases.zsh"
+alias vzsh="$EDITOR ~/.zshrc"
+alias vvim="$EDITOR ~/.vimrc"
+alias remind="less $ZSH/.aliases.zsh"                                                         # remind me what the aliases were again?
+alias remindgit='less ~/.gitconfig'                                                           # remind me what the git config was again?
+
 
 ########################################################################################################################
 # Custom Directories
@@ -156,6 +156,8 @@ alias config="cd $MYCONF"
 alias csand="cd $SAND"
 alias cbuilds="cd $BUILDS"
 alias ctest="cd $MINIMAL"
+alias cminimal='ctest'
+alias cmin='ctest'
 alias cdown="cd $DOWN"
 alias cconf='config'
 alias cs='csand'

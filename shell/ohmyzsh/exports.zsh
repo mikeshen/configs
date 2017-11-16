@@ -1,7 +1,7 @@
 # Make vim our default editor
-export EDITOR=vim
-export VISUAL=vim
-export SVN_EDITOR=vim
+export EDITOR=nvim
+export VISUAL=nvim
+export SVN_EDITOR=nvim
 
 ### History ###
 
