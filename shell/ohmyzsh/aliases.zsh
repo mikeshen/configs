@@ -12,6 +12,7 @@ alias o='popd'                                                                  
 alias m='man'                                                                                 # i'm lazy af, ok?
 alias tmux="tmux -2"
 alias tm='tmux attach || tmux new'
+alias pipey='while read line; do count=1; out=$(echo "$line"|tr "|" "\n"); echo $out|while IFS= read -r i; do echo "$count $i"; count=$((count+1)); done: echo "----------------------------------------------------------------------------------------------------"'
 
 # tools
 alias du='du -sh'                                                                             # disk usage
@@ -30,6 +31,10 @@ alias LL='less'
 alias more='less'
 alias view='pygmentize -g'
 alias vhist='history|vless'
+
+# explicatives
+alias fuckthis='exit'
+alias shit='cl'
 
 ########################################################################################################################
 # Build Tools
@@ -74,6 +79,7 @@ alias ....='cd ../../..'
 ########################################################################################################################
 # Git Shortcuts
 ########################################################################################################################
+
 alias g='git'
 alias gs='git status'
 alias gst='git status -uno'
