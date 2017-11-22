@@ -1,109 +1,107 @@
-"Begin dein Scripts--------------------------------------------------------
-set nocompatible               " Be iMproved
-
-let s:config_dir = $HOME . '/Development/configs'
-let s:cache_dir = expand(s:config_dir . '/vim/cache')
-
-set runtimepath+=/home/osboxes/Development/configs/vim/repos/github.com/Shougo/dein.vim
-set rtp+=~/.fzf
-
-call dein#begin(expand(s:config_dir . '/vim'))
-
-" Let dein manage dein
-call dein#add('Shougo/dein.vim')
-
-" ADD OR REMOVE PLUGINS HERE
-
-" 1. Utilities
-call dein#add('tpope/vim-dispatch')               " execute make commands within vim
-call dein#add('tpope/vim-eunuch')                 " vim sugar for UNIX plugins
-call dein#add('xolox/vim-misc')                   " autoload vimscripts, needed for vim session
-call dein#add('Shougo/unite.vim')                 " needed for codequery to work
-call dein#add('xolox/vim-session')                " extended better session management
-call dein#add('vim-utils/vim-man')                " vim man
-call dein#add('jmcantrell/vim-virtualenv')        " work with python virtualenv
-call dein#add('jpalardy/vim-slime')               " send text over tmux in repl-like way
-call dein#add('vimwiki/vimwiki')                  " your personal notes / todos / markdown editor vim
-call dein#add('chrisbra/csv.vim')                 " quickly edit and format csv files
-call dein#add('vim-scripts/conque-GDB')           " your own GDB interface emulator in vim
-call dein#add('mileszs/ack.vim')                  " smart and happy searching
-
-" 2. UI / Themes / Color
-call dein#add('flazz/vim-colorschemes')           " hundreds of colorschemes
-call dein#add('vim-airline/vim-airline')          " vim-airline powerbar
-call dein#add('vim-airline/vim-airline-themes')   " themes for vim-airline
-call dein#add('ryanoasis/vim-devicons')            " icons for stuff
-call dein#add('edkolev/tmuxline.vim')             " tmux integration with vim-airline
-call dein#add('Yggdroot/indentLine')              " indent guides for various languages
-call dein#add('kien/rainbow_parentheses.vim')     " differing colors for stacked parentheses
-call dein#add('okcompute/vim-python-match')       " redefines % motion soo that it cycles through python control statements correctly
-call dein#add('Valloric/MatchTagAlways')          " highlight enclosing xml / html tags
-call dein#add('elzr/vim-json')
-
-" 3. Filesystem Navigation / Movement
-call dein#add('ctrlpvim/ctrlp.vim')               " fast file finder
-call dein#add('scrooloose/nerdtree')              " display a filesystem browser
-call dein#add('junegunn/fzf.vim')                 " fzf vim plugin
-call dein#add('devjoe/vim-codequery')             " search + browse code more efficiently
-call dein#add('christoomey/vim-tmux-navigator')   " jump between tmux panes and vim splits seamlessly
-call dein#add('derekwyatt/vim-fswitch')           " swtich between .h and .cpp files at the press of a key
-call dein#add('bogado/file-line')                 " file:line format when opening files
-call dein#add('majutsushi/tagbar')                " displays tags in a window, ordered by scope
-call dein#add('artnez/vim-wipeout')               " quickly remove all unopened buffers with :Wipeout
-call dein#add('qpkorr/vim-bufkill')               " kill buffers without destroying panes
-call dein#add('easymotion/vim-easymotion')        " easily jump around using labeled tags
-call dein#add('tpope/vim-unimpaired')             " extremely useful [] bracket shortcuts
-call dein#add('rhysd/clever-f.vim')               " smartly repeat f and F searches using the same keys
-call dein#add('tmhedberg/matchit')                " extend % to work for tags
-
-" 4. Editing
-call dein#add('tpope/vim-commentary')             " minimimilistic commenting shortcuts
-call dein#add('tpope/vim-surround')               " make quoting/tags replacement easier
-call dein#add('tpope/vim-speeddating')            " easy increment dates with c-a, c-x
-call dein#add('tpope/vim-repeat')                 " allow vim . repeasts for custom plugins
-call dein#add('terryma/vim-expand-region')        " quickly select alrger regions of text using same key combo
-call dein#add('godlygeek/tabular')                " better editing for simple alignments
-call dein#add('sjl/gundo.vim')                    " undo tree visualized
-call dein#add('junegunn/goyo.vim')                " distraction free editing
-call dein#add('Chiel92/vim-autoformat')           " quickly format code in-line
-" call dein#add('terryma/vim-multiple-cursors')     " simulate multiple cursors from sublime
-" call dein#add('Raimondi/delimitMate')             " automatic closing of quotes, parents, brackets
-
-" 5. Version Control Integration
-call dein#add('tpope/vim-fugitive')               " GIT integration
-call dein#add('airblade/vim-gitgutter')           " display git information in the gutter
-call dein#add('albfan/vim-timelapse')             " vim time differences between commits
-call dein#add('chrisbra/vim-diff-enhanced')       " show different vim diff options
-call dein#add('AndrewRadev/linediff.vim')         " perform difs on lines of code
-
-" 6. Snippets
-call dein#add('Shougo/deoplete.nvim')             " completeion engine
-call dein#add('zchee/deoplete-clang')             " clang completion
-" call dein#add('Shougo/neocomplete.vim')           " neocompletion w/ cache
-call dein#add('SirVer/ultisnips')                 " snippet engine
-call dein#add('honza/vim-snippets')               " snippets repo
-
-" 7. NeoVim
-
-
-call dein#end()
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
-
-"End dein Scripts--------------------------------------------------------
-
-" Modeline and Notes {
-" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
+"
 "
 "                        __   __(_)_ __ ___
 "                        \ \ / /| | '_ ` _ \
 "                        |\ V / | | | | | | |
 "                          \_/  |_|_| |_| |_|
 "
-" }
+"
+"Begin dein Scripts-------------------------------------------------------- {
+    set nocompatible                                  " Be iMproved
+
+    let s:config_dir = $HOME . '/Development/configs'
+    let s:cache_dir = expand(s:config_dir . '/vim/cache')
+    set runtimepath+=/home/osboxes/Development/configs/vim/repos/github.com/Shougo/dein.vim
+    set rtp+=~/.fzf
+    call dein#begin(expand(s:config_dir . '/vim'))
+    call dein#add('Shougo/dein.vim') " let dein manage dein
+
+    " ADD OR REMOVE PLUGINS HERE
+
+    " 1. Utilities {
+    call dein#add('tpope/vim-dispatch')               " execute make commands within vim
+    call dein#add('tpope/vim-eunuch')                 " vim sugar for UNIX plugins
+    call dein#add('xolox/vim-misc')                   " autoload vimscripts, needed for vim session
+    call dein#add('Shougo/unite.vim')                 " needed for codequery to work
+    call dein#add('xolox/vim-session')                " extended better session management
+    call dein#add('vim-utils/vim-man')                " vim man
+    call dein#add('jmcantrell/vim-virtualenv')        " work with python virtualenv
+    call dein#add('jpalardy/vim-slime')               " send text over tmux in repl-like way
+    call dein#add('vimwiki/vimwiki')                  " your personal notes / todos / markdown editor vim
+    call dein#add('chrisbra/csv.vim')                 " quickly edit and format csv files
+    call dein#add('vim-scripts/conque-GDB')           " your own GDB interface emulator in vim
+    call dein#add('mileszs/ack.vim')                  " smart and happy searching
+    " }
+
+    " 2. UI / Themes / Color {
+    call dein#add('flazz/vim-colorschemes')           " hundreds of colorschemes
+    call dein#add('vim-airline/vim-airline')          " vim-airline powerbar
+    call dein#add('vim-airline/vim-airline-themes')   " themes for vim-airline
+    call dein#add('ryanoasis/vim-devicons')            " icons for stuff
+    call dein#add('edkolev/tmuxline.vim')             " tmux integration with vim-airline
+    call dein#add('Yggdroot/indentLine')              " indent guides for various languages
+    call dein#add('kien/rainbow_parentheses.vim')     " differing colors for stacked parentheses
+    call dein#add('okcompute/vim-python-match')       " redefines % motion soo that it cycles through python control statements correctly
+    call dein#add('Valloric/MatchTagAlways')          " highlight enclosing xml / html tags
+    call dein#add('elzr/vim-json')
+    " }
+
+    " 3. Filesystem Navigation / Movement {
+    call dein#add('ctrlpvim/ctrlp.vim')               " fast file finder
+    call dein#add('scrooloose/nerdtree')              " display a filesystem browser
+    call dein#add('junegunn/fzf.vim')                 " fzf vim plugin
+    call dein#add('devjoe/vim-codequery')             " search + browse code more efficiently
+    call dein#add('christoomey/vim-tmux-navigator')   " jump between tmux panes and vim splits seamlessly
+    call dein#add('derekwyatt/vim-fswitch')           " swtich between .h and .cpp files at the press of a key
+    call dein#add('bogado/file-line')                 " file:line format when opening files
+    call dein#add('majutsushi/tagbar')                " displays tags in a window, ordered by scope
+    call dein#add('artnez/vim-wipeout')               " quickly remove all unopened buffers with :Wipeout
+    call dein#add('qpkorr/vim-bufkill')               " kill buffers without destroying panes
+    call dein#add('easymotion/vim-easymotion')        " easily jump around using labeled tags
+    call dein#add('tpope/vim-unimpaired')             " extremely useful [] bracket shortcuts
+    call dein#add('rhysd/clever-f.vim')               " smartly repeat f and F searches using the same keys
+    call dein#add('tmhedberg/matchit')                " extend % to work for tags
+    " }
+
+    " 4. Editing {
+    call dein#add('tpope/vim-commentary')             " minimimilistic commenting shortcuts
+    call dein#add('tpope/vim-surround')               " make quoting/tags replacement easier
+    call dein#add('tpope/vim-speeddating')            " easy increment dates with c-a, c-x
+    call dein#add('tpope/vim-repeat')                 " allow vim . repeasts for custom plugins
+    call dein#add('terryma/vim-expand-region')        " quickly select alrger regions of text using same key combo
+    call dein#add('godlygeek/tabular')                " better editing for simple alignments
+    call dein#add('sjl/gundo.vim')                    " undo tree visualized
+    call dein#add('junegunn/goyo.vim')                " distraction free editing
+    call dein#add('Chiel92/vim-autoformat')           " quickly format code in-line
+    " call dein#add('Raimondi/delimitMate')             " automatic closing of quotes, parents, brackets
+    " }
+
+    " 5. Version Control Integration {
+    call dein#add('tpope/vim-fugitive')               " GIT integration
+    call dein#add('airblade/vim-gitgutter')           " display git information in the gutter
+    call dein#add('albfan/vim-timelapse')             " vim time differences between commits
+    call dein#add('chrisbra/vim-diff-enhanced')       " show different vim diff options
+    call dein#add('AndrewRadev/linediff.vim')         " perform difs on lines of code
+    " }
+
+    " 6. Snippets {
+    call dein#add('Shougo/deoplete.nvim')             " completeion engine
+    call dein#add('zchee/deoplete-clang')             " clang completion
+    call dein#add('SirVer/ultisnips')                 " snippet engine
+    call dein#add('honza/vim-snippets')               " snippets repo
+    " }
+
+    " 7. NeoVim {
+    " }
+
+    call dein#end()
+
+    " If you want to install not installed plugins on startup.
+    if dein#check_install()
+      call dein#install()
+    endif
+
+"End dein Scripts-------------------------------------------------------- }
 
 " Environment {
 
@@ -353,121 +351,111 @@ endif
         command! -bang Qa qa<bang>
         command! -bang WQA wqa<bang>
         command! -bang WQA wqa<bang>
-        " command! -bang Wipeout :call Wipeout<bang>0
     endif
 
     cmap Tabe tabe
 
     " Yank from the cursor to the end of the line, to be consistent with C and D.
     nnoremap Y y$
-
     nnoremap <silent> <leader>/ :set invhlsearch<cr>
-
-    " Find merge conflict markers
-    nnoremap <leader>fc /\v^[<\|=>]{7}( .*\|$)<cr>
-
-    " Shortcuts
     " Change Working Directory to that of the current file
     cmap cwd lcd %:p:h
     cmap cd. lcd %:p:h
-
     " Visual shifting (does not exit Visual mode)
     vnoremap < <gv
     vnoremap > >gv
-
     " Allow using the repeat operator with a visual selection (!)
     " http://stackoverflow.com/a/8064607/127816
     vnoremap . :normal .<cr>
-
     " For when you forget to sudo.. Really Write the file.
     cmap w!! w !sudo tee % >/dev/null
-
     " Adjust viewports to the same size
     noremap <Leader>= <C-w>=
-
     " Map <Leader>ff to display all lines with keyword under cursor
     " and ask which one to jump to
     nnoremap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<cr>
-
     " Easier horizontal scrolling
     nnoremap zl zL
     nnoremap zh zH
 
-    " ----- USER KEYBINDING CHANGES -----
+    " USER KEYBINDING CHANGES {
 
-    " insert mode quick delete line
-    inoremap <C-d> <esc>ddi
+        " insert mode quick delete line
+        inoremap <C-d> <esc>ddi
 
-    " fast commands
-    map <leader>r :
-    " Toggle numbercolumn
-    noremap <leader>n :set invnumber<cr> :set invrelativenumber<cr>
-    " strip output of a file
-    nnoremap <localleader>st :call StripTrailingWhitespace()<cr>
-    " change cdpath to current file
-    nnoremap <localleader>c :lcd %:p:h<cr>
-    " fast escape with jk and kj
-    inoremap jk <esc>l
-    inoremap kj <esc>l
-    inoremap JK <esc>l
-    inoremap jK <esc>l
-    inoremap Jk <esc>l
-    inoremap KJ <esc>l
-    inoremap kJ <esc>l
-    inoremap Kj <esc>l
-    " ghetto bracket completion
-    inoremap { {}<left>
-    " easier record mode playback for the q register
-    noremap Q @q
-    "HJKL Resizing
-    noremap J :resize +8<cr>
-    noremap K :resize -8<cr>
-    noremap H :vertical resize -8<cr>
-    noremap L :vertical resize +8<cr>
-    " fast saving + quit
-    noremap <leader>w :w!<cr>
-    noremap <leader>q :q<cr>
-    " fast Make
-    nnoremap <leader>m :Make make<cr>
-    " fast search/replace
-    nnoremap <localleader>// q:i%s//g<esc>ba
-    nnoremap <localleader>/c q:i%s//gc<esc>bba
-    " fast source vimrc
-    nnoremap <leader><leader>v :source ~/.vimrc<cr>
-    " fast splits
-    noremap <leader>s :split<cr>
-    noremap <leader>v :vsplit<cr>
-    " fast q:
-    noremap <leader>; q:
-    " fast wrap/nowrap toggle
-    MapToggle <F4> wrap
-    " add split maxing / fullscreen mode
-    noremap<leader>z :tab split<cr>
-    " change through buffers with <tab> <Shift-tab>
-    noremap <tab> :bnext<cr>
-    noremap <S-tab> :bprevious<cr>
-    noremap <localleader>f :bnext<cr>
-    noremap <localleader>d :bprevious<cr>
-    " easier tab opening and closing
-    nnoremap <leader>tn :tabnew<cr>
-    nnoremap <leader>to :tabnew<cr>
-    nnoremap <leader>tc :tabclose<cr>
-    nnoremap <leader>tm :tabmove<cr>
-    nnoremap <localleader>j gT
-    nnoremap <localleader>k gt
-    " Speed up scrolling of the viewport slightly
-    noremap <C-e> 2<C-e>
-    noremap <C-y> 2<C-y>
+        " fast commands
+        map <leader>r :
+        " Toggle numbercolumn
+        noremap <leader>n :set invnumber<cr> :set invrelativenumber<cr>
+        " strip output of a file
+        nnoremap <localleader>st :call StripTrailingWhitespace()<cr>
+        " change cdpath to current file
+        nnoremap <localleader>c :lcd %:p:h<cr>
+        " fast escape with jk and kj
+        inoremap jk <esc>l
+        inoremap kj <esc>l
+        inoremap JK <esc>l
+        inoremap jK <esc>l
+        inoremap Jk <esc>l
+        inoremap KJ <esc>l
+        inoremap kJ <esc>l
+        inoremap Kj <esc>l
+        " ghetto bracket completion
+        inoremap { {}<left> " }
+        " easier record mode playback for the q register
+        noremap Q @q
+        "HJKL Resizing
+        noremap J :resize +8<cr>
+        noremap K :resize -8<cr>
+        noremap H :vertical resize -8<cr>
+        noremap L :vertical resize +8<cr>
+        " fast saving + quit
+        noremap <leader>w :w!<cr>
+        noremap <leader>q :q<cr>
+        " fast Make
+        nnoremap <leader>m :Make make<cr>
+        " fast search/replace
+        nnoremap <localleader>// q:i%s//g<esc>ba
+        nnoremap <localleader>/c q:i%s//gc<esc>bba
+        " fast source vimrc
+        nnoremap <leader><leader>v :source ~/.vimrc<cr>
+        " fast splits
+        noremap <leader>s :split<cr>
+        noremap <leader>v :vsplit<cr>
+        " fast q:
+        noremap <leader>; q:
+        " fast wrap/nowrap toggle
+        MapToggle <F4> wrap
+        " add split maxing / fullscreen mode
+        noremap<leader>z :tab split<cr>
+        " change through buffers with <tab> <Shift-tab>
+        noremap <tab> :bnext<cr>
+        noremap <S-tab> :bprevious<cr>
+        noremap <localleader>f :bnext<cr>
+        noremap <localleader>d :bprevious<cr>
+        " easier tab opening and closing
+        nnoremap <leader>tn :tabnew<cr>
+        nnoremap <leader>to :tabnew<cr>
+        nnoremap <leader>tc :tabclose<cr>
+        nnoremap <leader>tm :tabmove<cr>
+        nnoremap <localleader>j gT
+        nnoremap <localleader>k gt
+        " Speed up scrolling of the viewport slightly
+        noremap <C-e> 2<C-e>
+        noremap <C-y> 2<C-y>
+    " }
 
-    " KEYBOARD SHORTENINGS
+    " KEYBOARD SHORTENINGS {
 
-    " ;; logging shortcuts
-    nnoremap <localleader>;c ostd::cout << "" << std::endl;<esc>BBBa
-    nnoremap <localleader>;ii o#include ""<esc>i
-    nnoremap <localleader>;io o#include <><esc>
-    nnoremap <localleader>;/ OMikeComment: <esc>:Commentary<cr>A
-    nnoremap <localleader>;a oMikeComment: <esc>:Commentary<cr>kJA
-    nnoremap <localleader>;t OTODO: <esc>:Commentary<cr>A
+        " ;; logging shortcuts
+        nnoremap <localleader>;c ostd::cout << "" << std::endl;<esc>BBBa
+        nnoremap <localleader>;ii o#include ""<esc>i
+        nnoremap <localleader>;io o#include <><esc>
+        nnoremap <localleader>;/ OMikeComment: <esc>:Commentary<cr>A
+        nnoremap <localleader>;a oMikeComment: <esc>:Commentary<cr>kJA
+        nnoremap <localleader>;t OTODO: <esc>:Commentary<cr>A
+
+    " }
 
 " }
 
@@ -567,6 +555,7 @@ endif
         au Syntax * RainbowParenthesesLoadSquare
         au Syntax * RainbowParenthesesLoadBraces
     " }
+
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " 3 Filesystem Navigation / Movement
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -699,66 +688,6 @@ endif
         inoremap <expr><BS> deoplete#smart_close_popup()."\<BS>"
     " }
 
-"     " NeoComplete {
-"         " Disable AutoComplPop.
-"         let g:acp_enableAtStartup = 0
-"         " Use neocomplete.
-"         let g:neocomplete#enable_at_startup = 1
-"         " Use smartcase.
-"         let g:neocomplete#enable_smart_case = 1
-"         " Set minimum syntax keyword length.
-"         let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-"         " Define dictionary.
-"         let g:neocomplete#sources#dictionary#dictionaries = {
-"             \ 'default' : ''
-"         \ }
-
-"         " Define keyword.
-"         if !exists('g:neocomplete#keyword_patterns')
-"             let g:neocomplete#keyword_patterns = {}
-"         endif
-"         let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-"         " Plugin key-mappings.
-"         inoremap <expr><C-g>     neocomplete#undo_completion()
-"         inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-"         " Recommended key-mappings.
-"         " <CR>: close popup and save indent.
-"         inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-"         function! s:my_cr_function()
-"           return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-"           " For no inserting <CR> key.
-"           "return pumvisible() ? "\<C-y>" : "\<CR>"
-"         endfunction
-"         " <TAB>: completion.
-"         inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-"         " <C-h>, <BS>: close popup and delete backword char.
-"         inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-"         inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-"         " Close popup by <Space>.
-"         "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-"         " AutoComplPop like behavior.
-"         "let g:neocomplete#enable_auto_select = 1
-
-"         " Enable omni completion.
-"         autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"         autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"         autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"         autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-"         autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-"         " Enable heavy omni completion.
-"         if !exists('g:neocomplete#sources#omni#input_patterns')
-"           let g:neocomplete#sources#omni#input_patterns = {}
-"         endif
-"         "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"         let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"         let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-"     " }
-
     " UltiSnips {
         " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
         let g:UltiSnipsExpandTrigger="<c-l>"
@@ -850,3 +779,5 @@ endif
     endfunction
 
 " }
+
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldenable foldmarker={,} foldmethod=marker:
