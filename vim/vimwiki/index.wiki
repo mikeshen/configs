@@ -1,9 +1,9 @@
 = My knowledge base =
     * [[Tools]] -- tips and tricks
-    * [[Project Gutenberg]] -- good books are power.
     * [[Scratchpad]] -- various temporary stuff.
     * [[diary/diary]] -- where I store my .plan file
 
 = Readings =
     * [[Current Readings]] -- list of books I'm currently reading
+    * [[Project Gutenberg]] -- good books are power.
     * [[Coding Interview University]] -- assorted notes for this

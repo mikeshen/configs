@@ -1,6 +1,5 @@
 = .plan for Oct 08, 2017 =
 
 === Goals ===
-* [X] go to church -> northwestern law school thorne auditorium 4pm
 * [X] learn about covim -> it is absolute garbo!
 
