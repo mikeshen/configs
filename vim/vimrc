@@ -631,7 +631,7 @@
     " }
 
     " EasyMotion {
-        noremap <leader>k <Plug>(easymotion-overwin-w)
+        nmap <leader>k <Plug>(easymotion-overwin-w)
     " }
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
