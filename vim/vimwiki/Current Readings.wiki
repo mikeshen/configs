@@ -1,8 +1,8 @@
 = Current Readings =
 
 * [ ] The Sports Gene: 8/15/2017
-* [ ] Hackers: Heros of the Revolution: 9/15/2017
+* [ ] [[Hackers: Heros of the Revolution]]: 9/15/2017
 * [X] Very Short Introductions: Satistics: 10/13/2017
 * [ ] Fooled by Randomness: 10/01/2017
 * [ ] Murder on the Orient Express: 11/01/2017
-* [ ] Zen Mind, Beginner Mind: 11/05/2017
+* [X] Zen Mind, Beginner Mind: 11/05/2017

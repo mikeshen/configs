@@ -53,4 +53,27 @@ normalized value
 * tot == 425.6 AVG
 * sea == 34898 AVG
 
+bool checkPalindrome(const std::string& s, int b, int e) {
+    return b != e && b >= 0 && e < s.length() && s[b] == s[e];
+}
+
+unsigned numPalindromes(const std::string& s)
+{
+    unsigned count = 0;
+    for (int radix = 0; radix < s.length(); radix++) {
+         // odd case
+        int begin = radix - 1;
+        int end = radix + 1;
+        while (checkPalindrome(s, begin, end)) {
+           begin--; end++; count++;
+        }
+        // even case
+        begin = radix;
+        end = radix + 1;
+        while (checkPalindrome(s, begin, end)) {
+           begin--; end++; count++;
+        }
+    }
+    return count;
+}
 

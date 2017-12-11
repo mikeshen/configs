@@ -1,0 +1,9 @@
+== Insights ==
+* The risk of feature creep is minimized if the designer is also the user of a system. Continuous development also reduces feature creep.
+* Sometimes you're just a the right place at the right time. If you find yourself in such a position, make sure you stay on the train.
+* Content is so much more valuable than presentation. Never lose site of that fact.
+* the "Propaganda of the Deed" refers to the curiosity and drive of the budding Homebrew Computer Club for learning and diving deep into the intricacies and powers of the personal computer. More generally, it refers to that strong hacker mentality of truly mastering his/her tool.
+
+== Quotes: ==
+"...bright young men of disheveled appearance, often with sunken glowing eyes, can be seen sitting at computer consoles, their arms tensed and waiting to fire their fingers, already poised to strike, at the buttons and keys on which their attention seems to be rivited as a gambler's on the rolling dice. When not so transfixed, they often sit at tables strewn with computer printouts over which they pore like possessed students of a cabbalistic text. They work until they nearly drop, twenty, thirty hours at a time. Their food, if they arrange it, is brought to them: coffee, Cokes, sandwiches. If possible, they sleep on cots near the printouts. Their rumpled clothes, their unwashed and unshaven faces, and their uncombed hair all testify that they are oblivious to their bodies and to the world in which they move. These are computer bums, compulsive programmers...
+"So he was eager to see Ed Roberts' machine. So Ed sent him the only working prototype via air freight,
