@@ -2,6 +2,7 @@
     * [[Tools]] -- tips and tricks
     * [[Scratchpad]] -- various temporary stuff.
     * [[diary/diary]] -- where I store my .plan file
+    * [[Quotes]] -- quotes that inspired me
 
 = Readings =
     * [[Current Readings]] -- list of books I'm currently reading

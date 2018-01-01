@@ -1,8 +1,8 @@
 = .plan for Nov 24, 2017 =
 
 === Tasks ===
-* [ ] read the rest of the hackers book.
-* [ ] watch an episode of Anthony Bourdain
+* [X] read the rest of the hackers book.
+* [X] watch an episode of Anthony Bourdain
 
 === Goals ===
-* [ ] Broaden your understanding of basics of circuits and electronics, start by reading through the concise guide of electronics for compsci majors
+* [X] Broaden your understanding of basics of circuits and electronics, start by reading through the concise guide of electronics for compsci majors
