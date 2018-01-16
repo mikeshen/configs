@@ -1,13 +1,16 @@
 = Current Readings =
 
-* [X] All About HFT, Michael Durbin: 7/15/2017-12/24/2017
-* [ ] The Sports Gene: 8/15/2017
-* [X] Flash Boys, Michael Lewis: 8/20/2017-9/15/2017
-* [X] Masters of Doom: 8/22/2017-9/5/2017
-* [X] [[Hackers: Heros of the Revolution]]: 9/15/2017-12/19/2017
-* [X] Very Short Introductions: Satistics: 10/13/2017-10/18/2017
-* [X] [[Fooled by Randomness]], Naseem Taleb: 10/01/2017
-* [ ] Murder on the Orient Express: 11/01/2017
-* [X] Zen Mind, Beginner Mind: 11/05/2017-11/07/2017
-* [X] [[Modern Romance]], Aziz Ansari: 12/25/2017-1/1/2018
-* [X] [[Flatland: A Romance of Many Dimensions]], Aziz Ansari: 1/1/2018
+* [X] All About HFT, Michael Durbin, 07/15/2017-12/24/2017
+* [ ] The Sports Gene: 08/15/2017
+* [X] Flash Boys, Michael Lewis, 08/20/2017-09/15/2017
+* [X] Masters of Doom: 08/22/2017-09/05/2017
+* [X] [[Hackers: Heros of the Revolution]], 09/15/2017-12/19/2017
+* [X] Very Short Introductions: Satistics, 10/13/2017-10/18/2017
+* [X] [[Fooled by Randomness]], Naseem Taleb, 10/01/2017
+* [ ] Murder on the Orient Express, 11/01/2017
+* [X] Zen Mind, Beginner Mind, 11/05/2017-11/07/2017
+* [X] [[Modern Romance]], Aziz Ansari, 12/25/2017-01/01/2018
+* [ ] [[Flatland: A Romance of Many Dimensions]], Edwin Abbott, 01/01/2018-
+* [X] Write Great Code, Randall Hyde, 12/15/2017-01/15/2018
+* [ ] [[Code Complete]], Steve McConnell, 01/08/2018-
+* [ ] [[The Algorithm Design Manual]], Steven Skiena, 01/15/2018-

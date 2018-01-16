@@ -1,0 +1,11 @@
+== Insights: ==
+
+=== Chapter 2 ===
+* appreciate the use of metaphors as a tool to understand software design.
+* metaphors, being heuristics, do not have to be adhered to a point. they can be combined and diced for the specific situation.
+* rigid adherance to paradigms may cause one to loss sight of other possible ways of seeing a problem.
+
+
+== Quotes: ==
+* "If you emphasize quality in the middle of the project, you emphasize construc- tion practices."
+* "The overarching goal of preparation is risk reduction: a good project planner clears major risks out of the way as early as possible so that the bulk of the pro- ject can proceed as smoothly as possible. By far the most common projects risks in software development are poor requirements and poor project planning, thus preparation tends to focus improving requirements and project plans."
