@@ -6,8 +6,8 @@ export SVN_EDITOR=nvim
 ### History ###
 
 # how many total lines are allowed to be in your .bash_history file at startup / stored at the end of a session
-HISTFILESIZE=1000000
-HISTSIZE=1000000
+HISTFILESIZE=10000000
+HISTSIZE=100000
 SAVEHIST=$HISTSIZE
 HISTFILE="$HOME/.zsh_history"
 HISTCONTROL=ignorespace:ignoredups
