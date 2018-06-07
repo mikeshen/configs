@@ -27,9 +27,12 @@ path-prepend() {
 }
 
 function ff() {
-    find . -type f ! -ipath "*.git*" ! -ipath "*bin*" -iwholename '*'$*'*' ;
+  find . -type f ! -ipath "*.git*" ! -ipath "*bin*" -iwholename '*'$*'*' ;
 }
 
+function fl() {
+  find . ! -ipath "*.git*" ! -ipath "*bin*" -type f -iname '*'"$*"'*' -ls | awk '{print $NF}'
+}
 # check if a process is running
 function psg() {
   ps ax | grep "$1" | grep -v grep
