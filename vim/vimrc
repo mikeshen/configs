@@ -412,6 +412,8 @@
         " fast saving + quit
         noremap <leader>w :w!<cr>
         noremap <leader>q :q<cr>
+	" fast jump between last two open buffers
+	nnoremap <bs> <C-^>
         " fast Make
         nnoremap <leader>m :Make make<cr>
         " fast diff put
