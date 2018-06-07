@@ -26,7 +26,7 @@ alias rsync='rsync -arP'
 alias colorscheme='wget -O gogh https://git.io/vQgMr && chmod +x gogh && ./gogh && rm gogh'   # choose your colorscheme
 
 # view
-alias less='less --shift 5 --ignore-case --chop-long-lines --RAW-CONTROL-CHARS --LONG-PROMPT'
+alias less='less --shift 5 --ignore-case -JimRS'
 alias LL='less'
 alias more='less'
 alias view='pygmentize -g'
@@ -35,6 +35,7 @@ alias vhist='history|vless'
 # explicatives
 alias fuckthis='exit'
 alias shit='cl'
+alias fuck='cl'
 
 ########################################################################################################################
 # Build Tools
