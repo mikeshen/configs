@@ -33,7 +33,11 @@ Always have a beginner mindset, always be curious
 
 * [ ] become a better cook
 * [ ] learn more about outdoor survival
-* [ ] 
+* [ ]
+
+=== Check Palindrome Code===
+
+apparently there is a O(n) solution
 
 bool checkPalindrome(const std::string& s, int b, int e) {
     return b != e && b >= 0 && e < s.length() && s[b] == s[e];

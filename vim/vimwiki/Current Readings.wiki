@@ -10,7 +10,7 @@
 * [ ] Murder on the Orient Express, 11/01/2017
 * [X] Zen Mind, Beginner Mind, 11/05/2017-11/07/2017
 * [X] [[Modern Romance]], Aziz Ansari, 12/25/2017-01/01/2018
-* [ ] [[Flatland: A Romance of Many Dimensions]], Edwin Abbott, 01/01/2018-
+* [X] [[Flatland: A Romance of Many Dimensions]], Edwin Abbott, 01/01/2018-01/19/2018
 * [X] Write Great Code, Randall Hyde, 12/15/2017-01/15/2018
 * [ ] [[Code Complete]], Steve McConnell, 01/08/2018-
 * [ ] [[The Algorithm Design Manual]], Steven Skiena, 01/15/2018-

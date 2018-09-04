@@ -11,6 +11,7 @@ HISTSIZE=100000
 SAVEHIST=$HISTSIZE
 HISTFILE="$HOME/.zsh_history"
 HISTCONTROL=ignorespace:ignoredups
+HISTIGNORE=' *:history*:rm*'
 
 # Less
 export LESS='--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'

@@ -165,6 +165,11 @@
 
     " set autowrite                       " Automatically write a file when leaving a modified buffer
     set shortmess+=aTItO                " Abbrev. of messages (avoids 'hit enter')
+                                        " - a use abbrivations for status messages
+                                        " - T truncate long messages in the middle
+                                        " - I don't give a startup message
+                                        " - O message for reading a file overwrites any previous message
+                                        " - t truncate file message if too long to fit on the command line
     set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
     set virtualedit=onemore             " Allow for cursor beyond last character
     set history=1000                    " Store a ton of history (default is 20)
@@ -210,6 +215,7 @@
     set tabpagemax=15               " Only show 15 tabs
     set showmode                    " Display the current mode
     set cursorline                  " Highlight current line
+    set cursorcolumn                " Highlight current column
     set noea                        " Don't resize all buffers when a split is closed
 
     highlight clear SignColumn      " SignColumn should match background
@@ -380,6 +386,8 @@
 
     " USER KEYBINDING CHANGES {
 
+        " fast :
+        map <leader>r :
         " insert mode quick delete line
         inoremap <C-d> <esc>ddi
 
@@ -405,24 +413,25 @@
         " easier record mode playback for the q register
         noremap Q @q
         "HJKL Resizing
-        noremap J :resize +8<cr>
-        noremap K :resize -8<cr>
-        noremap H :vertical resize -8<cr>
-        noremap L :vertical resize +8<cr>
+        nnoremap J :resize +8<cr>
+        nnoremap K :resize -8<cr>
+        nnoremap H :vertical resize -8<cr>
+        nnoremap L :vertical resize +8<cr>
         " fast saving + quit
         noremap <leader>w :w!<cr>
         noremap <leader>q :q<cr>
-	" fast jump between last two open buffers
-	nnoremap <bs> <C-^>
+        " fast jump between last two open buffers
+        nnoremap <bs> <C-^>
         " fast Make
         nnoremap <leader>m :Make make<cr>
         " fast diff put
         nmap <F6> :diffg<cr>
         " fast search/replace
         nnoremap <localleader>// q:i%s//g<esc>ba
+        " fast search/replace
         nnoremap <localleader>/c q:i%s//gc<esc>bba
-	" replace word under cursor
-	nnoremap <localleader>/g :%s/\<<C-r><C-w\>//g<Left><Left>
+        " replace word under cursor
+        nnoremap <localleader>/g :%s/\<<C-r><C-w>\>//g<Left><Left>
         " fast source vimrc
         nnoremap <leader><leader>v :source ~/.vimrc<cr>
         " fast splits
@@ -454,13 +463,13 @@
     " KEYBOARD SHORTENINGS {
 
         " ;; logging shortcuts
-        nnoremap <localleader>;c ostd::cout << "" << std::endl;<esc>BBBa
+        nnoremap <localleader>;' ostd::cout << "" << std::endl;<esc>BBBa
+        nnoremap <localleader>;c ostd::cout <<  << std::endl;<esc>BBhi
         nnoremap <localleader>;ii o#include ""<esc>i
         nnoremap <localleader>;io o#include <><esc>
         nnoremap <localleader>;/ OMikeComment: <esc>:Commentary<cr>A
         nnoremap <localleader>;a oMikeComment: <esc>:Commentary<cr>kJA
         nnoremap <localleader>;t OTODO: <esc>:Commentary<cr>A
-
     " }
 
 " }
