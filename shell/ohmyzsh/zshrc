@@ -85,4 +85,5 @@ source $ZSH/.exports.zsh
 source $ZSH/.bindings.zsh
 source $ZSH/.aliases.zsh
 source ~/.fzf.zsh
+spy
 
