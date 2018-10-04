@@ -27,11 +27,11 @@ alias rsync='rsync -arP'
 alias colorscheme='wget -O gogh https://git.io/vQgMr && chmod +x gogh && ./gogh && rm gogh'   # choose your colorscheme
 
 # view
-alias less='less --shift 5 --ignore-case -JimRS'
+alias less='less --shift 5 --ignore-case -imS'
 alias LL='less'
 alias more='less'
 alias view='pygmentize -g'
-alias vhist='history|vless'
+alias vhist='history|less'
 
 # explicatives
 alias fuckthis='exit'
