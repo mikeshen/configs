@@ -386,13 +386,11 @@
 
     " USER KEYBINDING CHANGES {
 
-        " fast :
-        map <leader>r :
         " insert mode quick delete line
         inoremap <C-d> <esc>ddi
 
         " fast commands
-        map <leader>r :
+        map <C-w> :
         " Toggle numbercolumn
         noremap <leader>n :set invnumber<cr> :set invrelativenumber<cr>
         " strip output of a file
@@ -540,7 +538,7 @@
     " }
 
     " vim-airline / vim-airline-themes {
-        let g:airline_theme='papercolor'
+        let g:airline_theme='bubblegum'
         let g:airline_powerline_fonts = 1
         let g:airline#extensions#tabline#enabled = 1
     " }
