@@ -148,6 +148,7 @@ alias v='vim'
 alias f='v $(fzf)'
 alias rmswap='rm $HOME/Development/configs/vim/cache/swap/*'
 alias rmswp='rmswap'
+alias vnn="vim $NOTES/index.md"
 
 # config aliases
 alias valias="$EDITOR $ZSH/.aliases.zsh"
@@ -176,3 +177,6 @@ alias cdown="cd $DOWN"
 alias cconf='config'
 alias cs='csand'
 alias cbb='cbuilds'
+alias cdr="cd $DRIVE"
+alias cnotes="cd $NOTES"
+alias cn="cnotes"

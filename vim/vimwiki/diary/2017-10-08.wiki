@@ -1,5 +1,0 @@
-= .plan for Oct 08, 2017 =
-
-=== Goals ===
-* [X] learn about covim -> it is absolute garbo!
-

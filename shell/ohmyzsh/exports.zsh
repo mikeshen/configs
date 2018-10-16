@@ -44,6 +44,8 @@ export SAND="$HOME/Development/sandbox"
 export DOWN="$HOME/Downloads"
 export MINIMAL="$SAND/test"
 export BUILDS="$HOME/Development/builds/bin"
+export DRIVE="$HOME/drive"
+export NOTES="$DRIVE/Notes"
 
 # PATH
 path-append "/home/osboxes/anaconda3/bin"

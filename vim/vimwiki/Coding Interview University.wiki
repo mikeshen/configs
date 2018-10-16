@@ -1,6 +1,0 @@
-= Coding Interview University =
-
-== Writing Great Code: Software Architecture ==
-
-=== Chapter 2: Numeric Representation ===
-* hello world

@@ -493,6 +493,9 @@
         nnoremap <localleader>ll d:VimwikiDiaryGenerateLinks<cr>
         nnoremap <F5> "=strftime("%b %d, %Y")<cr>P
         inoremap <F5> <c-r>=strftime("%b %d, %Y")<cr>
+        let g:vimwiki_list = [{'path': '~/drive/Notes/',
+                             \ 'syntax': 'markdown',
+                             \ 'ext': '.md'}]
     " }
 
     " Ack/Ag THE SILVER SEARCHER {
