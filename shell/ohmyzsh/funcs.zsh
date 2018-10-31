@@ -67,6 +67,13 @@ function acl() {
   awk -F'|' "{print $args}"
 }
 
+# tr any delimiter to |
+function trl() {
+    local delimiter=$1
+    tr "$delimiter" "|"
+}
+
+# view next commit after the current checkout
 function gnext() {
     git log --reverse --pretty=%H master | grep -A 1 $(git rev-parse HEAD) | tail -n1 | xargs git checkout
 }
