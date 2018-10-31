@@ -10,9 +10,6 @@ alias :Q='exit'
 alias p='pushd'                                                                               # push directory to stack and go to new dir
 alias o='popd'                                                                                # pop to last directory. Kind of like a back button
 alias m='man'                                                                                 # i'm lazy af, ok?
-alias tmux="tmux -2"
-alias tm='tmux attach || tmux new'
-alias pipey='while read line; do count=1; out=$(echo "$line"|tr "|" "\n"); echo $out|while IFS= read -r i; do echo "$count $i"; count=$((count+1)); done; echo "----------------------------------------------------------------------------------------------------"; done'
 alias sxargs='xargs -l zsh -c'
 
 # tools
@@ -24,6 +21,8 @@ alias gz='tar -xvzf'                                                            
 alias ctags='ctags -R --c++-kinds=+p --extra=+fq'                                             # correct recursive ctags
 alias proc='ps aux|grep'
 alias rsync='rsync -arP'
+alias tmux="tmux -2"
+alias tm='tmux attach || tmux new'
 alias colorscheme='wget -O gogh https://git.io/vQgMr && chmod +x gogh && ./gogh && rm gogh'   # choose your colorscheme
 
 # view
@@ -32,19 +31,12 @@ alias LL='less'
 alias more='less'
 alias view='pygmentize -g'
 alias vhist='history|less'
+alias pipey='while read line; do count=1; out=$(echo "$line"|tr "|" "\n"); echo $out|while IFS= read -r i; do echo "$count $i"; count=$((count+1)); done; echo "----------------------------------------------------------------------------------------------------"; done'
 
 # explicatives
 alias fuckthis='exit'
 alias shit='cl'
 alias fuck='cl'
-
-########################################################################################################################
-# Build Tools
-########################################################################################################################
-
-alias mm='make'
-alias mc='make clean'
-alias mr='make run'
 
 ########################################################################################################################
 # Files / Editing
@@ -67,9 +59,10 @@ alias ggr='grep -rnIi --exclude-dir={.git,.svn} --exclude "*~" --color'
 alias agg='ag -SR --cpp --ignore={.git,.svn}'
 alias cg="find -L -regex '.*\.\(C\|H\|c\|h\|cpp\|hpp\)$' -not -regex '.*git.*' | xargs egrep --line-number"
 alias xg="find -L regex '.*\.\(xml\)$' | xargs egrep --line-number"
+alias hgrep='history|agg'
 alias pygrep-"find . -name '*.py' | xargs grep --line-number"
 
-# cd shortcuts
+# generic cd shortcuts
 alias c='cd'         # famous / infamous at this point
 alias cc='cd $_'     # got to last input arg, useful after running, say,
                      # "mkdir long/dir/name/here", then just cc to go the newly created directory
@@ -79,7 +72,38 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 ########################################################################################################################
-# Git Shortcuts
+# Custom Directories
+########################################################################################################################
+
+# specific cd directories
+alias dev='cd ~/Development'
+alias cdev='dev'
+alias cgm='dev'
+alias cdd='dev'
+alias config="cd $MYCONF"
+alias csand="cd $SAND"
+alias cbuilds="cd $BUILDS"
+alias ctest="cd $MINIMAL"
+alias cminimal='ctest'
+alias cmin='ctest'
+alias cdown="cd $DOWN"
+alias cconf='config'
+alias cs='csand'
+alias cbb='cbuilds'
+alias cdr="cd $DRIVE"
+alias cnotes="cd $NOTES"
+alias cn="cnotes"
+
+########################################################################################################################
+# Build Tools
+########################################################################################################################
+
+alias mm='make'
+alias mc='make clean'
+alias mr='make run'
+
+########################################################################################################################
+# Git
 ########################################################################################################################
 
 alias g='git'
@@ -130,12 +154,6 @@ alias gdifflast='git diff HEAD~1'
 alias gcount="git shortlog | grep -E '^[ ]+\w+' | wc -l"
 
 ########################################################################################################################
-# Conda
-########################################################################################################################
-alias spy='source activate root'
-alias sde='source deactivate'
-
-########################################################################################################################
 # Vim
 ########################################################################################################################
 
@@ -157,26 +175,16 @@ alias vvim="$EDITOR ~/.vimrc"
 alias remind="less $ZSH/.aliases.zsh"                                                         # remind me what the aliases were again?
 alias remindgit='less ~/.gitconfig'                                                           # remind me what the git config was again?
 
+########################################################################################################################
+# Conda
+########################################################################################################################
+
+alias spy='source activate root'
+alias sde='source deactivate'
 
 ########################################################################################################################
-# Custom Directories
+# Rclone
 ########################################################################################################################
+alias rdown="rclone sync drive:/Notes $DRIVE"
+alias rup="rclone sync $DRIVE drive:Notes"
 
-# specific cd directories
-alias dev='cd ~/Development'
-alias cdev='dev'
-alias cgm='dev'
-alias cdd='dev'
-alias config="cd $MYCONF"
-alias csand="cd $SAND"
-alias cbuilds="cd $BUILDS"
-alias ctest="cd $MINIMAL"
-alias cminimal='ctest'
-alias cmin='ctest'
-alias cdown="cd $DOWN"
-alias cconf='config'
-alias cs='csand'
-alias cbb='cbuilds'
-alias cdr="cd $DRIVE"
-alias cnotes="cd $NOTES"
-alias cn="cnotes"
