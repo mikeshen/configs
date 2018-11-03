@@ -90,8 +90,7 @@ alias cdown="cd $DOWN"
 alias cconf='config'
 alias cs='csand'
 alias cbb='cbuilds'
-alias cdr="cd $DRIVE"
-alias cnotes="cd $NOTES"
+alias cnotes="cd $DRIVE"
 alias cn="cnotes"
 
 ########################################################################################################################
@@ -166,7 +165,7 @@ alias v='vim'
 alias f='v $(fzf)'
 alias rmswap='rm $HOME/Development/configs/vim/cache/swap/*'
 alias rmswp='rmswap'
-alias vnn="vim $NOTES/index.md"
+alias vnn="vim $DRIVE/index.md"
 
 # config aliases
 alias valias="$EDITOR $ZSH/.aliases.zsh"
@@ -185,6 +184,6 @@ alias sde='source deactivate'
 ########################################################################################################################
 # Rclone
 ########################################################################################################################
-alias rdown="rclone sync drive:/Notes $DRIVE"
-alias rup="rclone sync $DRIVE drive:Notes"
+alias rdown="rclone sync Drive:/Notes $DRIVE"
+alias rup="rclone sync $DRIVE Drive:Notes"
 

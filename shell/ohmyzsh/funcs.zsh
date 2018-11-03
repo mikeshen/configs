@@ -1,7 +1,7 @@
 ## BASH FUNCTIONS ##
 
 # remove item from $PATH
-path-remove () {
+function path-remove () {
   local IFS=':'
   local NEWPATH
   for DIR in $PATH; do
@@ -13,17 +13,29 @@ path-remove () {
 }
 
 # add item to end of $PATH, uniquely
-path-append() {
+function path-append() {
   [ -d $1 ] || return 1    # make sure directory exists
-  path-remove $1           # remove the directory
+  # path-remove $1           # remove the directory
   export PATH=${PATH}:${1} # append the directory
 }
 
 # add item to beginning of $PATH, uniquely
-path-prepend() {
+function path-prepend() {
   [ -d $1 ] || return 1     # make sure directory exists
-  path-remove $1            # remove the directory
+  # path-remove $1            # remove the directory
   export PATH=${1}:${PATH}  # append the directory
+}
+
+# add item to end of $PATH, uniquely
+function ld-path-append() {
+  [ -d $1 ] || return 1    # make sure directory exists
+  export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${1} # append the directory
+}
+
+# add item to beginning of $PATH, uniquely
+function ld-path-prepend() {
+  [ -d $1 ] || return 1     # make sure directory exists
+  export LD_LIBRARY_PATH=${1}:${LD_LIBRARY_PATH}  # append the directory
 }
 
 function ff() {

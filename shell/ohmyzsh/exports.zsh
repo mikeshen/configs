@@ -26,13 +26,13 @@ if type pygmentize >/dev/null 2>&1; then
 fi
 
 # TLDR colors
-export TLDR_COLOR_BLANK="white"
-export TLDR_COLOR_NAME="cyan"
-export TLDR_COLOR_DESCRIPTION="white"
-export TLDR_COLOR_EXAMPLE="green"
-export TLDR_COLOR_COMMAND="white"
+export TLDR_COLOR_BLANK='white'
+export TLDR_COLOR_NAME='cyan'
+export TLDR_COLOR_DESCRIPTION='white'
+export TLDR_COLOR_EXAMPLE='green'
+export TLDR_COLOR_COMMAND='white'
 
-export SSH_KEY_PATH="~/.ssh/rsa_id" # ssh path
+export SSH_KEY_PATH='~/.ssh/rsa_id' # ssh path
 export KEYTIMEOUT=1 # less delay between vi's insert and esc mode in zsh
 export DEFAULT_USER=mikeshen # remove the stupid prompt when on my own device
 
@@ -48,4 +48,14 @@ export DRIVE="$HOME/drive"
 export NOTES="$DRIVE/Notes"
 
 # PATH
-path-append "/home/osboxes/anaconda3/bin"
+PATH='/home/osboxes/.fzf/bin'
+path-prepend '/snap/bin'
+path-prepend '/usr/local/games'
+path-prepend '/usr/games'
+path-prepend '/bin'
+path-prepend '/sbin'
+path-prepend '/usr/bin'
+path-prepend '/usr/sbin'
+path-prepend '/usr/local/bin'
+path-prepend '/usr/local/sbin'
+path-prepend '/home/osboxes/anaconda3/bin'
