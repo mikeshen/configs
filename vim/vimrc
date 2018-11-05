@@ -616,10 +616,10 @@
     " }
 
     " FZF {
-        nnoremap <localleader>oh :History:<cr>
-        nnoremap <localleader>or :History<cr>
+        nnoremap <localleader>ow :History:<cr>
+        nnoremap <localleader>oh :History<cr>
         nnoremap <localleader>of :Files<cr>
-        nnoremap <localleader>r  :BTags<cr>
+        nnoremap <localleader>or :BTags<cr>
     " }
 
     " Fswitch {
