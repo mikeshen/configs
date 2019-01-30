@@ -1,6 +1,6 @@
 # if running bash
 if [ -f "$HOME/.zsh_rc" ]; then
-. "$HOME/.zsh_rc"
+    . "$HOME/.zsh_rc"
 fi
 
 # set PATH so it includes user's private bin if it exists
