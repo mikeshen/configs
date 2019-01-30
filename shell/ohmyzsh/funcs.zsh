@@ -188,3 +188,7 @@ function dl() {
         xz -dk --stdout $var > $src
     done
 }
+
+function fa() {
+    fl $1 $SAND
+}
