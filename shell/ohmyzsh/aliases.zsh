@@ -25,13 +25,15 @@ alias tmux="tmux -2"
 alias tm='tmux attach || tmux new'
 alias colorscheme='wget -O gogh https://git.io/vQgMr && chmod +x gogh && ./gogh && rm gogh'   # choose your colorscheme
 
-# view
+# pipe magic
 alias less='less --shift 5 --ignore-case -imS'
 alias LL='less'
 alias more='less'
 alias view='pygmentize -g'
 alias vhist='history|less'
 alias pipey='while read line; do count=1; out=$(echo "$line"|tr "|" "\n"); echo $out|while IFS= read -r i; do echo "$count $i"; count=$((count+1)); done; echo "----------------------------------------------------------------------------------------------------"; done'
+alias trl='tr "," "|"'
+alias pargs='xargs -I{}'
 
 # explicatives
 alias fuckthis='exit'

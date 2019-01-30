@@ -124,7 +124,6 @@ function sb {
     source $SOURCEFILE
 }
 
-
 # Good Template Functions, here for reference
 
 function hfe() {
