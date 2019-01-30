@@ -402,8 +402,6 @@
         inoremap KJ <esc>l
         inoremap kJ <esc>l
         inoremap Kj <esc>l
-        " ghetto bracket completion
-        inoremap { {}<left> " }
         " easier record mode playback for the q register
         noremap Q @q
         "HJKL Resizing
