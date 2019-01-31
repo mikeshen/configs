@@ -386,7 +386,7 @@
         inoremap <C-d> <esc>ddi
 
         " fast commands
-        map <C-w> :
+        map <C-s> :
         " Toggle numbercolumn
         noremap <leader>n :set invnumber<cr> :set invrelativenumber<cr>
         " strip output of a file
