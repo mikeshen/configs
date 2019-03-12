@@ -1,7 +1,7 @@
 ## BASH FUNCTIONS ##
 
 # remove item from $PATH
-function path-remove () {
+function path-remove() {
     local IFS=':'
     local NEWPATH
     for DIR in $PATH; do
@@ -118,7 +118,7 @@ function gnext() {
 }
 
 # source bashrc
-function sb {
+function sb() {
     SOURCEFILE=$HOME/.zshrc
     echo "source $SOURCEFILE"
     source $SOURCEFILE
