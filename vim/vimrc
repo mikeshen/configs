@@ -9,7 +9,11 @@
 
     let s:config_dir = $HOME . '/Development/configs'
     let s:cache_dir = expand(s:config_dir . '/vim/cache')
-    set runtimepath+=/home/osboxes/Development/configs/vim/repos/github.com/Shougo/dein.vim
+    if $HOME == '/Users/mikemikeshen'
+        set runtimepath+=/Users/mikemikeshen/Development/configs/vim/repos/github.com/Shougo/dein.vim
+    else
+        set runtimepath+=/home/osboxes/Development/configs/vim/repos/github.com/Shougo/dein.vim
+    endif
     set rtp+=~/.fzf
     call dein#begin(expand(s:config_dir . '/vim'))
     call dein#add('Shougo/dein.vim') " let dein manage dein
