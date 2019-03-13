@@ -25,7 +25,7 @@
     call dein#add('jpalardy/vim-slime')               " send text over tmux in repl-like way
     call dein#add('vimwiki/vimwiki')                  " your personal notes / todos / markdown editor vim
     call dein#add('chrisbra/csv.vim')                 " quickly edit and format csv files
-    call dein#add('vim-scripts/conque-GDB')           " your own GDB interface emulator in vim
+    " call dein#add('vim-scripts/conque-GDB')           " your own GDB interface emulator in vim
     call dein#add('mileszs/ack.vim')                  " smart and happy searching
     " }
 
@@ -517,7 +517,7 @@
     " }
 
     " conque-gdb {
-        let g:ConqueGdb_Leader = '\'
+        " let g:ConqueGdb_Leader = '\'
     " }
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
