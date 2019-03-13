@@ -92,7 +92,7 @@ alias cdown="cd $DOWN"
 alias cconf='config'
 alias cs='csand'
 alias cbb='cbuilds'
-alias cnotes="cd $DRIVE"
+alias cnotes="cd $NOTES"
 alias cn="cnotes"
 
 ########################################################################################################################

@@ -44,11 +44,20 @@ export SAND="$HOME/Development/sandbox"
 export DOWN="$HOME/Downloads"
 export MINIMAL="$SAND/test"
 export BUILDS="$HOME/Development/builds/bin"
-export DRIVE="$HOME/drive"
+export DRIVE="$HOME/Drive"
 export NOTES="$DRIVE/Notes"
 
 # PATH
 if [[ -n $IS_LINUX ]]; then
+    PATH='/usr/local/git/current/bin'
+    path-prepend '/Users/mikemikeshen/Library/Python/2.7/bin'
+    path-prepend '/usr/local/bin'
+    path-prepend '/usr/bin'
+    path-prepend '/bin'
+    path-prepend '/usr/local/sbin'
+    path-prepend '/usr/sbin'
+    path-prepend '/sbin'
+elif [[ -n $IS_MAC ]]; then
     PATH="$HOME/.fzf/bin"
     path-prepend '/snap/bin'
     path-prepend '/usr/local/games'
@@ -60,13 +69,4 @@ if [[ -n $IS_LINUX ]]; then
     path-prepend '/usr/local/bin'
     path-prepend '/usr/local/sbin'
     path-prepend '/home/osboxes/anaconda3/bin'
-elif [[ -n $IS_MAC ]]; then
-    PATH='/usr/local/git/current/bin'
-    path-prepend '/Users/mikemikeshen/Library/Python/2.7/bin'
-    path-prepend '/usr/local/bin'
-    path-prepend '/usr/bin'
-    path-prepend '/bin'
-    path-prepend '/usr/local/sbin'
-    path-prepend '/usr/sbin'
-    path-prepend '/sbin'
 fi
