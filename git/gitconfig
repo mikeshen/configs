@@ -1,10 +1,16 @@
 [user]
 	name = Mike Shen
  	email = mikeshen@umich.edu
-[diff]
-	tool = vimdiff
+[merge]
+  tool = vimdiff
+[mergetool]
+  prompt = true
+[mergetool "vimdiff"]
+  cmd = nvim -d $LOCAL $REMOTE
 [difftool]
- 	prompt = false
+  prompt = false
+[diff]
+  tool = vimdiff
 [color]
 	ui = auto
 [color "branch"]
