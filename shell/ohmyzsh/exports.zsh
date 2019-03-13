@@ -34,7 +34,7 @@ export TLDR_COLOR_COMMAND='white'
 
 export SSH_KEY_PATH='~/.ssh/rsa_id' # ssh path
 export KEYTIMEOUT=1 # less delay between vi's insert and esc mode in zsh
-export DEFAULT_USER=mikeshen # remove the stupid prompt when on my own device
+export DEFAULT_USER="$(whoami)" # remove the stupid prompt when on my own device
 
 export FZF_TMUX=1 # we want to use tmux for fzf panes
 

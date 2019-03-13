@@ -46,7 +46,7 @@ alias fuck='cl'
 
 # verbose file/dir movement
 alias lrm='ls -R'
-alias rm='rm -vI'
+alias rm='rm -v'
 alias mv='mv -v'
 
 # ls shortcuts
@@ -125,7 +125,7 @@ alias gco='git commit'
 alias gca='git commit -a'
 alias gcm='git commit -m'
 alias ghunk='git add -p'
-alias gh='gunk'
+alias gh='ghunk'
 alias gl='git log'
 alias ga='git add' # stage
 alias gA='git add .' # stage all
