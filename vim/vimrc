@@ -11,6 +11,8 @@
     let s:cache_dir = expand(s:config_dir . '/vim/cache')
     if $HOME == '/Users/mikemikeshen'
         set runtimepath+=/Users/mikemikeshen/Development/configs/vim/repos/github.com/Shougo/dein.vim
+    elseif $HOME == '/usr/local/google/home/mikemikeshen'
+        set runtimepath+=/usr/local/google/home/mikemikeshen/Development/configs/vim/repos/github.com/Shougo/dein.vim
     else
         set runtimepath+=/home/osboxes/Development/configs/vim/repos/github.com/Shougo/dein.vim
     endif
