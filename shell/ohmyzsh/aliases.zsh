@@ -183,8 +183,8 @@ alias remindgit='less ~/.gitconfig'                                             
 # Conda
 ########################################################################################################################
 
-alias spy='source activate root'
-alias sde='source deactivate'
+alias spy='source $HOME/root/bin/activate'
+alias sde='deactivate'
 
 ########################################################################################################################
 # Rclone
