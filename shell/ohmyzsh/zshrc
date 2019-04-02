@@ -59,7 +59,6 @@ plugins=(git \
          cp \
          copydir \
          rsync \
-         take \
          vi-mode \
          pip \
          python \
