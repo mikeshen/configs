@@ -469,6 +469,8 @@
         nnoremap <localleader>;/ OMikeComment: <esc>:Commentary<cr>A
         nnoremap <localleader>;a oMikeComment: <esc>:Commentary<cr>kJA
         nnoremap <localleader>;t OTODO: <esc>:Commentary<cr>A
+        nnoremap <localleader>;j O/**<cr><bs> * 
+
     " }
 
 " }
