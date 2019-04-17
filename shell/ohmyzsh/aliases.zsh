@@ -155,9 +155,6 @@ alias gdifflast='git diff HEAD~1'
 # gsh shows the number of commits for the current repos for all developers
 alias gcount="git shortlog | grep -E '^[ ]+\w+' | wc -l"
 
-## FIG
-alias h=hg
-
 ########################################################################################################################
 # Vim
 ########################################################################################################################
@@ -193,4 +190,23 @@ alias sde='deactivate'
 
 alias rdown="rclone sync Drive:/Notes $DRIVE"
 alias rup="rclone sync $DRIVE Drive:Notes"
+
+########################################################################################################################
+# Google Specific
+########################################################################################################################
+
+alias apido=/google/data/ro/teams/oneplatform/apido
+
+alias cgg="cd $GOOGLE3"
+alias cgmb="cd $GOOGLE3/google/mybusiness"
+alias cgj="cd $GOOGLE3/java/com/google/commerce/bizbuilder/gmbapi"
+
+alias dd='g4d'
+
+## FIG
+alias h='hg'
+alias hs='hg status'
+alias hl='hg xl'
+alias hc='hg commit'
+alias hp='hg sync'
 

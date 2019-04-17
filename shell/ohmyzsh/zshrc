@@ -84,6 +84,16 @@ fi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
+# custom build the prompt so we don't have to deal with a the slow git status indicators
+build_prompt() {
+  RETVAL=$?
+  prompt_status
+  prompt_virtualenv
+  prompt_context
+  prompt_dir
+  prompt_end
+}
+
 ### SOURCE FILES ###
 source $ZSH/.checks.zsh
 source $ZSH/.setopt.zsh
