@@ -199,6 +199,7 @@ function countdown() {
         sleep 0.1
     done
 }
+
 function stopwatch() {
     date1=`date +%s`;
     while true; do

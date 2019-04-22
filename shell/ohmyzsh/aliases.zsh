@@ -108,6 +108,7 @@ alias mr='make run'
 ########################################################################################################################
 
 ## GIT
+
 alias g='git'
 alias gs='git status'
 alias gst='git status -uno'
@@ -201,12 +202,23 @@ alias cgg="cd $GOOGLE3"
 alias cgmb="cd $GOOGLE3/google/mybusiness"
 alias cgj="cd $GOOGLE3/java/com/google/commerce/bizbuilder/gmbapi"
 
-alias dd='g4d'
+## Blaze
+
+alias bb='blaze build ...'
 
 ## FIG
+
 alias h='hg'
 alias hs='hg status'
 alias hl='hg xl'
+alias hco='hg commit'
+alias hcs='hg commit --same-cl'
 alias hc='hg commit'
+alias huc='hg uploadchain'
+alias hammend='hg uncommit'
 alias hp='hg sync'
+alias hpull='hg sync'
+alias hpush='hg uploadchain'
+alias huc='hg uploadchain'
+alias hdt='hg dt'
 
