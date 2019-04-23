@@ -40,6 +40,9 @@ alias fuckthis='exit'
 alias shit='cl'
 alias fuck='cl'
 
+# copy/paste
+alias yank='yank-cli -- xsel -b'
+alias xc='xclip -selection clipboard'
 ########################################################################################################################
 # Files / Editing
 ########################################################################################################################
@@ -81,7 +84,6 @@ alias ....='cd ../../..'
 alias dev='cd ~/Development'
 alias cdev='dev'
 alias cgm='dev'
-alias cdd='dev'
 alias config="cd $MYCONF"
 alias csand="cd $SAND"
 alias cbuilds="cd $BUILDS"
@@ -198,7 +200,7 @@ alias rup="rclone sync $DRIVE Drive:Notes"
 
 alias apido=/google/data/ro/teams/oneplatform/apido
 
-alias cgg="cd $GOOGLE3"
+alias cdd="cd $GOOGLE3"
 alias cgmb="cd $GOOGLE3/google/mybusiness"
 alias cgj="cd $GOOGLE3/java/com/google/commerce/bizbuilder/gmbapi"
 
@@ -210,15 +212,22 @@ alias bb='blaze build ...'
 
 alias h='hg'
 alias hs='hg status'
+alias ha='hg add'
 alias hl='hg xl'
 alias hco='hg commit'
 alias hcs='hg commit --same-cl'
 alias hc='hg commit'
-alias huc='hg uploadchain'
 alias hammend='hg uncommit'
-alias hp='hg sync'
+# upload/sync
 alias hpull='hg sync'
+alias hp='hg sync'
 alias hpush='hg uploadchain'
 alias huc='hg uploadchain'
+# difftool
 alias hdt='hg dt'
+# shelve/unshelve
+alias hss='hg shelve -n'
+alias hsp='hg unshelve'
+alias hsl='hg shelve -l'
+alias hsd='hg shelve -d'
 
