@@ -38,6 +38,15 @@ function ld-path-prepend() {
     export LD_LIBRARY_PATH=${1}:${LD_LIBRARY_PATH}  # append the directory
 }
 
+# cd to file's immediate directory
+function cf() {
+    [[ -n $1 ]] || return
+    local filepath=$1
+    filepath=`echo "$filepath" | rev | cut -d"/" -f2- | rev`
+    cd $filepath
+}
+
+## FIND
 function ff() {
     if [[ -n $1 ]]; then
         dir=$2
@@ -47,7 +56,6 @@ function ff() {
 
     find $2 -type f ! -ipath "*.git*" ! -ipath "*bin*" -iwholename '*'$1'*' ;
 }
-
 function fl() {
     if [[ -n $1 ]]; then
         dir=$2
@@ -55,6 +63,10 @@ function fl() {
         dir='.'
     fi
     find $2 ! -ipath "*.git*" ! -ipath "*bin*" -type f -iname '*'"$1"'*' -ls | awk '{print $NF}'
+}
+
+function fa() {
+    fl $1 $SAND
 }
 
 # check if a process is running
@@ -186,10 +198,6 @@ function dl() {
         local src="`echo $var|sed "s|.*/||g"|sed "s|\.xz||g"`"
         xz -dk --stdout $var > $src
     done
-}
-
-function fa() {
-    fl $1 $SAND
 }
 
 function countdown() {

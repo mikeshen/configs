@@ -11,6 +11,7 @@ alias p='pushd'                                                                 
 alias o='popd'                                                                                # pop to last directory. Kind of like a back button
 alias m='man'                                                                                 # i'm lazy af, ok?
 alias sxargs='xargs -l zsh -c'
+alias b='bat'
 
 # tools
 alias du='du -sh'                                                                             # disk usage

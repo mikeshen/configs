@@ -389,6 +389,10 @@
 
     " USER KEYBINDING CHANGES {
 
+
+        " Commands
+        noremap <localleader>o :silent !google-chrome %<cr>
+
         " insert mode quick delete line
         inoremap <C-d> <esc>ddi
 
