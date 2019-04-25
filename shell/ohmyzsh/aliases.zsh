@@ -178,8 +178,8 @@ alias vnn="vim $DRIVE/index.md"
 alias valias="$EDITOR $ZSH/.aliases.zsh"
 alias vzsh="$EDITOR ~/.zshrc"
 alias vvim="$EDITOR ~/.vimrc"
-alias remind="less $ZSH/.aliases.zsh"                                                         # remind me what the aliases were again?
-alias remindgit='less ~/.gitconfig'                                                           # remind me what the git config was again?
+alias remind="bat $ZSH/.aliases.zsh"                                                         # remind me what the aliases were again?
+alias remindgit='bat ~/.gitconfig'                                                           # remind me what the git config was again?
 
 ########################################################################################################################
 # Conda
@@ -207,7 +207,8 @@ alias cgj="cd $GOOGLE3/java/com/google/commerce/bizbuilder/gmbapi"
 
 ## Blaze
 
-alias bb='blaze build ...'
+alias bbb='blaze build ...'
+alias bbt='blaze test ...'
 
 ## FIG
 
@@ -219,16 +220,23 @@ alias hco='hg commit'
 alias hcs='hg commit --same-cl'
 alias hc='hg commit'
 alias hammend='hg uncommit'
+alias hps='hg presubmit'
 # upload/sync
 alias hpull='hg sync'
 alias hp='hg sync'
 alias hpush='hg uploadchain'
 alias huc='hg uploadchain'
-# difftool
+# diff
+alias hdiff='hg diff'
+alias hd='hg diff'
+alias hdn='hg diff -c -'
 alias hdt='hg dt'
 # shelve/unshelve
 alias hss='hg shelve -n'
 alias hsp='hg unshelve'
 alias hsl='hg shelve -l'
 alias hsd='hg shelve -d'
+# revert
+alias hdis='hg revert'
+alias hrev='hg revert'
 
