@@ -153,6 +153,13 @@
     endfunction
     command! -nargs=+ MapToggle call MapToggle(<f-args>)
 
+    " Open google-style filepath
+    function! OpenGoogleFilePath(gpath)
+      let filepath = substitute(a:gpath, '//depot/google3/', '', "")
+      execute "edit " . $GOOGLE3 . "/" . filepath
+    endfunction
+    command! -nargs=1 OpenGoogleFilePath call OpenGoogleFilePath(<f-args>)
+
     filetype plugin indent on   " Automatically detect file types.
     syntax on                   " Syntax highlighting
     " set mouse=a                 " Automatically enable mouse usage
@@ -389,13 +396,17 @@
 
     " USER KEYBINDING CHANGES {
 
+        " GOOGLE ONLY
+
+        nnoremap<localleader>cs :Csearch 
+        nnoremap<leader>gj :OpenGoogleFilePath 
 
         " Commands
-        noremap <localleader>o :silent !google-chrome %<cr>
 
+        " open in chrome
+        noremap <localleader>o :silent !google-chrome %<cr>
         " insert mode quick delete line
         inoremap <C-d> <esc>ddi
-
         " fast commands
         map <C-s> :
         " Toggle numbercolumn
