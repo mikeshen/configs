@@ -192,7 +192,7 @@ alias sde='deactivate'
 # Rclone
 ########################################################################################################################
 
-alias rdown="rclone sync Drive:/Notes $DRIVE"
+alias rdown="rclone sync Drive:Notes $DRIVE"
 alias rup="rclone sync $DRIVE Drive:Notes"
 
 ########################################################################################################################
@@ -203,7 +203,8 @@ alias apido=/google/data/ro/teams/oneplatform/apido
 
 alias cdd="cd $GOOGLE3"
 alias cgmb="cd $GOOGLE3/google/mybusiness"
-alias cgj="cd $GOOGLE3/java/com/google/commerce/bizbuilder/gmbapi"
+alias cjg="cd $GOOGLE3/java/com/google/commerce/bizbuilder"
+alias cjgt="cd $GOOGLE3/javatests/com/google/commerce/bizbuilder"
 
 ## Blaze
 
@@ -215,27 +216,34 @@ alias bbt='blaze test ...'
 alias h='hg'
 alias hs='hg status'
 alias ha='hg add'
+alias hps='hg presubmit'
+alias hfi='hg fix'
+# commit / branches
 alias hl='hg xl'
 alias hco='hg commit'
 alias hcs='hg commit --same-cl'
-alias hc='hg commit'
-alias hammend='hg uncommit'
-alias hps='hg presubmit'
-# upload/sync
+alias hca='hg fix && hg commit'
+alias hch='hg update'
+alias hnext='hg next'
+alias hprev='hg previous'
+alias hbu='hg uncommit'
+alias hbm='hg cls-move --dest'
+alias hbd='hg cls-drop -p -c'
 alias hpull='hg sync'
-alias hp='hg sync'
 alias hpush='hg uploadchain'
+alias hp='hg sync'
 alias huc='hg uploadchain'
 # diff
 alias hdiff='hg diff'
 alias hd='hg diff'
-alias hdn='hg diff -c -'
+alias hdn='hg diff -c'
 alias hdt='hg dt'
 # shelve/unshelve
 alias hss='hg shelve -n'
 alias hsp='hg unshelve'
 alias hsl='hg shelve -l'
 alias hsd='hg shelve -d'
+alias hsu='hss temp && hp && hsp temp'
 # revert
 alias hdis='hg revert'
 alias hrev='hg revert'
