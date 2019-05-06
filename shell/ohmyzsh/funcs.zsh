@@ -215,3 +215,20 @@ function stopwatch() {
         sleep 0.1
     done
 }
+
+# GOOGLE SPECIFIC FUNCTIONS
+function dd() {
+    [[ -n $1 ]] || return
+    local project_name=$1
+    export GOOGLE3="/google/src/cloud/mikemikeshen/$project_name/google3"
+    g4d $project_name
+}
+
+# jump to file under GOOGLE3
+function jj() {
+    [[ -n $1 ]] || return
+    local filepath=$1
+    filepath=`echo "$filepath"|sed "s|//depot/google3/||g"`
+    vim "$GOOGLE3/$filepath"
+}
+
