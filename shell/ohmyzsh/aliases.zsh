@@ -210,6 +210,7 @@ alias cjgt="cd $GOOGLE3/javatests/com/google/commerce/bizbuilder"
 
 alias bbb='blaze build ...'
 alias bbt='blaze test ...'
+alias bbc='blaze clean'
 
 ## FIG
 
