@@ -33,6 +33,7 @@
     call dein#add('chrisbra/csv.vim')                 " quickly edit and format csv files
     " call dein#add('vim-scripts/conque-GDB')           " your own GDB interface emulator in vim
     call dein#add('mileszs/ack.vim')                  " smart and happy searching
+    call dein#add('mbbill/undotree')                  " smart and happy searching
     " }
 
     " 2. UI / Themes / Color {
