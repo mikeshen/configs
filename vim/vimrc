@@ -400,6 +400,7 @@
         " GOOGLE ONLY
 
         nnoremap<localleader>cs :Csearch 
+        nnoremap<localleader>cw :Csearch <C-R><C-W><CR><CR>
         nnoremap<leader>jj :OpenGoogleFilePath 
 
         " Commands
