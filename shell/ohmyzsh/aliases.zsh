@@ -204,14 +204,20 @@ alias apido=/google/data/ro/teams/oneplatform/apido
 
 alias cdd="cd $GOOGLE3"
 alias cgmb="cd $GOOGLE3/google/mybusiness"
+alias cbgmb="cd $GOOGLE3/java/com/google/commerce/bizbuilder/gmbapi/boq"
 alias cjg="cd $GOOGLE3/java/com/google/commerce/bizbuilder"
 alias cjgt="cd $GOOGLE3/javatests/com/google/commerce/bizbuilder"
 
 ## Blaze
 
 alias bbb='blaze build ...'
-alias bbt='blaze test ...'
 alias bbc='blaze clean'
+alias btt='blaze test ...'
+alias btc='blaze test conformance'
+
+## G4
+
+alias listw='g4 myclients'
 
 ## FIG
 
@@ -220,6 +226,9 @@ alias hs='hg status'
 alias ha='hg add'
 alias hps='hg presubmit'
 alias hfi='hg fix'
+# workspaces
+alias hwc='hg citc'
+alias hwd='hg citc -d'
 # commit / branches
 alias hl='hg xl'
 alias hco='hg commit'
@@ -229,8 +238,11 @@ alias hch='hg update'
 alias hnext='hg next'
 alias hprev='hg previous'
 alias hbu='hg uncommit'
+# rebase / drop
+alias hbr='hg rebase'
 alias hbm='hg cls-move --dest'
 alias hbd='hg cls-drop -p -c'
+# sync + upload
 alias hpull='hg sync'
 alias hpush='hg uploadchain'
 alias hp='hg sync'
@@ -249,4 +261,7 @@ alias hsu='hss temp && hp && hsp temp'
 # revert
 alias hdis='hg revert'
 alias hrev='hg revert'
+# move copy
+alias hmv='hg mv'
+alias hcp='hg cp'
 
