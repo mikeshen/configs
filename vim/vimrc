@@ -53,6 +53,7 @@
     call dein#add('ctrlpvim/ctrlp.vim')               " fast file finder
     call dein#add('scrooloose/nerdtree')              " display a filesystem browser
     call dein#add('junegunn/fzf.vim')                 " fzf vim plugin
+    call dein#add('wsdjeg/vim-fetch')                 " fast open files to row:column
     call dein#add('devjoe/vim-codequery')             " search + browse code more efficiently
     call dein#add('christoomey/vim-tmux-navigator')   " jump between tmux panes and vim splits seamlessly
     call dein#add('derekwyatt/vim-fswitch')           " swtich between .h and .cpp files at the press of a key
