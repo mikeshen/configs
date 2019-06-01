@@ -407,7 +407,11 @@
         " Commands
 
         " open in chrome
-        noremap <localleader>o :silent !google-chrome %<cr>
+        if OSX()
+            noremap <localleader>o :silent !open -a "Google Chrome" %<cr>
+        elseif LINUX()
+            noremap <localleader>o :silent !google-chrome %<cr>
+        endif
         " insert mode quick delete line
         inoremap <C-d> <esc>ddi
         " fast commands
