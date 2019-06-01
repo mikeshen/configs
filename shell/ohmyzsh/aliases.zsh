@@ -168,7 +168,7 @@ alias gcount="git shortlog | grep -E '^[ ]+\w+' | wc -l"
 # u - custom vimrc
 # --cmd - run cmd
 
-alias vim='nvim -O'
+alias vim='nvim'
 alias v='vim'
 alias f='v $(fzf)'
 alias rmswap='rm $HOME/Development/configs/vim/cache/swap/*'
