@@ -232,3 +232,11 @@ function jj() {
     vim "$GOOGLE3/$filepath"
 }
 
+# jump to folder under GOOGLE3  
+function jf() {
+    [[ -n $1 ]] || return
+    local filepath=$1
+    filepath=`echo "$filepath"|sed "s|//depot/google3/||g"`
+    filepath=`echo "$filepath" | rev | cut -d"/" -f2- | rev`
+    cd "$GOOGLE3/$filepath"
+}
