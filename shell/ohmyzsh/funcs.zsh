@@ -232,7 +232,7 @@ function jj() {
     vim "$GOOGLE3/$filepath"
 }
 
-# jump to folder under GOOGLE3  
+# jump to folder under GOOGLE
 function jf() {
     [[ -n $1 ]] || return
     local filepath=$1
