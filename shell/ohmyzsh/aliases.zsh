@@ -261,7 +261,8 @@ alias hsu='hss temp && hp && hsp temp'
 # revert
 alias hdis='hg revert'
 alias hrev='hg revert'
-# move copy
+# move copy delete
 alias hmv='hg mv'
 alias hcp='hg cp'
+alias hrm='hg rm'
 
