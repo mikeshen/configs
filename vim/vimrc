@@ -125,6 +125,12 @@
         if !WINDOWS()
             set shell=/bin/zsh
         endif
+
+      if OSX()
+          let g:netrw_browsex_viewer='Google Chrome'
+      elseif LINUX()
+          let g:netrw_browsex_viewer='google-chrome'
+      endif
     " }
 
 " }
@@ -462,6 +468,9 @@
         noremap <leader>; q:
         " fast wrap/nowrap toggle
         MapToggle <F4> wrap
+        " insert date
+        nnoremap <F5> "=strftime("%b %d, %Y")<cr>P
+        inoremap <F5> <c-r>=strftime("%b %d, %Y")<cr>
         " add split maxing / fullscreen mode
         noremap<leader>z :tab split<cr>
         " change through buffers with <tab> <Shift-tab>
@@ -516,8 +525,6 @@
     " vim-wiki {
         nnoremap <localleader>s :VimwikiToggleListItem<cr>
         nnoremap <localleader>ll d:VimwikiDiaryGenerateLinks<cr>
-        nnoremap <F5> "=strftime("%b %d, %Y")<cr>P
-        inoremap <F5> <c-r>=strftime("%b %d, %Y")<cr>
         if OSX()
             let g:vimwiki_list = [{'path': '~/Drive/Notes',
                                  \ 'syntax': 'markdown',
