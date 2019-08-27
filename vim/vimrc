@@ -468,6 +468,11 @@
         noremap <leader>; q:
         " fast wrap/nowrap toggle
         MapToggle <F4> wrap
+        " capitalize word
+        noremap <leader>gU bvgUe
+        " uncapitalize word
+        noremap <leader>gu guiwe
+        MapToggle <F4> wrap
         " insert date
         nnoremap <F5> "=strftime("%b %d, %Y")<cr>P
         inoremap <F5> <c-r>=strftime("%b %d, %Y")<cr>
