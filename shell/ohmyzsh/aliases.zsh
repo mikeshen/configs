@@ -230,6 +230,7 @@ alias hl='hg xl'
 # workspaces
 alias hwc='hg citc'
 alias hwd='hg citc -d'
+alias hwl='hg citc --list'
 # commit / branches
 alias hco='hg commit'
 alias hcs='hg commit --same-cl'
