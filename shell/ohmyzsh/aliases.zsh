@@ -63,7 +63,8 @@ alias sl='ls'
 alias gg='grep -nIi --exclude-dir={.git,.svn} --exclude "*~" --color'
 alias ggr='grep -rnIi --exclude-dir={.git,.svn} --exclude "*~" --color'
 alias aga='ag -SR  --ignore={.git,.svn}'
-alias agg='ag -SR --java --ignore={.git,.svn}'
+alias agg='ag -SR --ignore={.git,.svn}'
+alias aggj='ag -SR --java --ignore={.git,.svn}'
 alias cg="find -L -regex '.*\.\(C\|H\|c\|h\|cpp\|hpp\)$' -not -regex '.*git.*' | xargs egrep --line-number"
 alias xg="find -L regex '.*\.\(xml\)$' | xargs egrep --line-number"
 alias hgrep='history|agg'
