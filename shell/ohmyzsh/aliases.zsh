@@ -234,14 +234,16 @@ alias hwd='hg citc -d'
 alias hwl='hg citc --list'
 # commit / branches
 alias hco='hg commit'
+alias hhunk='hg commit -i'
+alias hh='hg commit -i'
 alias hcs='hg commit --same-cl'
 alias hca='hg fix && hg commit'
-alias hbu='hg uncommit'
+alias hcu='hg uncommit'
 alias hch='hg update'
 alias hnext='hg next'
 alias hprev='hg previous'
 # rebase / drop
-alias hbr='hg rebase'
+alias hrb='hg rebase'
 alias hbm='hg cls-move --dest'
 alias hbd='hg cls-drop -p -c'
 # sync + upload
