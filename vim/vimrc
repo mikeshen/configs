@@ -169,6 +169,16 @@
     endfunction
     command! -nargs=1 OpenGoogleFilePath call OpenGoogleFilePath(<f-args>)
 
+    function! OpenFileInCodesearch()
+      let url = 'https://cs.corp.google.com/piper///depot/google3/' . substitute(expand('%:p'), '.*google3/', '', "") . '\?l\=' . line('.')
+      if OSX()
+          execute "silent !open -a \"Google Chrome\" " . url
+      elseif LINUX()
+          execute "silent !google-chrome " . url
+      endif
+    endfunction
+    command! -nargs=0 OpenFileInCodesearch call OpenFileInCodesearch(<f-args>)
+
     filetype plugin indent on   " Automatically detect file types.
     syntax on                   " Syntax highlighting
     " set mouse=a                 " Automatically enable mouse usage
@@ -403,9 +413,9 @@
     " USER KEYBINDING CHANGES {
 
         " GOOGLE ONLY {
-            nnoremap<localleader>cs :Csearch 
-            nnoremap<localleader>cw :Csearch <C-R><C-W><CR><CR>
-            nnoremap<leader>jj :OpenGoogleFilePath 
+            nnoremap <localleader>cw :Csearch <C-r><C-w><cr><cr>
+            nnoremap <localleader>cs :OpenFileInCodesearch<cr>
+            nnoremap <leader>jj :OpenGoogleFilePath 
         " }
 
         " ;; logging shortcuts
