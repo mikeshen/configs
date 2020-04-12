@@ -2,11 +2,12 @@
 "                        __   __(_)_ __ ___
 "                        \ \ / /| | '_ ` _ \
 "                        |\ V / | | | | | | |
-"                          \_/  |_|_| |_| |_|
+"                          \_/  |_|_| |_| |_| rc
 "
 "Begin dein Scripts-------------------------------------------------------- {
     set nocompatible                                  " Be iMproved
 
+    " Environment + Directory Setup
     let s:config_dir = $HOME . '/Development/configs'
     let s:cache_dir = expand(s:config_dir . '/vim/cache')
     if $HOME == '/Users/mikemikeshen'
@@ -20,82 +21,82 @@
     call dein#begin(expand(s:config_dir . '/vim'))
     call dein#add('Shougo/dein.vim') " let dein manage dein
 
-    " ADD OR REMOVE PLUGINS HERE
 
-    " 1. Utilities {
-    call dein#add('tpope/vim-dispatch')               " execute make commands within vim
-    call dein#add('tpope/vim-eunuch')                 " vim sugar for UNIX plugins
-    call dein#add('xolox/vim-misc')                   " autoload vimscripts, needed for vim session
-    call dein#add('Shougo/unite.vim')                 " needed for codequery to work
-    call dein#add('xolox/vim-session')                " extended better session management
-    call dein#add('jpalardy/vim-slime')               " send text over tmux in repl-like way
-    call dein#add('vimwiki/vimwiki')                  " your personal notes / todos / markdown editor vim
-    call dein#add('chrisbra/csv.vim')                 " quickly edit and format csv files
-    " call dein#add('vim-scripts/conque-GDB')           " your own GDB interface emulator in vim
-    call dein#add('mileszs/ack.vim')                  " smart and happy searching
-    call dein#add('mbbill/undotree')                  " smart and happy searching
-    " }
+    " ADD OR REMOVE PLUGINS BELOW
 
-    " 2. UI / Themes / Color {
-    call dein#add('flazz/vim-colorschemes')           " hundreds of colorschemes
-    call dein#add('vim-airline/vim-airline')          " vim-airline powerbar
-    call dein#add('vim-airline/vim-airline-themes')   " themes for vim-airline
-    call dein#add('ryanoasis/vim-devicons')           " icons for stuff
-    call dein#add('edkolev/tmuxline.vim')             " tmux integration with vim-airline
+
+    " 1. UI / Themes / Color {
     call dein#add('Yggdroot/indentLine')              " indent guides for various languages
     call dein#add('kien/rainbow_parentheses.vim')     " differing colors for stacked parentheses
-    call dein#add('okcompute/vim-python-match')       " redefines % motion so that it cycles through python control statements correctly
-    call dein#add('Valloric/MatchTagAlways')          " highlight enclosing xml / html tags
-    call dein#add('elzr/vim-json')
+    call dein#add('edkolev/tmuxline.vim')             " tmux integration with vim-airline
+    call dein#add('vim-airline/vim-airline')          " vim-airline powerbar
+    call dein#add('vim-airline/vim-airline-themes')   " themes for vim-airline
+    call dein#add('flazz/vim-colorschemes')           " hundreds of colorschemes
+    call dein#add('ryanoasis/vim-devicons')           " file icons
+    call dein#add('elzr/vim-json')                    " better json handling
     " }
 
-    " 3. Filesystem Navigation / Movement {
+    " 2. Buffers / Filesystem Navigation {
     call dein#add('ctrlpvim/ctrlp.vim')               " fast file finder
     call dein#add('scrooloose/nerdtree')              " display a filesystem browser
-    call dein#add('junegunn/fzf.vim')                 " fzf vim plugin
     call dein#add('wsdjeg/vim-fetch')                 " fast open files to row:column
-    call dein#add('devjoe/vim-codequery')             " search + browse code more efficiently
     call dein#add('christoomey/vim-tmux-navigator')   " jump between tmux panes and vim splits seamlessly
     call dein#add('derekwyatt/vim-fswitch')           " swtich between .h and .cpp files at the press of a key
     call dein#add('bogado/file-line')                 " file:line format when opening files
     call dein#add('majutsushi/tagbar')                " displays tags in a window, ordered by scope
     call dein#add('artnez/vim-wipeout')               " quickly remove all unopened buffers with :Wipeout
     call dein#add('qpkorr/vim-bufkill')               " kill buffers without destroying panes
-    call dein#add('easymotion/vim-easymotion')        " easily jump around using labeled tags
-    call dein#add('tpope/vim-unimpaired')             " extremely useful [] bracket shortcuts
-    call dein#add('rhysd/clever-f.vim')               " smartly repeat f and F searches using the same keys
-    call dein#add('tmhedberg/matchit')                " extend % to work for tags
     " }
 
-    " 4. Editing {
-    call dein#add('tpope/vim-commentary')             " minimimilistic commenting shortcuts
-    call dein#add('tpope/vim-surround')               " make quoting/tags replacement easier
-    call dein#add('tpope/vim-speeddating')            " easy increment dates with c-a, c-x
-    call dein#add('tpope/vim-repeat')                 " allow vim . repeasts for custom plugins
-    call dein#add('terryma/vim-expand-region')        " quickly select alrger regions of text using same key combo
-    call dein#add('godlygeek/tabular')                " better editing for simple alignments
-    call dein#add('sjl/gundo.vim')                    " undo tree visualized
-    call dein#add('junegunn/goyo.vim')                " distraction free editing
-    call dein#add('Chiel92/vim-autoformat')           " quickly format code in-line
-    " call dein#add('Raimondi/delimitMate')             " automatic closing of quotes, parents, brackets
-    " }
-
-    " 5. Version Control Integration {
-    call dein#add('tpope/vim-fugitive')               " GIT integration
-    call dein#add('airblade/vim-gitgutter')           " display git information in the gutter
-    call dein#add('albfan/vim-timelapse')             " vim time differences between commits
-    call dein#add('chrisbra/vim-diff-enhanced')       " show different vim diff options
-    call dein#add('AndrewRadev/linediff.vim')         " perform difs on lines of code
-    " }
-
-    " 6. Code Completion and Snippets {
+    " 3. Code Completion and Snippets {
     call dein#add('Shougo/deoplete.nvim')             " completion engine
     call dein#add('zchee/deoplete-clang')             " clang completion
     call dein#add('SirVer/ultisnips')                 " snippet engine
     call dein#add('honza/vim-snippets')               " snippets repo
     " }
 
-    " 7. NeoVim {
+    " 4. Movment / Editing {
+    call dein#add('rhysd/clever-f.vim')               " smartly repeat f and F searches using the same keys
+    call dein#add('junegunn/goyo.vim')                " distraction free editing
+    call dein#add('tmhedberg/matchit')                " extend % to work for tags
+    call dein#add('godlygeek/tabular')                " better editing for simple alignments
+    call dein#add('mbbill/undotree')                  " undo tree visualizer
+    call dein#add('Chiel92/vim-autoformat')           " quickly format code in-line
+    call dein#add('tpope/vim-commentary')             " minimimilistic commenting shortcuts
+    call dein#add('easymotion/vim-easymotion')        " easily jump around using labeled tags
+    call dein#add('terryma/vim-expand-region')        " quickly select larger regions of text using same key combo
+    call dein#add('okcompute/vim-python-match')       " redefines % motion so that it cycles through python control statements correctly
+    call dein#add('tpope/vim-repeat')                 " allow vim . repeasts for custom plugins
+    call dein#add('tpope/vim-speeddating')            " easy increment dates with c-a, c-x
+    call dein#add('tpope/vim-surround')               " make quoting/tags replacement easier
+    call dein#add('tpope/vim-unimpaired')             " extremely useful [] bracket shortcuts
+    " call dein#add('Raimondi/delimitMate')             " automatic closing of quotes, parents, brackets
+    " }
+
+    " 5. Search {
+    call dein#add('mileszs/ack.vim')                  " smart and happy searching
+    call dein#add('junegunn/fzf.vim')                 " fzf vim plugin
+    call dein#add('devjoe/vim-codequery')             " search + browse code more efficiently
+    " }
+
+    " 6. Utilities {
+    " call dein#add('vim-scripts/conque-GDB')           " your own GDB interface emulator in vim
+    call dein#add('Shougo/unite.vim')                 " needed for codequery to work
+    call dein#add('tpope/vim-dispatch')               " execute make commands within vim
+    call dein#add('tpope/vim-eunuch')                 " vim sugar for UNIX plugins
+    call dein#add('xolox/vim-misc')                   " autoload vimscripts, needed for vim session
+    call dein#add('xolox/vim-session')                " extended better session management
+    call dein#add('jpalardy/vim-slime')               " send text over tmux in repl-like way
+    call dein#add('vimwiki/vimwiki')                  " your personal notes / todos / markdown editor vim
+    call dein#add('chrisbra/csv.vim')                 " quickly edit and format csv files
+    " }
+
+    " 7. Version Control Integration {
+    call dein#add('tpope/vim-fugitive')               " git integration
+    call dein#add('airblade/vim-gitgutter')           " display git information in the gutter
+    call dein#add('albfan/vim-timelapse')             " time differences between commits
+    call dein#add('chrisbra/vim-diff-enhanced')       " show different vim diff options
+    call dein#add('AndrewRadev/linediff.vim')         " perform difs on lines of code
     " }
 
     call dein#end()
@@ -252,9 +253,6 @@
         " Broken down into easily includeable segments
         set statusline=%<%f\                     " Filename
         set statusline+=%w%h%m%r                 " Options
-        " if !exists('g:override_spf13_bundles')
-            " set statusline+=%{fugitive#statusline()} " Git Hotness
-        " endif
         set statusline+=\ [%{&ff}/%Y]            " Filetype
         set statusline+=\ [%{getcwd()}]          " Current dir
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
@@ -404,13 +402,21 @@
 
     " USER KEYBINDING CHANGES {
 
-        " GOOGLE ONLY
+        " GOOGLE ONLY {
+            nnoremap<localleader>cs :Csearch 
+            nnoremap<localleader>cw :Csearch <C-R><C-W><CR><CR>
+            nnoremap<leader>jj :OpenGoogleFilePath 
+        " }
 
-        nnoremap<localleader>cs :Csearch 
-        nnoremap<localleader>cw :Csearch <C-R><C-W><CR><CR>
-        nnoremap<leader>jj :OpenGoogleFilePath 
-
-        " Commands
+        " ;; logging shortcuts
+        nnoremap <localleader>;' ostd::cout << "" << std::endl;<esc>BBBa
+        nnoremap <localleader>;c ostd::cout <<  << std::endl;<esc>BBhi
+        nnoremap <localleader>;ii o#include ""<esc>i
+        nnoremap <localleader>;io o#include <><esc>
+        nnoremap <localleader>;/ OMikeComment: <esc>:Commentary<cr>A
+        nnoremap <localleader>;a oMikeComment: <esc>:Commentary<cr>kJA
+        nnoremap <localleader>;t OTODO: <esc>:Commentary<cr>A
+        nnoremap <localleader>;j O/**<cr><bs> *
 
         " open in chrome
         if OSX()
@@ -418,6 +424,7 @@
         elseif LINUX()
             noremap <localleader>o :silent !google-chrome %<cr>
         endif
+
         " insert mode quick delete line
         inoremap <C-d> <esc>ddi
         " fast commands
@@ -449,7 +456,7 @@
         noremap <leader>q :q<cr>
         " fast jump between last two open buffers
         nnoremap <bs> <C-^>
-        " fast Make
+        " fast make
         nnoremap <leader>m :Make make<cr>
         " fast diff put
         nmap <F6> :diffg<cr>
@@ -493,19 +500,6 @@
         " Speed up scrolling of the viewport slightly
         noremap <C-e> 2<C-e>
         noremap <C-y> 2<C-y>
-    " }
-
-    " KEYBOARD SHORTENINGS {
-
-        " ;; logging shortcuts
-        nnoremap <localleader>;' ostd::cout << "" << std::endl;<esc>BBBa
-        nnoremap <localleader>;c ostd::cout <<  << std::endl;<esc>BBhi
-        nnoremap <localleader>;ii o#include ""<esc>i
-        nnoremap <localleader>;io o#include <><esc>
-        nnoremap <localleader>;/ OMikeComment: <esc>:Commentary<cr>A
-        nnoremap <localleader>;a oMikeComment: <esc>:Commentary<cr>kJA
-        nnoremap <localleader>;t OTODO: <esc>:Commentary<cr>A
-        nnoremap <localleader>;j O/**<cr><bs> * 
 
     " }
 
@@ -514,81 +508,8 @@
 " Plugins {
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    " 1 Utilities
+    " 1. UI / Themes / Color
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-    " vim-session {
-        let g:session_autosave = 'no'
-        let g:session_autoload = 'no'
-        let g:session_persist_font = 0
-        let g:session_persist_colors = 0
-        nnoremap <localleader>sd :DeleteSession! 
-        nnoremap <localleader>ss :SaveSession! 
-        nnoremap <localleader>so :OpenSession! 
-    " }
-
-    " vim-wiki {
-        nnoremap <localleader>s :VimwikiToggleListItem<cr>
-        nnoremap <localleader>ll d:VimwikiDiaryGenerateLinks<cr>
-        if OSX()
-            let g:vimwiki_list = [{'path': '~/Drive/Notes',
-                                 \ 'syntax': 'markdown',
-                                 \ 'ext': '.md'}]
-        elseif LINUX()
-            let g:vimwiki_list = [{'path': '~/Drive',
-                                 \ 'syntax': 'markdown',
-                                 \ 'ext': '.md'}]
-        endif
-        let g:vimwiki_listsyms = ' .oOx'
-    " }
-
-    " Ack/Ag THE SILVER SEARCHER {
-        if executable('ag')
-            let g:ackprg = 'ag --vimgrep'
-        endif
-
-        " search shortcuts
-        " under word
-        noremap <localleader>a :Ack! --ignore={.git,.svn} -SRi -w <C-r><C-w><cr>
-        " in current pwd directory
-        noremap <localleader>gg q:iAck! --cpp --ignore={.git,.svn} -SRi <esc>lxi
-    " }
-
-    " Ctags {
-        set tags=./tags;/,~/.vimtags
-
-        " ctags prompt behavior
-        noremap <C-]> g<C-]>
-    " }
-
-    " vim-slime {
-        let g:slime_target = 'tmux'
-        let g:slime_default_config = {"socket_name": split($TMUX, ",")[0], "target_pane": ":.1"}
-    " }
-
-    " conque-gdb {
-        " let g:ConqueGdb_Leader = '\'
-    " }
-
-    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    " 2 UI / Themes / Color
-    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-    " vim-colorscheme {
-      if !has('gui_running')
-        set t_Co=256      " set terminal colors to 256
-        set t_ut=         " use the background color of the terminal
-        if &termencoding == ""
-          let &termencoding = &encoding
-        endif
-      endif
-    " }
-
-    " vim-airline / vim-airline-themes {
-        let g:airline_theme='bubblegum'
-        let g:airline_powerline_fonts = 1
-        let g:airline#extensions#tabline#enabled = 1
-    " }
 
     " rainbow_parentheses {
         let g:rbpt_colorpairs = [
@@ -616,11 +537,27 @@
         au Syntax * RainbowParenthesesLoadBraces
     " }
 
+    " vim-colorscheme {
+      if !has('gui_running')
+        set t_Co=256      " set terminal colors to 256
+        set t_ut=         " use the background color of the terminal
+        if &termencoding == ""
+          let &termencoding = &encoding
+        endif
+      endif
+    " }
+
+    " vim-airline / vim-airline-themes {
+        let g:airline_theme='bubblegum'
+        let g:airline_powerline_fonts = 1
+        let g:airline#extensions#tabline#enabled = 1
+    " }
+
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    " 3 Filesystem Navigation / Movement
+    " 2. Buffers / Filesystem Navigation
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-    " CtrlP {
+    " ctrlp.vim {
         let g:ctrlp_show_hidden = 1
         let g:ctrlp_working_path_mode = 'r' " use the nearest git directory as the cwd:
         let g:ctrlp_custom_ignore = {
@@ -663,64 +600,26 @@
         noremap <leader>f :e .<cr>
     " }
 
-    " FZF {
-        nnoremap <localleader>ow :History:<cr>
-        nnoremap <localleader>oh :History<cr>
-        nnoremap <localleader>of :Files<cr>
-        nnoremap <localleader>or :BTags<cr>
-    " }
-
-    " Fswitch {
+    " vim-fswitch {
         " switch between header/source file
         noremap <leader>u :FSHere<cr>
     " }
 
-    " TagBar {
+    " tagbar {
         noremap <F8> :TagbarToggle<cr>
         let g:tagbar_autofocus = 1
     " }
 
-    " Wipeout {
+    " vim-wipeout {
         nnoremap <leader>o :Wipeout<cr>
     " }
 
-    " bufkill {
+    " vim-bufkill {
         nnoremap <leader><leader>q :BD<cr>
     " }
 
-    " EasyMotion {
-        nmap <leader>k <Plug>(easymotion-overwin-w)
-    " }
-
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    " 4 Editing
-    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-    " Tabular {
-        vmap <leader>t :Tabularize /
-    " }
-
-    " vim-expand-region {
-        map U <Plug>(expand_region_expand)
-        map Y <Plug>(expand_region_shrink)
-    " }
-
-    " Autoformat {
-        map <leader>c :Autoformat<cr>
-    " }
-
-    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    " 5 Version Control Integration
-    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-    " Fugitive GIT {
-        nnoremap <leader>gd :Gdiff<cr>
-        nnoremap <leader>gs :Gstatus<cr>
-        nnoremap <leader>gb :Gblame<cr>
-    " }
-
-    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    " 6 Snippets
+    " 3. Code Completion Snippets
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
     " Deoplete {
@@ -757,8 +656,101 @@
     " }
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    " 7 Neovim
+    " 4. Movement / Editing
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+    " Tabular {
+        vmap <leader>t :Tabularize /
+    " }
+
+    " undotree {
+        nnoremap <F2> :UndotreeToggle<cr>
+    " }
+
+    " vim-autoformat {
+        map <leader>c :Autoformat<cr>
+    " }
+
+    " vim-easymotion {
+        nmap <leader>k <Plug>(easymotion-overwin-w)
+    " }
+
+    " vim-expand-region {
+        map U <Plug>(expand_region_expand)
+        map Y <Plug>(expand_region_shrink)
+    " }
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " 5. Search
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+    " ack.vim {
+        if executable('ag')
+            let g:ackprg = 'ag --vimgrep'
+        endif
+        " search under word
+        noremap <localleader>a :Ack! --ignore={.git,.svn} -SRi -w <C-r><C-w><cr>
+        " search in current pwd directory
+        noremap <localleader>gg q:iAck! --cpp --ignore={.git,.svn} -SRi <esc>lxi
+    " }
+
+    " Ctags {
+        set tags=./tags;/,~/.vimtags
+
+        " ctags prompt behavior
+        noremap <C-]> g<C-]>
+    " }
+
+    " fzf.vim {
+        nnoremap <localleader>ow :History:<cr>
+        nnoremap <localleader>oh :History<cr>
+        nnoremap <localleader>of :Files<cr>
+        nnoremap <localleader>or :BTags<cr>
+    " }
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " 6. Utilities
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+    " vim-session {
+        let g:session_autosave = 'no'
+        let g:session_autoload = 'no'
+        let g:session_persist_font = 0
+        let g:session_persist_colors = 0
+        nnoremap <localleader>sd :DeleteSession! 
+        nnoremap <localleader>ss :SaveSession! 
+        nnoremap <localleader>so :OpenSession! 
+    " }
+
+    " vim-slime {
+        let g:slime_target = 'tmux'
+        let g:slime_default_config = {"socket_name": split($TMUX, ",")[0], "target_pane": ":.1"}
+    " }
+
+    " vimwiki {
+        nnoremap <localleader>s :VimwikiToggleListItem<cr>
+        nnoremap <localleader>ll d:VimwikiDiaryGenerateLinks<cr>
+        if OSX()
+            let g:vimwiki_list = [{'path': '~/Drive/Notes',
+                                 \ 'syntax': 'markdown',
+                                 \ 'ext': '.md'}]
+        elseif LINUX()
+            let g:vimwiki_list = [{'path': '~/Drive',
+                                 \ 'syntax': 'markdown',
+                                 \ 'ext': '.md'}]
+        endif
+        let g:vimwiki_listsyms = ' .oOx'
+    " }
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " 7. Version Control Integration
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+    " vim-fugitive {
+        nnoremap <leader>gd :Gdiff<cr>
+        nnoremap <leader>gs :Gstatus<cr>
+        nnoremap <leader>gb :Gblame<cr>
+    " }
 
 " }
 
