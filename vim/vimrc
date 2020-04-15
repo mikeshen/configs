@@ -81,6 +81,8 @@
     call dein#add('Shougo/unite.vim')                 " needed for codequery to work
     call dein#add('tpope/vim-dispatch')               " execute make commands within vim
     call dein#add('tpope/vim-eunuch')                 " vim sugar for UNIX plugins
+    call dein#add('vim-pandoc/vim-pandoc')            " vim pandoc
+    call dein#add('vim-pandoc/vim-pandoc-syntax')     " vim pandoc syntax highlighter
     call dein#add('xolox/vim-misc')                   " autoload vimscripts, needed for vim session
     call dein#add('xolox/vim-session')                " extended better session management
     call dein#add('jpalardy/vim-slime')               " send text over tmux in repl-like way
@@ -140,7 +142,7 @@
 
     filetype plugin indent on   " Automatically detect file types.
     syntax on                   " Syntax highlighting
-    " set mouse=a                 " Automatically enable mouse usage
+    set mouse=a                 " Automatically enable mouse usage
     set mousehide               " Hide the mouse cursor while typing
     scriptencoding utf-8
 
