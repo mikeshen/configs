@@ -202,7 +202,7 @@ alias rup="rclone sync $DRIVE Drive:Notes"
 ########################################################################################################################
 
 alias apido=/google/data/ro/teams/oneplatform/apido
-alias goto="gcert && ssh mikemikeshen@mikemikeshen.mtv.corp.google.com && gmosh mikemikeshen@mikemikeshen.mtv.corp.google.com"
+alias goto="gcert && ssh -X mikemikeshen@mikemikeshen.mtv.corp.google.com"
 alias ppp="prodaccess"
 
 alias cdd="cd $GOOGLE3"
