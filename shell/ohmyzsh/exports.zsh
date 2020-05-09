@@ -63,8 +63,8 @@ if [[ -n $IS_LINUX ]]; then
 elif [[ -n $IS_MAC ]]; then
     PATH='/usr/local/git/current/bin'
     path-prepend '/Users/mikemikeshen/Library/Python/2.7/bin'
-    path-prepend '/usr/local/bin'
     path-prepend '/usr/bin'
+    path-prepend '/usr/local/bin'
     path-prepend '/bin'
     path-prepend '/usr/local/sbin'
     path-prepend '/usr/sbin'
