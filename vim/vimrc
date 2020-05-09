@@ -511,9 +511,9 @@
 
         " open in chrome
         if OSX()
-            noremap <localleader>o :silent !open -a "Google Chrome" %<cr>
+            noremap <localleader>oo :silent !open -a "Google Chrome" %<cr>
         elseif LINUX()
-            noremap <localleader>o :silent !google-chrome %<cr>
+            noremap <localleader>oo :silent !google-chrome %<cr>
         endif
 
         " insert mode quick delete line
