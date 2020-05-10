@@ -201,6 +201,7 @@ alias rup="rclone sync $DRIVE Drive:Notes"
 # Google Specific
 ########################################################################################################################
 
+alias rpcreplay=/google/data/ro/teams/frameworks-test-team/rpcreplay-cli/live/rpcreplay
 alias apido=/google/data/ro/teams/oneplatform/apido
 alias goto="gcert && ssh -X mikemikeshen@mikemikeshen.mtv.corp.google.com"
 alias ppp="prodaccess"
