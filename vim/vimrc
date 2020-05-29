@@ -566,6 +566,8 @@
         noremap <leader>; q:
         " fast wrap/nowrap toggle
         MapToggle <F4> wrap
+        " space paste
+        nnoremap <leader>pp a <esc>p
         " capitalize word
         noremap <leader>gU bvgUe
         " uncapitalize word
