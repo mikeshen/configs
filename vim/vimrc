@@ -822,7 +822,7 @@
 
     " vimwiki {
         nnoremap <localleader>s :VimwikiToggleListItem<cr>
-        nnoremap <localleader>ll d:VimwikiDiaryGenerateLinks<cr>
+        nnoremap <localleader>dd :VimwikiDiaryGenerateLinks<cr>
         if OSX()
             let g:vimwiki_list = [{'path': '~/Drive/Notes',
                                  \ 'syntax': 'markdown',
