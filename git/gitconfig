@@ -28,7 +28,7 @@
 	changed = yellow bold
 	untracked = red bold
 [core]
-	editor = vim
+	editor = nvim
 [push]
 	default = matching
 [alias]
