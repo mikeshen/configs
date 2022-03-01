@@ -45,7 +45,8 @@ export DOWN="$HOME/Downloads"
 export MINIMAL="$SAND/test"
 export BUILDS="$HOME/Development/builds/bin"
 export DRIVE="$HOME/Drive"
-export NOTES="$DRIVE/Notes"
+export NOTES="$DRIVE"
+export TTT="$HOME/Development/sandbox/test"
 
 # PATH
 if [[ -n $IS_LINUX ]]; then
@@ -70,3 +71,4 @@ elif [[ -n $IS_MAC ]]; then
     path-prepend '/usr/sbin'
     path-prepend '/sbin'
 fi
+
