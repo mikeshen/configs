@@ -48,21 +48,21 @@ function cf() {
 
 ## FIND
 function ff() {
-    if [[ -n $1 ]]; then
+    if [[ -n $2 ]]; then
         dir=$2
     else
         dir='.'
     fi
 
-    find $2 -type f ! -ipath "*.git*" ! -ipath "*bin*" -iwholename '*'$1'*' ;
+    find $dir -type f ! -ipath "*.git*" ! -ipath "*bin*" -iwholename '*'$1'*' ;
 }
 function fl() {
-    if [[ -n $1 ]]; then
+    if [[ -n $2 ]]; then
         dir=$2
     else
         dir='.'
     fi
-    find $2 ! -ipath "*.git*" ! -ipath "*bin*" -type f -iname '*'"$1"'*' -ls | awk '{print $NF}'
+    find $dir ! -ipath "*.git*" ! -ipath "*bin*" -type f -iname '*'"$1"'*' -ls | awk '{print $NF}'
 }
 
 function fa() {
