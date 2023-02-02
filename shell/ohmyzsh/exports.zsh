@@ -40,7 +40,7 @@ export FZF_TMUX=1 # we want to use tmux for fzf panes
 
 # Custom cd variables
 export MYCONF="$HOME/Development/configs"
-export SAND="$HOME/Development/sandbox"
+export SAND="$HOME/Google Drive/My Drive/Sandbox"
 export DOWN="$HOME/Downloads"
 export MINIMAL="$SAND/test"
 export BUILDS="$HOME/Development/builds/bin"

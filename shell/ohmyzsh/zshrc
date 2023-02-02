@@ -54,7 +54,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=( vi-mode \
          copydir \
          colored-man-pages \
-         # colorize \
+         colorize \
          zsh-autosuggestions \
          zsh-syntax-highlighting \
          k \
