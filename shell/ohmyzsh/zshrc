@@ -96,6 +96,6 @@ source $ZSH/.exports.zsh
 source $ZSH/.bindings.zsh
 source $ZSH/.aliases.zsh
 source ~/.fzf.zsh
-spy
 
+source /Users/michaelshen/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fpath=(/usr/local/share/zsh-completions $fpath)
