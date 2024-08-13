@@ -40,12 +40,11 @@ export FZF_TMUX=1 # we want to use tmux for fzf panes
 
 # Custom cd variables
 export MYCONF="$HOME/Development/configs"
-export SAND="$HOME/Google\ Drive/My\ Drive/Sandbox"
+export DRIVE="$HOME/Google\ Drive/My\ Drive"
+export SAND="$DRIVE/Sandbox"
 export DOWN="$HOME/Downloads"
 export MINIMAL="$SAND/test"
 export BUILDS="$HOME/Development/builds/bin"
-export DRIVE="$HOME/Drive"
-export NOTES="$DRIVE"
 export TTT="$HOME/Development/sandbox/test"
 
 # PATH
@@ -64,8 +63,6 @@ if [[ -n $IS_LINUX ]]; then
     path-prepend '/home/osboxes/anaconda3/bin'
 elif [[ -n $IS_MAC ]]; then
     PATH='/usr/local/git/current/bin'
-    path-prepend '/opt/homebrew/bin'
-    path-prepend '/Users/mikemikeshen/.fzf/bin'
     path-prepend '/Users/mikemikeshen/Library/Python/2.7/bin'
     path-prepend '/usr/bin'
     path-prepend '/usr/local/bin'
@@ -73,5 +70,8 @@ elif [[ -n $IS_MAC ]]; then
     path-prepend '/bin'
     path-prepend '/usr/sbin'
     path-prepend '/sbin'
+    path-prepend '/opt/homebrew/bin'
+    path-prepend '/opt/homebrew/opt/python@3.10/libexec/bin'
+    path-prepend '/Users/mikemikeshen/.fzf/bin'
 fi
 
