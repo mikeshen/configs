@@ -46,6 +46,11 @@ function cf() {
     cd $filepath
 }
 
+# txt {$1} {$2}
+function txt() {
+  echo "$1" > $2
+}
+
 ## FIND
 function ff() {
     if [[ -n $2 ]]; then
