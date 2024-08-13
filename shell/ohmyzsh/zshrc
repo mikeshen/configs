@@ -53,6 +53,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=( vi-mode \
          copydir \
+         copyfile \
          colored-man-pages \
          colorize \
          zsh-autosuggestions \
